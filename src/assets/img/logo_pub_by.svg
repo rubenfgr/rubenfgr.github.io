@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="260"
+   height="180"
+   viewBox="0 0 68.791664 47.625001"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="logo_pub_by.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient2985"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000433;stop-opacity:1;"
+         offset="0"
+         id="stop2983" />
+    </linearGradient>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="95.161271 : 21.963258 : 1"
+       inkscape:vp_y="-377.92246 : 270.57924 : 0"
+       inkscape:vp_z="128.11186 : 69.240309 : 1"
+       inkscape:persp3d-origin="114.96964 : 43.215443 : 1"
+       id="perspective849" />
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="46.606829 : -2.7187997 : 1"
+       inkscape:vp_y="0 : 307.85871 : 0"
+       inkscape:vp_z="75.284771 : -2.7187997 : 1"
+       inkscape:persp3d-origin="60.945808 : -5.4339444 : 1"
+       id="perspective849-0" />
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="19.035976 : -0.56413381 : 1"
+       inkscape:vp_y="77.916187 : 309.77348 : 0"
+       inkscape:vp_z="-17.096539 : 11.516372 : 1"
+       inkscape:persp3d-origin="0.28253158 : 2.7440935 : 1"
+       id="perspective849-07" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.1349064"
+     inkscape:cx="-30.671841"
+     inkscape:cy="30.384254"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="fondo"
+     transform="translate(-20.046704,-5.4075991)">
+    <path
+       style="fill:#000058;fill-opacity:0.282353;stroke:#00003c;stroke-width:4.48169;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 38.756002,26.608201 V 10.544282 h 14.729814 l 2.037828,5.008896 -6.133875,2.969081 6.159998,2.810368 -2.113299,5.437019 z"
+       id="path3375"
+       sodipodi:nodetypes="cccccccc" />
+    <path
+       style="fill:#000058;fill-opacity:0.282353;stroke:#00003c;stroke-width:4.44121;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.707641"
+       d="m 58.607944,26.820325 0.04303,-16.360785 12.235177,-0.02594 4.044165,8.380994 -3.549676,8.00573 z"
+       id="path3395"
+       sodipodi:nodetypes="cccccc" />
+  </g>
+  <g
+     inkscape:label="texto"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-20.046704,-5.4075991)">
+    <text
+       xml:space="preserve"
+       style="font-size:11.9225px;line-height:1.25;font-family:'Bebas Neue';-inkscape-font-specification:'Bebas Neue';fill:#002742;fill-opacity:1;stroke:#1f0834;stroke-width:0.298065;stroke-opacity:0.305648"
+       x="43.973957"
+       y="41.792179"
+       id="text835"
+       transform="scale(0.88293072,1.1325917)"><tspan
+         sodipodi:role="line"
+         id="tspan833"
+         x="43.973957"
+         y="41.792179"
+         style="fill:#002742;fill-opacity:1;stroke:#1f0834;stroke-width:0.298065;stroke-opacity:0.305648">ruben fgr</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';stroke-width:0.264583"
+       x="20.446119"
+       y="35.814117"
+       id="text839"><tspan
+         sodipodi:role="line"
+         id="tspan837"
+         x="20.446119"
+         y="35.814117"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';stroke-width:0.264583" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.02941px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';fill:#000026;fill-opacity:0.730897;stroke-width:0.0757351"
+       x="49.448349"
+       y="40.310631"
+       id="text843"
+       transform="scale(0.78885493,1.2676602)"><tspan
+         sodipodi:role="line"
+         id="tspan841"
+         x="49.448349"
+         y="40.310631"
+         style="fill:#000026;fill-opacity:0.730897;stroke-width:0.0757351">multi platform &amp; web developer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.29631px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';fill:#000026;fill-opacity:0.777409;stroke-width:0.132408"
+       x="24.432585"
+       y="31.497524"
+       id="text847"
+       transform="scale(0.89329046,1.1194567)"><tspan
+         sodipodi:role="line"
+         id="tspan845"
+         x="24.432585"
+         y="31.497524"
+         style="fill:#000026;fill-opacity:0.777409;stroke-width:0.132408">www.blogdeldesarrollador.com</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:'Trebuchet MS';-inkscape-font-specification:'Trebuchet MS';stroke-width:0.264583"
+       x="26.860588"
+       y="41.159508"
+       id="text915"><tspan
+         sodipodi:role="line"
+         id="tspan913"
+         x="26.860588"
+         y="41.159508"
+         style="stroke-width:0.264583" /></text>
+  </g>
+</svg>

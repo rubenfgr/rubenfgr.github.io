@@ -11,7 +11,6 @@ const dataJSON = require("./data/data.json");
 const header = document.getElementById("header");
 const nav = document.getElementById("nav");
 const elArrowTop = document.getElementById("arrow-top");
-const elNavButton = document.getElementById("nav-button");
 const elMenuExperience = document.getElementById("menu-experience");
 const elMenuTraining = document.getElementById("menu-training");
 const elMenuKnowledge = document.getElementById("menu-knowledge");

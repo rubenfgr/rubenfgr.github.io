@@ -1,37 +1,57 @@
-const CopyPlugin = require("copy-webpack-plugin");
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = (env) => {
   return {
     mode: "development",
-    entry: "./src/app.ts",
-    output: {
-      filename: "bundle.js",
-      path: path.resolve(__dirname, "dist"),
+    entry: {
+      index: "./src/app.ts",
     },
-    resolve: {
-      extensions: [".ts", ".js"],
+    devtool: "inline-source-map",
+    devServer: {
+      contentBase: "./dist",
+    },
+    output: {
+      filename: "[name].bundle.js",
+      path: path.resolve(__dirname, "dist"),
+      clean: true,
     },
     module: {
       rules: [
-        /*         {
+        {
+          test: /\.tsx?$/,
+          use: "ts-loader",
+          exclude: /node_modules/,
+        },
+        {
           test: /\.css$/,
           use: ["style-loader", "css-loader"],
-          // use[1] = 'css-loader'
-          // use[0] = 'style-loader'
-        }, */
+        },
         {
           test: /\.scss$/,
           use: ["style-loader", "css-loader", "sass-loader"],
         },
         {
-          test: /\.png$|\.jpg$/,
+          test: /\.png$|\.jpg$|\.svg$|\.ico$/,
           use: [
             {
               loader: "url-loader",
               options: {
-                limit: 25000,
+                limit: 2500,
+                name: "./assets/img/[name].[ext]",
+              },
+            },
+          ],
+        },
+        {
+          test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
                 name: "[name].[ext]",
+                outputPath: "fonts/",
               },
             },
           ],
@@ -39,12 +59,15 @@ module.exports = (env) => {
       ],
     },
     plugins: [
+      new HtmlWebpackPlugin({
+        title: "Development",
+        filename: "index.html",
+        template: "src/index.html",
+      }),
       new CopyPlugin({
         patterns: [
-          {
-            from: "./src/**/*.html",
-            to: "[name][ext]",
-          },
+          { from: 'src/data/', to: 'data/' },
+          { from: 'src/assets/img/certificates', to: 'assets/img/certificates'}
         ],
       }),
     ],

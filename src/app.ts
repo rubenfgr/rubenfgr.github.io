@@ -11,6 +11,7 @@ const dataJSON = require("./data/data.json");
 const header = document.getElementById("header");
 const nav = document.getElementById("nav");
 const elArrowTop = document.getElementById("arrow-top");
+const elNavButton = document.getElementById("nav-button");
 const elMenuExperience = document.getElementById("menu-experience");
 const elMenuTraining = document.getElementById("menu-training");
 const elMenuKnowledge = document.getElementById("menu-knowledge");
@@ -27,6 +28,10 @@ const elSectionCertificates = document.getElementById("section-certificates");
 //  LOAD DATA FROM data/data.json
 // ==================================================
 
+// ----------------------------
+//  HEADER DATA
+// ----------------------------
+
 if (elHeaderData) {
   elHeaderData.innerHTML = `
     <h2>${dataJSON["personal-info"].firstname} ${dataJSON["personal-info"].lastname}</h2>
@@ -35,12 +40,25 @@ if (elHeaderData) {
     <p>${dataJSON["personal-info"].address}</p>
     <p>${dataJSON["personal-info"].email}</p>
     <p>${dataJSON["personal-info"].phone}</p>
+    <div id="social">
+      <a class="bi bi-facebook" href="${dataJSON["personal-info"].facebook}" target="_blank"></a>
+      <a class="bi bi-linkedin" href="${dataJSON["personal-info"].linkedin}" target="_blank"></a>
+      <a class="bi bi-github" href="${dataJSON["personal-info"].github}" target="_blank"></a>
+    </div>
   `;
 }
+
+// ----------------------------
+//  SECTION MESSAGE
+// ----------------------------
 
 if (elSectionMessage) {
   elSectionMessage.innerHTML = `<p>${dataJSON["message"]}</p>`;
 }
+
+// ----------------------------
+//  SECTION EXPERIENCE
+// ----------------------------
 
 if (elSectionExperience) {
   elSectionExperience.innerHTML = "<h1>Experiencia profesional</h1>";
@@ -66,6 +84,10 @@ if (elSectionExperience) {
   });
 }
 
+// ----------------------------
+//  SECTION TRAINING
+// ----------------------------
+
 if (elSectionTraining) {
   elSectionTraining.innerHTML = "<h1>Formación académica</h1>";
   Array.from(dataJSON.training).forEach((v: any) => {
@@ -90,6 +112,10 @@ if (elSectionTraining) {
   });
 }
 
+// ----------------------------
+//  SECTION KNOWLEDGE
+// ----------------------------
+
 if (elSectionKnowledge) {
   elSectionKnowledge.innerHTML = "<h1>Conocimientos</h1>";
   const knowledges = document.createElement("div");
@@ -107,6 +133,10 @@ if (elSectionKnowledge) {
   });
   elSectionKnowledge.appendChild(knowledges);
 }
+
+// ----------------------------
+//  SECTION CERTIFICATES
+// ----------------------------
 
 if (elSectionCertificates) {
   elSectionCertificates.innerHTML = "<h1>Certificados</h1>";

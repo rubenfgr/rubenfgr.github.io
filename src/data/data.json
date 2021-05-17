@@ -220,25 +220,11 @@
     ],
     "certificates": [
         {
-            "name": "Node: De cero a experto",
-            "date": "8 de Junio de 2020",
-            "duration": "20 horas",
-            "image": "Node_De_Cero_A_Experto.jpg",
-            "url": "https://www.udemy.com/certificate/UC-493ecf05-94db-4c6e-87a8-e94c1a57888f/"
-        },
-        {
-            "name": "GIT+GitHub: Todo un sistema de control de versiones de cero",
-            "date": "8 de Enero de 2020",
-            "duration": "7 horas",
-            "image": "GIT_GitHub_Todo_un_sistema_de_control_de_versiones_desde_cero.jpg",
-            "url": "https://www.udemy.com/certificate/UC-Q1LT0B0L/"
-        },
-        {
-            "name": "Visual Studio Code: Mejora tu velocidad para codificar",
-            "date": "20 de Abril de 2020",
-            "duration": "1,5 horas",
-            "image": "Visual_Studio_Code_Mejora_tu_velocidad_para_codificar.jpg",
-            "url": "https://www.udemy.com/certificate/UC-9cb44ef2-5479-4174-9dd5-72bab93c7517/"
+            "name": "Curso online de Introducción a Cloud Computing",
+            "date": "11 de Febrero de 2021",
+            "duration": "30 horas",
+            "image": "Introduccion_al_cloud_computing.jpg",
+            "url": "https://openwebinars.net/@Aorbk8Ao/"
         },
         {
             "name": "Docker, de principiante a experto",
@@ -248,25 +234,18 @@
             "url": "https://www.udemy.com/certificate/UC-78804b08-04b2-4d1c-8e59-966b5e505a4b/"
         },
         {
-            "name": "Aprende Python desde cero",
-            "date": "20 de Abril de 2020",
-            "duration": "4 horas",
-            "image": "Aprende_Python_desde_cero.jpg",
-            "url": "https://www.udemy.com/certificate/UC-2600bccc-9532-4af5-81a8-5d932e8113eb/"
-        },
+            "name": "Curso de SSH: Imprescindible en tiempos modernos",
+            "date": "16 de Julio de 2020",
+            "duration": "10 horas",
+            "image": "Curso_SSH_Imprescindible_en_tiempos_modernos.jpg",
+            "url": "https://openwebinars.net/@Aorbk8Ao/"
+        }, 
         {
-            "name": "Aprende JavaFX desde cero",
-            "date": "7 de Mayo de 2020",
-            "duration": "6,5 horas",
-            "image": "Aprende_JavaFX_desde_cero.jpg",
-            "url": "https://www.udemy.com/certificate/UC-b3df8713-b281-42c5-baca-2a5d72b458c2/"
-        },
-        {
-            "name": "Fundamentos de Programación",
-            "date": "4 de Mayo de 2018",
-            "duration": "3,5 horas",
-            "image": "Fundamentos_de_programacion.jpg",
-            "url": "https://www.udemy.com/certificate/UC-JIDBR435/"
+            "name": "Node: De cero a experto",
+            "date": "8 de Junio de 2020",
+            "duration": "20 horas",
+            "image": "Node_De_Cero_A_Experto.jpg",
+            "url": "https://www.udemy.com/certificate/UC-493ecf05-94db-4c6e-87a8-e94c1a57888f/"
         },
         {
             "name": "Master en JavaScript: Aprender JS, jQuery, Angular, NodeJS",
@@ -276,18 +255,41 @@
             "url": "https://www.udemy.com/certificate/UC-4756d56d-37a6-474a-be5c-d615bd43790c/"
         },
         {
-            "name": "Curso de SSH: Imprescindible en tiempos modernos",
-            "date": "16 de Julio de 2020",
-            "duration": "10 horas",
-            "image": "Curso_SSH_Imprescindible_en_tiempos_modernos.jpg",
-            "url": "https://openwebinars.net/@Aorbk8Ao/"
+            "name": "Aprende JavaFX desde cero",
+            "date": "7 de Mayo de 2020",
+            "duration": "6,5 horas",
+            "image": "Aprende_JavaFX_desde_cero.jpg",
+            "url": "https://www.udemy.com/certificate/UC-b3df8713-b281-42c5-baca-2a5d72b458c2/"
         },
         {
-            "name": "Curso online de Introducción a Cloud Computing",
-            "date": "11 de Febrero de 2021",
-            "duration": "30 horas",
-            "image": "Introduccion_al_cloud_computing.jpg",
-            "url": "https://openwebinars.net/@Aorbk8Ao/"
+            "name": "Visual Studio Code: Mejora tu velocidad para codificar",
+            "date": "20 de Abril de 2020",
+            "duration": "1,5 horas",
+            "image": "Visual_Studio_Code_Mejora_tu_velocidad_para_codificar.jpg",
+            "url": "https://www.udemy.com/certificate/UC-9cb44ef2-5479-4174-9dd5-72bab93c7517/"
+        },
+        {
+            "name": "GIT+GitHub: Todo un sistema de control de versiones de cero",
+            "date": "8 de Enero de 2020",
+            "duration": "7 horas",
+            "image": "GIT_GitHub_Todo_un_sistema_de_control_de_versiones_desde_cero.jpg",
+            "url": "https://www.udemy.com/certificate/UC-Q1LT0B0L/"
+        },
+        {
+            "name": "Aprende Python desde cero",
+            "date": "20 de Abril de 2020",
+            "duration": "4 horas",
+            "image": "Aprende_Python_desde_cero.jpg",
+            "url": "https://www.udemy.com/certificate/UC-2600bccc-9532-4af5-81a8-5d932e8113eb/"
+        },
+
+      
+        {
+            "name": "Fundamentos de Programación",
+            "date": "4 de Mayo de 2018",
+            "duration": "3,5 horas",
+            "image": "Fundamentos_de_programacion.jpg",
+            "url": "https://www.udemy.com/certificate/UC-JIDBR435/"
         }
     ],
     "about": [

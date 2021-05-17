@@ -1,5 +1,9 @@
 @import "./includes/colors";
 
+/* ------------------------------
+      GENERAL
+     ------------------------------ */
+
 * {
   margin: 0px;
   padding: 0px;
@@ -7,6 +11,7 @@
   letter-spacing: 0.5px;
   word-spacing: 2px;
   white-space: normal;
+  transition: all 300ms;
 }
 
 p,
@@ -67,6 +72,10 @@ header {
       align-items: center;
     }
 
+    /* ====================================
+          HEADER DATA
+         ==================================== */
+
     > #header-data {
       z-index: 3;
       color: #f2f2f2;
@@ -78,6 +87,10 @@ header {
         margin-top: 0%;
       }
     }
+
+    /* ====================================
+          HEADER IMG
+         ==================================== */
 
     > #header-img {
       z-index: 3;
@@ -91,6 +104,32 @@ header {
         max-width: 175px;
         border-radius: 50%;
         border: 6px solid white;
+      }
+    }
+
+    /* ====================================
+          HEADER SOCIAL
+         ==================================== */
+
+    #social {
+      margin-top: 10px;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-end;
+      gap: 10px;
+      font-size: 1.5rem;
+
+      > a {
+        color: white;
+      }
+
+      > a:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+
+      @media (max-width: 715px) {
+        text-align: center;
       }
     }
   }
@@ -110,7 +149,6 @@ nav {
 
   > #nav-button {
     display: none;
-    position: absolute;
     padding: 10px;
     background-color: $color-nav;
     font-size: 1.5rem;
@@ -153,10 +191,7 @@ nav {
 
   &:active {
     cursor: pointer;
-    background-color: $color-nav-hover;
-    > #nav-button {
-      display: none;
-    }
+
     > ul {
       display: flex;
     }
@@ -164,10 +199,7 @@ nav {
 
   &:hover {
     cursor: pointer;
-    background-color: $color-nav-hover;
-    > #nav-button {
-      display: none;
-    }
+
     > ul {
       display: flex;
     }
@@ -182,7 +214,6 @@ nav {
     }
 
     > ul {
-      position: absolute;
       display: none;
       flex-flow: column wrap;
       min-width: 100%;
@@ -192,6 +223,7 @@ nav {
         padding: 0px 20px 0px 20px;
         width: 100%;
         background-color: $color-nav;
+        justify-content: flex-end;
 
         &:not(:last-child) {
           border-bottom: 1px solid $color-nav-hover;
@@ -215,6 +247,7 @@ section {
         SECTION MESSAGE
        ==================================== */
   > #section-message {
+    padding: 5px;
   }
 
   /* ====================================
@@ -440,10 +473,12 @@ footer {
   flex-flow: column wrap;
   align-items: center;
   justify-content: center;
+  background-color: $color-header;
+  color: white;
 }
 
 /* ====================================
-      ARROW TOP
+      BUTTON TOP
      ==================================== */
 
 #arrow-top {
@@ -451,7 +486,7 @@ footer {
   padding: 10px;
   right: 20px;
   bottom: 20px;
-  background-color: #333;
+  background-color: $color-header;
   border-radius: 5px;
   z-index: 99;
   font-weight: 900;
@@ -462,7 +497,7 @@ footer {
   text-align: center;
 
   &:hover {
-    background-color: #666;
+    background-color: $color-header-hover;
     cursor: pointer;
   }
 }

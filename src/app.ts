@@ -99,7 +99,7 @@ if (elSectionTraining) {
         <h3>${v.title}</h3>
         <p>${v.school}</p>
         <h4>Nota media: ${v["average-rate"]}</h4>
-        <ul class="training-scores"><a>&rightarrow; Mostrar calificaciones</a></ul>
+        <ul class="training-scores"></ul>
       </div>
     </div>
     `;

@@ -5,7 +5,8 @@
   "main": "src/app.ts",
   "scripts": {
     "start": "webpack serve --open",
-    "build": "webpack --mode development"
+    "build": "webpack --mode development",
+    "build:production": "webpack --mode production"
   },
   "repository": {
     "type": "git",

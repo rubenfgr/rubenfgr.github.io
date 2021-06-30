@@ -220,6 +220,13 @@
     ],
     "certificates": [
         {
+            "name": "Angular: De cero a experto - (Edición 2021)",
+            "date": "30 de Junio de 2021",
+            "duration": "41.5 horas",
+            "image": "Angular_De_Cero_a_Experto_Edicion_2021.jpg",
+            "url": "https://www.udemy.com/certificate/UC-08f57055-c0d7-4138-b41b-763ad5a73cae/"
+        },
+        {
             "name": "Curso online de Introducción a Cloud Computing",
             "date": "11 de Febrero de 2021",
             "duration": "30 horas",

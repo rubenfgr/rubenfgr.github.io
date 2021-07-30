@@ -220,6 +220,13 @@
     ],
     "certificates": [
         {
+            "name": "Aprende a crear una API RESTful con Laravel",
+            "date": "30 de Julio de 2021",
+            "duration": "9.5 horas",
+            "image": "Aprende_a_crear_una_API_RESTful_con_Laravel.jpg",
+            "url": "https://www.udemy.com/certificate/UC-5ff61f9e-9e77-466f-b2d2-b87038c2bfdc/"
+        },
+        {
             "name": "Angular: De cero a experto - (Edición 2021)",
             "date": "30 de Junio de 2021",
             "duration": "41.5 horas",

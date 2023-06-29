@@ -17,8 +17,8 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`${siteConfig.title}`}
+      description="Rubén Rosales Web. Desarrollador de Software FullStack, diseño UI/UX, diseño Web y diseño de aplicaciones Web y Multiplataforma"
     >
       <HomeHeader />
       <main className={styles.home_main}>

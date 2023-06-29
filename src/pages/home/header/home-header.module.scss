@@ -1,8 +1,7 @@
 @import "../../../css/custom.scss";
 
 .header {
-  // background-image: url(/img/cabecera_fondo.svg);
-  background-color: $primary;
+  background-color: var(--ifm-color-primary);
   background-repeat: space;
   background-size: cover;
   background-position-x: 20%;
@@ -39,7 +38,7 @@
 
 .header__subtitle {
   font-size: 50px;
-  color: $secondary;
+  color: var(--ifm-color-primary-lightest);
   margin-bottom: 30px;
   z-index: 10;
 }

@@ -1,0 +1,35 @@
+.footer__social {
+  @extend .social;
+  justify-content: center;
+}
+
+.footer__social__svg:hover {
+  @extend .social__svg;
+}
+
+.footer__link-separator {
+  display: none;
+}
+
+.footer__material-symbols-outlined {
+  color: #9bc0d9;
+}
+
+.footer__contact-info__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.footer__contact-info__item a {
+  color: #fefefe;
+}
+
+.footer__contact-info__item:hover a {
+  color: #ee6b4d;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-footer-link-color);
+}

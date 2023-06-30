@@ -1,0 +1,37 @@
+@import "../../../css/custom.scss";
+
+.homeskills_title {
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 30px;
+}
+
+.homeskills_items_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.homeskills_item {
+}
+
+.homeskills_bar_container {
+  background-color: var(--ifm-color-primary-lightest);
+  height: 30px;
+  border-radius: 10px;
+}
+
+.homeskills_bar {
+  background-color: var(--ifm-color-primary);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  line-height: 30px;
+  color: var(--ifm-background-color);
+  padding: 0 20px;
+  border-radius: 10px;
+  animation: normal;
+}
+
+@media screen and (max-width: 720px) {
+}

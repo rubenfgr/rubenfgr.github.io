@@ -16,9 +16,10 @@
 }
 
 .homeskills_bar_container {
-  background-color: var(--ifm-color-primary-lightest);
+  background-color: var(--ifm-background-color);
   height: 30px;
   border-radius: 10px;
+  border: 1px solid var(--ifm-color-primary);
 }
 
 .homeskills_bar {
@@ -34,4 +35,8 @@
 }
 
 @media screen and (max-width: 720px) {
+  .homeskills_items_container {
+    display: flex;
+    flex-direction: column;
+  }
 }

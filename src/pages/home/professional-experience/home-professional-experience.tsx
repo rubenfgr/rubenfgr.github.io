@@ -1,5 +1,34 @@
 import React from "react";
+import styles from "./home-professional-experience.module.scss";
+import { professionalExperiencies } from "./professional-experiencies";
 
 export default function HomeProfessionalExperience(): JSX.Element {
-  return <h2>EXPERIENCIA PROFESIONAL</h2>;
+  return (
+    <div className={styles.homeexperience}>
+      <h2 className={styles.homeexperience_title}>EXPERIENCIA PROFESIONAL</h2>
+      <div className={styles.homeexperience_container}>
+        {professionalExperiencies &&
+          professionalExperiencies.map((professionalExperience) => (
+            <div className={styles.homeexperience_item_container}>
+              <h3 className={styles.homeexperience_item_duration}>
+                {professionalExperience.durationRange}
+              </h3>
+              <div className={styles.homeexperience_item_content}>
+                <div className={styles.homeexperience_item_company}>
+                  {professionalExperience.company}
+                </div>
+                <ul className={styles.homeexperience_item_experience_container}>
+                  {professionalExperience.experiencies.map((experience) => (
+                    <li>
+                      <span>{experience.type}</span>
+                      <span>. {experience.description}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+      </div>
+    </div>
+  );
 }

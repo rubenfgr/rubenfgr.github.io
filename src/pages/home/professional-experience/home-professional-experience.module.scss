@@ -21,12 +21,16 @@
   display: grid;
   grid-template-columns: 15% 85%;
   color: var(--ifm-background-color);
-  gap: 20px;
+  // gap: 20px;
 }
 
 .homeexperience_item_duration {
   color: var(--ifm-background-color);
-  text-align: right;
+  text-align: center;
+  background-color: var(--ifm-color-primary-darkest);
+  height: 100%;
+  padding: 6px;
+  margin-bottom: 0;
 }
 
 .homeexperience_item_content {
@@ -64,13 +68,14 @@
   .homeexperience_item_container {
     display: flex;
     flex-direction: column;
-  }
-
-  .homeexperience_item_container {
     gap: 0;
   }
 
-  .homeexperience_item_duration {
-    text-align: left;
+  .homeexperience_item_content {
+    border-left: 0;
+  }
+
+  .homeexperience_item_company {
+    text-align: center;
   }
 }

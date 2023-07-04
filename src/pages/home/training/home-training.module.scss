@@ -26,7 +26,7 @@
 
   &:hover {
     cursor: pointer;
-    box-shadow: 0 0 6px 2px var(--ifm-color-primary);
+    box-shadow: inset 0 0 10px 2px var(--ifm-background-color);
   }
 }
 
@@ -55,7 +55,7 @@
   align-self: flex-end;
   span {
     padding: 6px;
-    background-color: var(--ifm-background-color);
+    background-color: var(--ifm-secondary);
     color: var(--ifm-color-primary);
     border-radius: 4px;
   }
@@ -68,6 +68,7 @@
 
   .hometraining_top {
     grid-template-columns: repeat(2, 45%);
+    gap: 40px;
   }
 }
 
@@ -78,6 +79,7 @@
 
   .hometraining_top {
     grid-template-columns: repeat(2, 50%);
+    gap: 30px;
   }
 }
 

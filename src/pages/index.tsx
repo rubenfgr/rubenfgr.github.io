@@ -1,26 +1,42 @@
-import React from "react";
-import clsx from "clsx";
-import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
-import styles from "./index.module.scss";
-import Social from "../components/Social";
+import React, { useRef } from "react";
 import HomeAbout from "./home/about/home-about";
-import HomeServices from "./home/services/home-services";
+import HomeCourses from "./home/courses/home-courses";
+import HomeHeader from "./home/header/home-header";
 import HomeProfessionalExperience from "./home/professional-experience/home-professional-experience";
+import HomeServices from "./home/services/home-services";
 import HomeSkills from "./home/skills/home-skills";
 import HomeTraining from "./home/training/home-training";
-import useBaseUrl from "@docusaurus/useBaseUrl";
-import HomeHeader from "./home/header/home-header";
-import HomeCourses from "./home/courses/home-courses";
+import styles from "./index.module.scss";
 
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
+
+  const arrowUp = useRef<HTMLDivElement>(null);
+
+  window.addEventListener("scroll", () => {
+    if (arrowUp.current) {
+      if (window.scrollY > 100) {
+        arrowUp.current.style.visibility = "visible";
+      } else {
+        arrowUp.current.style.visibility = "hidden";
+      }
+    }
+  });
+
   return (
     <Layout
       title={`${siteConfig.title}`}
       description="Rubén Rosales Web. Desarrollador de Software FullStack, diseño UI/UX, diseño Web y diseño de aplicaciones Web y Multiplataforma"
     >
+      <div
+        className={styles.home_arrow_up}
+        ref={arrowUp}
+        onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
+      >
+        <span className="material-symbols-outlined">keyboard_arrow_up</span>
+      </div>
       <HomeHeader />
       <main className={styles.home_main}>
         <div className={styles.home_item}>

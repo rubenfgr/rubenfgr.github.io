@@ -1,5 +1,35 @@
 @import "../css/custom.scss";
 
+.home_arrow_up {
+  position: fixed;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary);
+  width: 3rem;
+  height: 3rem;
+  z-index: calc(var(--ifm-z-index-fixed) - 1);
+  border: 2px solid var(--ifm-background-color);
+  transition: all var(--ifm-transition-fast)
+    var(--ifm-transition-timing-default);
+  color: var(--ifm-background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+
+  span {
+    font-size: 30px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--ifm-background-color);
+    color: var(--ifm-color-primary);
+    border: 2px solid var(--ifm-color-primary);
+  }
+}
+
 .home_main {
   margin: 50px auto 0 auto;
   display: flex;

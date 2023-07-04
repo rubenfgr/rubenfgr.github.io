@@ -1,0 +1,84 @@
+@import "../../../css/custom.scss";
+
+.homecourses {
+  padding: 40px 0 60px 0;
+}
+
+.homecourses_title {
+  color: var(--ifm-color-primary);
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 30px;
+}
+
+.homecourses_container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.homecourses_courses_container {
+  display: grid;
+  grid-template-columns: 15% 85%;
+}
+
+.homecourses_courses_year {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homecourses_courses_items {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--ifm-color-primary);
+}
+
+.homecourses_course_container {
+  display: flex;
+  gap: 10px;
+}
+
+.homecourses_course_icon {
+  color: var(--ifm-color-primary);
+}
+
+.homecourses_course_title {
+  span {
+    color: var(--ifm-accent);
+  }
+
+  &:hover {
+    color: var(--ifm-background-color);
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .homecourses_title {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .homecourses_title {
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .homecourses_title {
+    font-size: 30px;
+  }
+
+  .homecourses_courses_container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .homecourses_courses_items {
+    padding: 0;
+    border-left: 0;
+  }
+}

@@ -1,4 +1,5 @@
 $accent: #ee6b4d;
+$light: #9bc0d9;
 
 /* You can override the default Infima variables here. */
 :root {
@@ -12,6 +13,8 @@ $accent: #ee6b4d;
   --ifm-background-color: #fefefe;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-accent: #ee6b4d;
+  --ifm-secondary: #9bc0d9;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -25,4 +28,6 @@ $accent: #ee6b4d;
   --ifm-color-primary-lightest: #ecf3f8;
   --ifm-background-color: #fefefe;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-accent: #ee6b4d;
+  --ifm-secondary: #4f616d;
 }

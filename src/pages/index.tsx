@@ -12,6 +12,7 @@ import HomeSkills from "./home/skills/home-skills";
 import HomeTraining from "./home/training/home-training";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import HomeHeader from "./home/header/home-header";
+import HomeCourses from "./home/courses/home-courses";
 
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
@@ -37,6 +38,9 @@ export default function Home(): JSX.Element {
         </div>
         <div className={styles.home_item}>
           <HomeTraining />
+        </div>
+        <div className={styles.home_courses}>
+          <HomeCourses />
         </div>
       </main>
     </Layout>

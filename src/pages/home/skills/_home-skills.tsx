@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./home-skills.module.scss";
-import { skills } from "./skills";
+import styles from "./_home-skills.module.scss";
+import { skills } from "./_skills";
 
 export default function HomeSkills(): JSX.Element {
   return (

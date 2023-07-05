@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./home-services.module.scss";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import React from "react";
+import styles from "./_home-services.module.scss";
 
 export default function HomeServices(): JSX.Element {
   return (

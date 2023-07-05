@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./home-about.module.scss";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import React from "react";
+import styles from "./_home-about.module.scss";
 
 export default function HomeAbout(): JSX.Element {
   return (

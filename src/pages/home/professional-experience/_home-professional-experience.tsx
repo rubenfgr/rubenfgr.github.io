@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./home-professional-experience.module.scss";
-import { professionalExperiencies } from "./professional-experiencies";
+import styles from "./_home-professional-experience.module.scss";
+import { professionalExperiencies } from "./_professional-experiencies";
 
 export default function HomeProfessionalExperience(): JSX.Element {
   return (

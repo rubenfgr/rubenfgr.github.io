@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./home-header.module.scss";
-import Social from "@site/src/components/Social";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import Social from "@site/src/components/Social";
+import React from "react";
+import styles from "./_home-header.module.scss";
 
 export default function HomeHeader(): JSX.Element {
   return (

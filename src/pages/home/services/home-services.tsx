@@ -12,7 +12,7 @@ export default function HomeServices(): JSX.Element {
             className={styles.homeservices_item_img}
             src={useBaseUrl("pages/home/img/ux_ui_design.png")}
           />
-          <h3 className={styles.homeservice_item_title}>DISEÑO UI/UX</h3>
+          <h2 className={styles.homeservice_item_title}>DISEÑO UI/UX</h2>
           <p>
             <span className={styles.homeservice_item_text___marked}>
               Diseño de interfaces
@@ -29,7 +29,7 @@ export default function HomeServices(): JSX.Element {
             className={styles.homeservices_item_img}
             src={useBaseUrl("pages/home/img/web_design.png")}
           />
-          <h3 className={styles.homeservice_item_title}>DISEÑO WEB</h3>
+          <h2 className={styles.homeservice_item_title}>DISEÑO WEB</h2>
           <p>
             Diseño de sitios web{" "}
             <span className={styles.homeservice_item_text___marked}>
@@ -42,9 +42,9 @@ export default function HomeServices(): JSX.Element {
             className={styles.homeservices_item_img}
             src={useBaseUrl("pages/home/img/multiplatform_design.png")}
           />
-          <h3 className={styles.homeservice_item_title}>
+          <h2 className={styles.homeservice_item_title}>
             DISEÑO MULTIPLATAFORMA
-          </h3>
+          </h2>
           <p>
             Diseño de aplicaciones multiplataforma que{" "}
             <span className={styles.homeservice_item_text___marked}>

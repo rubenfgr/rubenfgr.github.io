@@ -1,9 +1,9 @@
 @import "../../../css/custom.scss";
+@import "../../index.module.scss";
 
 .hometraining_title {
+  @extend .home_section_title;
   text-align: center;
-  font-size: 45px;
-  margin-bottom: 30px;
 }
 
 .hometraining_top {
@@ -62,10 +62,6 @@
 }
 
 @media screen and (max-width: 1280px) {
-  .hometraining_title {
-    font-size: 40px;
-  }
-
   .hometraining_top {
     grid-template-columns: repeat(2, 45%);
     gap: 40px;
@@ -73,10 +69,6 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .hometraining_title {
-    font-size: 35px;
-  }
-
   .hometraining_top {
     grid-template-columns: repeat(2, 50%);
     gap: 30px;
@@ -84,10 +76,6 @@
 }
 
 @media screen and (max-width: 720px) {
-  .hometraining_title {
-    font-size: 30px;
-  }
-
   .hometraining_top {
     display: flex;
     flex-direction: column;

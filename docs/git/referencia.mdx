@@ -570,7 +570,13 @@ Se trae un commit por su referencia a tu posición actual. Seguidamente un ejemp
 * 87aeea1 mensaje del commit
 ```
 
-, por ejemplo, si estás en la rama "main" en el HEAD y utilizas "git cherry-pick #621ce62"
+Nos movemos a main y hacemos un cherry-pick al último commit de la rama "cherry-pick"
+
+```sh
+git checkout main
+
+git cherry-pick 2604d8c
+```
 
 ## COMANDOS ÚTILES
 

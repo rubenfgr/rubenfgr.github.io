@@ -558,24 +558,54 @@ git rebase --continue
 
 ## GIT CHERRY-PICK
 
-Se trae un commit por su referencia a tu posición actual. Seguidamente un ejemplo de uso.
+:::info Referencia
 
-```sh title="historial de commit ANTES"
-* 2604d8c (HEAD -> cherry-pick) updated git reference
-* 6ce1d6d (HEAD -> main, origin/main) mensaje del último commit
-* 77a44e6 mensaje del commit
-* a6bf360 mensaje del commit
-* 6ddbe70 mensaje del commit
-* 87aeea1 mensaje del commit
-* 87aeea1 mensaje del commit
+https://www.atlassian.com/es/git/tutorials/cherry-pick
+
+:::
+
+Se trae un commit por su referencia a tu posición actual. Tiene opciónes de --abort, --continue y --quit.
+
+Ejemplo de uso:
+
+```sh title="Antes"
+a - b - c - d   Main
+         \
+           e - f - g Feature
 ```
 
-Nos movemos a main y hacemos un cherry-pick al último commit de la rama "cherry-pick"
+Nos movemos a la posición donde necesitamos traer el commit y ejecutamos el siguiente comando:
 
 ```sh
 git checkout main
 
-git cherry-pick 2604d8c
+git cherry-pick commitSha
+```
+
+```sh title="Después"
+    a - b - c - d - f   Main
+         \
+           e - f - g Feature
+```
+
+- **Algunas opciones disponibles**
+
+Solicitar un mensaje de confirmación antes de aplicar la operación cherry-pick
+
+```sh
+-edit
+```
+
+Mover el contenido sin realizar nueva confirmación
+
+```sh
+--no-commit
+```
+
+Añade una linea 'signoff' al final del mensaje de confirmación de cherry-pick
+
+```sh
+--signoff
 ```
 
 ## COMANDOS ÚTILES

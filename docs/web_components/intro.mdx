@@ -1,0 +1,157 @@
+---
+title: "Introducción"
+sidebar_position: 2
+---
+
+Los componentes web son bloques de código que encapsulan la estructura interna de elementos HTML, incluyendo CSS y JavaScript, permitiendo así que el código se pueda volver a usar como se quiera en otras webs y aplicaciones
+
+:::tip ¡A TENER EN CUENTA!
+La principal característica de los **Componentes Web** es la **REUTILIZACIÓN**.
+:::
+
+Están formados por diferentes tecnologías:
+
+### Elementos personalizados
+
+Permiten definir elementos personalizados y su comportamiento. Se componen de un **nombre**, una **clase** y un **objecto opcional** con la propiedad extends (solo cuando vamos a extender un elemento integrado).
+
+**2 tipos:**
+
+- **Autónomos**. Son independientes y no heredan de elementos HTML estándar
+
+  - Definición: customElements.define("my-element", MyElementClass);
+  - Uso JS: document.createElement("my-element");
+  - Uso HTML: `<my-element>...</my-element>`
+
+- **Integrados personalizados**. Heredan de elementos HTML básicos.
+
+  - Definición: customElements.define("my-element", MyElementClass, { extends: "p" });
+  - Uso JS: document.createElement("p", { is: "my-element" });
+  - Uso HTML: `<p is="my-element">...</p>`
+
+## DOM de sombra
+
+El Shadow DOM crea un sub-árbol dentro del DOM principal. El Shadow DOM contiene nodos HTML, CSS y JS independientes, es decir, **permite la encapsulación de pequeñas partes del documento**.
+
+**3 conceptos principales:**
+
+- **Shadow host**: nodo del DOM principal donde se ancla el Shadow DOM
+- **Shadow root**: nodo raíz del Shadow Tree
+- **Shadow boundary**: límites entre el DOM Tree y DOM principal
+- **Shadow tree**: árbol DOM dentro del Shadow DOM
+
+## Plantillas HTML
+
+Elementos **<template\>** y **<slot\>** que permite escribir plantillas que no se muestran en la página y que se pueden reutilizar tantas veces como se necesiten.
+
+**Características interesantes**
+
+- Si se agrega un estilo dentro del template tendrá el alcance únicamente para el fragmento de código que se crea al utilizarlo.
+- Si se utiliza un slot este se sobreescribe con la nueva definición, si no se utiliza, se usará el código del template por defecto.
+
+## Ejemplo completo
+
+:::tip Referencia
+
+[https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots)
+
+:::
+
+1. Creando una plantilla
+
+```html
+<template id="element-details-template">
+  <style>
+    details {
+      font-family: "Open Sans Light", Helvetica, Arial;
+    }
+    .name {
+      font-weight: bold;
+      color: #217ac0;
+      font-size: 120%;
+    }
+    h4 {
+      margin: 10px 0 -8px 0;
+    }
+    h4 span {
+      background: #217ac0;
+      padding: 2px 6px 2px 6px;
+    }
+    h4 span {
+      border: 1px solid #cee9f9;
+      border-radius: 4px;
+    }
+    h4 span {
+      color: white;
+    }
+    .attributes {
+      margin-left: 22px;
+      font-size: 90%;
+    }
+    .attributes p {
+      margin-left: 16px;
+      font-style: italic;
+    }
+  </style>
+  <details>
+    <summary>
+      <span>
+        <code class="name"
+          >&lt;<slot name="element-name">NEED NAME</slot>&gt;</code
+        >
+        <span class="desc"
+          ><slot name="description">NEED DESCRIPTION</slot></span
+        >
+      </span>
+    </summary>
+    <div class="attributes">
+      <h4><span>Attributes</span></h4>
+      <slot name="attributes"><p>None</p></slot>
+    </div>
+  </details>
+  <hr />
+</template>
+```
+
+2. Creando el componente web
+
+```js
+customElements.define(
+  "element-details",
+  class extends HTMLElement {
+    constructor() {
+      super();
+      const template = document.getElementById(
+        "element-details-template"
+      ).content;
+      const shadowRoot = this.attachShadow({ mode: "open" });
+      shadowRoot.appendChild(template.cloneNode(true));
+    }
+  }
+);
+```
+
+3. Utilizando el componente web
+
+```html
+<element-details>
+  <span slot="element-name">slot</span>
+  <span slot="description"
+    >A placeholder inside a web componente that users can fill with their own
+    markup, with the effect of composing different DOM trees together.</span
+  >
+  <dl slot="attributes">
+    <dt>name</dt>
+    <dd>The name of the slot.</dd>
+  </dl>
+</element-details>
+
+<element-details>
+  <span slot="element-name">template</span>
+  <span slot="description"
+    >A mechanism for holding client- side content that is not to be rendered
+    when a page is loaded but may subsequently be instantiated during runtime
+    using JavaScript.</span
+  >
+</element-details>
+```

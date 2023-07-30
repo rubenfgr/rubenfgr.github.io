@@ -1,0 +1,490 @@
+---
+title: "StencilJS"
+sidebar_position: 3
+---
+
+El objetivo principal de StencilJS es proporcionar herramientas para crear bibliotecas de componentes. Utiliza TS, JSX y CSS, y permite crear componentes web compatibles con los estándares.
+
+## Beneficios
+
+- Estándares Web
+- Optimizaciones automáticas al construir
+- Amigable a futuros cambios
+- API simple
+- Características de marcos de trabajo durante el desarrollo
+- Soporte amplio de navegador
+
+## Ejemplo
+
+:::info Repositorio
+
+Incluye el proyecto de Stencil y dentro el proyecto de Angular (my-library-in-angular)
+
+[https://github.com/rubenfgr-doc/stencil-my-components-library](https://github.com/rubenfgr-doc/stencil-my-components-library)
+
+:::
+
+### Iniciar el proyecto (Component)
+
+- Nombre del proyecto: my-components-library
+
+```sh
+npm init stencil
+```
+
+### Instalamos dependencias e iniciamos
+
+```sh
+cd my-components-library
+$ npm install
+npm start
+```
+
+### Nos crea un componente por defecto en src/components/my-component.tsx que vamos a modificar
+
+> En src/index.html podemos ver como se está utilizando
+
+```js title="my-component.tsx"
+import { Component, Prop, h } from "@stencil/core";
+import { format } from "../../utils/utils";
+
+@Component({
+  tag: "my-component",
+  styleUrl: "my-component.css",
+  shadow: true,
+})
+export class MyComponent {
+  @Prop() first: string;
+  @Prop() middle: string;
+  @Prop() last: string;
+
+  private getText(): string {
+    return format(this.first, this.middle, this.last);
+  }
+
+  render() {
+    return <div>Hello, World! I'm {this.getText()}</div>;
+  }
+}
+```
+
+```html title="index.html"
+<my-component
+  first="Stencil"
+  middle="'Don't call me a framework'"
+  last="JS"
+></my-component>
+```
+
+### Decoradores
+
+- **@Component()** declares a new web component
+- **@Prop()** declara una propidad a exponer
+- **@State()** declara un estado interno
+- **@Watch()** declara un hook para comprobar cambios de estado en "propiedades y estados"
+- **@Element()** declara una referencia el elemento host (si el elemento es my-component, sería una referencia a este)
+- **@Method()** declara un método a exponer
+- **@Event()** declara un evento DOM a emitir (expone)
+- **@Listen()** escucha eventos del DOM
+
+Vamos a modificar el componente que viene por defecto aplicando estos decoradores
+
+```js title=my-component.tsx
+import { Component, Element, Event, EventEmitter, Listen, Method, Prop, State, Watch, h } from '@stencil/core';
+import { format } from '../../utils/utils';
+
+@Component({
+  tag: 'my-component',
+  styleUrl: 'my-component.css',
+  shadow: true,
+})
+export class MyComponent {
+  /**
+   * The first name
+   */
+  @Prop() first: string;
+
+  /**
+   * The middle name
+   */
+  @Prop() middle: string;
+
+  /**
+   * The last name
+   */
+  @Prop() last: string;
+
+  /**
+   * Esta propiedad no será expuesta y solo se utiliza internamente
+   */
+  @State() internal: string;
+
+  @Watch('first')
+  watchFirstHandler(newValue: boolean, oldValue: boolean) {
+    console.log('[my-component.tsx] @Prop() first, valor anterior: ', oldValue);
+    console.log('[my-component.tsx] @Prop() first, nuevo valor: ', newValue);
+  }
+
+  @Watch('internal')
+  watchInternalHandler(newValue: boolean, oldValue: boolean) {
+    console.log('[my-component.tsx] @State() internal, valor anterior: ', oldValue);
+    console.log('[my-component.tsx] @State() internal, nuevo valor: ', newValue);
+  }
+
+  @Element() hostEl: HTMLElement;
+
+  @Method()
+  async getMessage() {
+    return 'Hello from my-component exposed method';
+  }
+
+  @Event() onMessage: EventEmitter<string>;
+
+  @Listen('onMessage')
+  onMessageEventHandler(event: CustomEvent<string>) {
+    console.log('[my-component.tsx] Evento onMessage recibido, propiedad event.detail: ', event.detail);
+  }
+
+  constructor() {
+    console.log('[my-component.tsx] hostEl', this.hostEl);
+
+    let counter = 0;
+
+    setInterval(() => {
+      this.onMessage.emit('Mensage con contador: ' + counter);
+      counter++;
+    }, 2000);
+  }
+
+  private getText(): string {
+    return format(this.first, this.middle, this.last);
+  }
+
+  render() {
+    return <div>Hello, World! I'm {this.getText()}</div>;
+  }
+}
+
+```
+
+```html title=index.html
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/my-components-library.esm.js"></script>
+    <script nomodule src="/build/my-components-library.js"></script>
+  </head>
+  <body>
+    <my-component
+      first="Stencil"
+      last="'Don't call me a framework' JS"
+    ></my-component>
+  </body>
+
+  <script>
+    (async () => {
+      await customElements.whenDefined("my-component");
+      const myComponent = document.getElementsByTagName("my-component")[0];
+      setTimeout(() => {
+        myComponent.first = "RubenFGR";
+        myComponent.internal = "ESTO NO FUNCIONA YA QUE ES UN ESTADO INTERNO";
+      }, 3000);
+      var exposedMethodValue = await myComponent.getMessage();
+      console.log(
+        "[index.html] myComponent.getMessage(): ",
+        exposedMethodValue
+      );
+      myComponent.addEventListener("onMessage", (event) => {
+        console.log(
+          '[index.html] Evento "onMessage" recibido, propiedad event.detail: ',
+          event.detail
+        );
+      });
+    })();
+  </script>
+</html>
+```
+
+### Ciclo de vida
+
+- **connectedCallback()** Cuando el componente se conecta al DOM (antes de ser cargado). Puede ser llamado varias veces.
+- **disconnectedCallback()** Cuando el componente se desconecta del DOM. Puede ser llamado varias veces.
+
+```js
+const el = document.createElement("my-cmp");
+document.body.appendChild(el);
+// connectedCallback() called
+// componentWillLoad() called (first time)
+
+el.remove();
+// disconnectedCallback()
+
+document.body.appendChild(el);
+// connectedCallback() called again, but `componentWillLoad()` is not.
+```
+
+- **componentWillLoad()** Cuando el componente es conectado al DOM por primera vez y áun no es renderizado. Solo se llama una vez, es un buen lugar para cargar los datos que van a ser renderizados
+- **componentDidLoad()** Cuando el componente se ha renderizado por primera vez
+- **componentShouldUpdate()** Cuando un @Prop o @State va a cambiar. Recibe 3 argumentos, antiguo valor, nuevo valor y el nombre de la propiedad o estado y retorna un boolean que indica si debe ser reenderizado o no.
+- **componentWillRender()** Llamado antes de reenderizar. Devuelve una promesa que permite esperar el nuevo renderizado.
+- **componentDidRender()** Llamado después de renderizado.
+- **componentWillUpdate()** Llamado cuando @Prop() o @State() han cambiado. No se ejecuta en el primer renderizado.
+- **componentDidUpdate()** Llamado justo cuando se actualiza el componente. No se ejecuta en el primer renderizado.
+
+```js title="my-component.tsx"
+import { Component, Element, Event, EventEmitter, Listen, Method, Prop, State, Watch, h } from '@stencil/core';
+import { format } from '../../utils/utils';
+
+@Component({
+  tag: 'my-component',
+  styleUrl: 'my-component.css',
+  shadow: true,
+})
+export class MyComponent {
+  /**
+   * The first name
+   */
+  @Prop() first: string;
+
+  /**
+   * The middle name
+   */
+  @Prop() middle: string;
+
+  /**
+   * The last name
+   */
+  @Prop() last: string;
+
+  /**
+   * Esta propiedad no será expuesta y solo se utiliza internamente
+   */
+  @State() internal: string;
+
+  @Watch('first')
+  watchFirstHandler(newValue: boolean, oldValue: boolean) {
+    console.log('[my-component.tsx] @Prop() first, valor anterior: ', oldValue);
+    console.log('[my-component.tsx] @Prop() first, nuevo valor: ', newValue);
+  }
+
+  @Watch('internal')
+  watchInternalHandler(newValue: boolean, oldValue: boolean) {
+    console.log('[my-component.tsx] @State() internal, valor anterior: ', oldValue);
+    console.log('[my-component.tsx] @State() internal, nuevo valor: ', newValue);
+  }
+
+  @Element() hostEl: HTMLElement;
+
+  @Method()
+  async getMessage() {
+    return 'Hello from my-component exposed method';
+  }
+
+  @Event() onMessage: EventEmitter<string>;
+
+  @Listen('onMessage')
+  onMessageEventHandler(event: CustomEvent<string>) {
+    console.log('[my-component.tsx] Evento onMessage recibido, propiedad event.detail: ', event.detail);
+  }
+
+  constructor() {
+    console.log('[my-component.tsx] hostEl', this.hostEl);
+
+    let counter = 0;
+
+    setTimeout(() => {
+      this.onMessage.emit('Mensage con contador: ' + counter);
+      counter++;
+    }, 3000);
+  }
+
+  connectedCallback() {
+    console.log('connectedCallback()');
+  }
+
+  disconnectedCallback() {
+    console.log('disconnectedCallback()');
+  }
+
+  componentWillLoad() {
+    console.log('componentWillLoad()');
+  }
+
+  componentDidLoad() {
+    console.log('componentDidLoad()');
+  }
+
+  componentShouldUpdate() {
+    console.log('componentShouldUpdate()');
+  }
+
+  componentWillRender() {
+    console.log('componentWillRender()');
+  }
+
+  componentDidRender() {
+    console.log('componentDidRender()');
+  }
+
+  componentWillUpdate() {
+    console.log('componentWillUpdate()');
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate()');
+  }
+
+  private getText(): string {
+    return format(this.first, this.middle, this.last);
+  }
+
+  render() {
+    return <div>Hello, World! I'm {this.getText()}</div>;
+  }
+}
+
+```
+
+### Contruyendo la libreria
+
+Tipos de salida:
+
+- dist-custom-elements. Permite exportar elementos personalizados individualmente dejando en el desarrollador la opción de configurar la carga perezosa, la construcción y el registro, ya sea a través de un framework o de forma nativa.
+- dist. Es la salida por defecto que exporta la libreria de componentes al completo incluyendo la carga perezosa de cada uno de ellos al utilizarlo, es decir, el componente se cargará cuando este dentro de la pantalla del usuario.
+- www. Orientado para aplicaciones web y páginas web. Puede tener el beneficio del prerenderizado y trabajadores de servicio (service workers). La trae activa por defecto y permite probar los componentes que vamos creando.
+
+La configuración utilizada para el tutorial es la que viene por defecto que contiene los tres tipos:
+
+```js title="stencil.config.ts"
+import { Config } from "@stencil/core";
+
+export const config: Config = {
+  namespace: "my-components-library",
+  outputTargets: [
+    {
+      type: "dist",
+      esmLoaderPath: "../loader",
+    },
+    {
+      type: "dist-custom-elements",
+    },
+    {
+      type: "docs-readme",
+    },
+    {
+      type: "www",
+      serviceWorker: null, // disable service workers
+    },
+  ],
+  testing: {
+    browserHeadless: "new",
+  },
+};
+```
+
+Realizamos la construcción con el siguiente comando:
+
+```sh
+npm run build
+```
+
+## Probando nuestra librería en un proyecto de Angular
+
+Por defecto, en el proyecto de stencil, el packague.json ya está configurado para publicar nuestra libreria de forma local o en un registro de paquetes como npm.
+
+En este tutorial lo vamos hacer de forma local con el comando "link"
+
+### Creando el proyecto de angular
+
+```sh
+ng new my-library-in-angular
+```
+
+### Compartiendo la libreria en local con "link"
+
+Este comando se ejecuta en la raíz del proyecto de stencil, donde está el packague.json.
+
+El nombre de la librería será el que tengamos puesto en la propiedad "name" del packague.json.
+
+```sh
+npm link
+```
+
+### Vinculando la libreria en el proyecto de angular
+
+```sh
+cd my-library-in-angular
+npm link my-components-library
+```
+
+### Modificamos algunos ficheros
+
+En app.module.ts agregamos el schema CUSTOM_ELEMENTS_SCHEMA para permitir el uso de elementos personalizados en Angular.
+
+```js title="app.module.ts"
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+
+import { AppComponent } from "./app.component";
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule],
+  providers: [],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
+export class AppModule {}
+```
+
+En main.ts definimos nuestros elementos personalizados a través de los métodos de ayuda que contiene stencil para facilitar el trabajo: defineCustomElements y applyPolyfills. Este último para compatibilidad con navegadores antigüos.
+
+```js title="main.ts"
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+
+import { AppModule } from "./app/app.module";
+
+import {
+  defineCustomElements,
+  applyPolyfills,
+} from "my-components-library/loader";
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch((err) => console.error(err));
+
+applyPolyfills().then(() => defineCustomElements());
+```
+
+Y por último, hacemos uso de nuestro componente en app.component.html
+
+```js title="app.component.html"
+<h1>Probando nuestra libreria de stencil</h1>
+
+<body>
+  <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+</body>
+
+<script>
+  (async () => {
+    await customElements.whenDefined('my-component');
+    const myComponent = document.getElementsByTagName('my-component')[0];
+    setTimeout(() => {
+      myComponent.first = 'RubenFGR';
+      myComponent.internal = 'ESTO NO FUNCIONA YA QUE ES UN ESTADO INTERNO';
+    }, 3000);
+    var exposedMethodValue = await myComponent.getMessage();
+    console.log('[index.html] myComponent.getMessage(): ', exposedMethodValue);
+    myComponent.addEventListener('onMessage', event => {
+      console.log('[index.html] Evento "onMessage" recibido, propiedad event.detail: ', event.detail);
+    });
+  })();
+</script>
+```

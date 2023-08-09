@@ -1,0 +1,7 @@
+{
+  "label": "FCM",
+  "link": {
+    "type": "generated-index",
+    "description": "Firebase Cloud Messaging (FCM) es una solución de mensajería multiplataforma que te permite enviar mensajes de forma segura y sin costo."
+  }
+}

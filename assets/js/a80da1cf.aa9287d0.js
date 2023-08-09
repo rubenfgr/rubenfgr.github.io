@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkruben_rosales_web=self.webpackChunkruben_rosales_web||[]).push([[3205],{4863:s=>{s.exports=JSON.parse('{"label":"docusaurus","permalink":"/blog/tags/docusaurus","allTagsPath":"/blog/tags","count":4}')}}]);

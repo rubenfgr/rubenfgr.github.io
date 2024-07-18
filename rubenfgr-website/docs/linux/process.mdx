@@ -47,6 +47,26 @@ ps -e
 ps -ef
 # Procesos de todos los usuarios con más información y árbol de procesos
 ps -ef --forest
-
-
+# Más información sobre los procesos
+ps aux | less
 ```
+
+## Visualización dinámica
+
+- top: hora de inicio del proceso.
+- up: tiempo que lleva el sistema en funcionamiento.
+- load average: carga media del sistema en los últimos 1, 5 y 15 minutos.
+- tasks: número de tareas en ejecución, en espera y detenidas.
+- %CPU: porcentaje de uso de la CPU.
+- %MEM: porcentaje de uso de la memoria.
+- VIRT: tamaño virtual del proceso.
+- RES: tamaño real del proceso.
+- SHR: tamaño compartido del proceso.
+- S: estado del proceso.
+- TIME+: tiempo de CPU consumido por el proceso.
+- COMMAND: comando que se está ejecutando.
+
+
+```bash
+# Actualizar la información cada 1 segundo
+top

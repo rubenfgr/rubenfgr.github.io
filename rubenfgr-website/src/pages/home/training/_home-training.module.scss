@@ -1,0 +1,86 @@
+@use "../../../css/shared/mixins" as mixins;
+@use "../../../css/shared/colors" as colors;
+
+.hometraining_title {
+  @include mixins.home_section_title;
+  text-align: center;
+  color: colors.$background-color;
+}
+
+.hometraining_top {
+  display: grid;
+  grid-template-columns: repeat(2, 40%);
+  gap: 50px;
+  justify-content: center;
+}
+
+.hometraining_top_item_container {
+  background-color: colors.$background-color;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 4px;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: inset 0 0 10px colors.$color-primary-lightest;
+    transform: scale(1.02);
+    transition: transform 300ms ease-in-out;
+  }
+}
+
+.hometraining_top_item_duration {
+  color: colors.$color-primary-lightest;
+}
+
+.hometraining_top_item_icon {
+  span {
+    color: colors.$accent !important;
+    font-size: 100px !important;
+  }
+}
+
+.hometraining_top_item_title {
+  color: colors.$color-primary;
+}
+
+.hometraining_top_item_school {
+  color: colors.$color-primary-lightest;
+  align-self: flex-end;
+  font-weight: 600;
+}
+
+.hometraining_top_item_average {
+  align-self: flex-end;
+  span {
+    padding: 6px;
+    background-color: colors.$color-primary-lightest;
+    color: colors.$background-color;
+    border-radius: 4px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .hometraining_top {
+    grid-template-columns: repeat(2, 45%);
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .hometraining_top {
+    grid-template-columns: repeat(2, 50%);
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .hometraining_top {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,72 @@
+
+@use "../../../css/shared/mixins" as mixins;
+@use "../../../css/shared/colors" as colors;
+
+
+.homecourses_title {
+  @include mixins.home_section_title;
+  color: var(--ifm-color-primary);
+  text-align: center;
+}
+
+.homecourses_container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.homecourses_courses_container {
+  display: grid;
+  grid-template-columns: 15% 85%;
+}
+
+.homecourses_courses_year {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homecourses_courses_items {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--ifm-color-primary);
+}
+
+.homecourses_course_container {
+  display: flex;
+  gap: 10px;
+}
+
+.homecourses_course_icon {
+  color: var(--ifm-color-primary);
+}
+
+.homecourses_course_title {
+  span {
+    color: var(--ifm-accent);
+  }
+
+  &:hover {
+    color: colors.$color-primary-lightest;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 720px) {
+  .homecourses_courses_container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .homecourses_courses_items {
+    padding: 0;
+    border-left: 0;
+  }
+}

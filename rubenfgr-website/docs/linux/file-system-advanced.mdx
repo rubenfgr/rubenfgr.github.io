@@ -1,0 +1,172 @@
+---
+sidebar_position: 4
+---
+
+# Linux. Sistema de ficheros Avanzado
+
+## Inodos
+
+Los inodos son estructuras de datos que almacenan información sobre los archivos y directorios en un sistema de archivos. Cada archivo o directorio tiene un inodo único que contiene información sobre el archivo o directorio, como los permisos, el propietario, el grupo, el tamaño, la fecha de creación, la fecha de modificación, la fecha de acceso, el número de enlaces, el tipo de archivo y los punteros a los bloques de datos.
+
+```sh
+# Listar inodos
+df -i
+# Ver el inodo de un archivo en un sistema de archivos específico
+df -i /mnt
+# Ver el inodo de un archivo
+ls -i archivo
+# Ver el inodo de un archivo avanzado
+ls -lia archivo
+# Ver estadísticas del inodo de un archivo
+stat archivo
+# Ver estadísticas del inodo de un archivo avanzado
+sudo debugfs -R "stat <inodo>" /dev/sda1
+```
+
+## Dentries
+
+Los dentries son estructuras de datos que almacenan información sobre los archivos y directorios en un sistema de archivos. Cada archivo o directorio tiene un dentry único que contiene información sobre el archivo o directorio, como el nombre, el inodo, el tipo de archivo y los punteros a los bloques de datos.
+
+>Diferencia entre inodo y dentry:
+> - inodo: información sobre el archivo o directorio
+> - dentry: información sobre el nombre del archivo o directorio
+
+```sh
+# Ver el inodo de un directorio
+ls -id directorio
+# Ver estadísticas de un dentry de un directorio
+stat directorio
+# Ver estadísticas de un dentry de un directorio avanzado
+ls -lid directorio
+```
+
+## Enlaces simbólicos
+
+Un enlace simbólico, también conocido como "symlink" o "enlace blando", es un archivo especial que actúa como un puntero o referencia a otro archivo o directorio. Es similar a un atajo en Windows.
+- Referencia: Un enlace simbólico contiene una ruta al archivo o directorio al que apunta.
+- Independencia del archivo original: Si el archivo original es eliminado, el enlace simbólico se queda "roto" y apunta a una ruta inexistente.
+- Diferentes sistemas de archivos: Los enlaces simbólicos pueden apuntar a archivos ubicados en diferentes sistemas de archivos.
+- Permisos: Los permisos del enlace simbólico no afectan al archivo destino, ya que el sistema operativo sigue los permisos del archivo o directorio al que apunta.
+
+```sh
+# Crear un enlace simbólico
+ln -s archivo enlace
+```
+
+## Enlaces duros
+
+Un enlace duro es una entrada de directorio que apunta directamente a los datos de un archivo en el sistema de archivos. Todos los enlaces duros a un archivo comparten el mismo contenido.
+
+- Compartir inodo: Un enlace duro es otra entrada de directorio que apunta al mismo inodo (y por lo tanto a los mismos datos) que el archivo original.
+- Mismo sistema de archivos: Los enlaces duros solo pueden existir dentro del mismo sistema de archivos.
+- Inmutabilidad del contenido: Si uno de los enlaces duros se modifica, todos los enlaces reflejarán los cambios porque apuntan a los mismos datos.
+- Eliminación: El archivo solo se elimina del sistema de archivos cuando el último enlace duro se elimina.
+
+```sh
+# Crear un enlace duro
+ln archivo enlace
+```
+
+## Wildcards
+
+Los "wildcards" o comodines son caracteres especiales que se utilizan para hacer coincidir patrones de nombres de archivos y directorios en la línea de comandos.
+
+- `*`: Coincide con cualquier número de caracteres.
+- `?`: Coincide con un solo carácter.
+- `[]`: Coincide con un solo carácter de los especificados entre corchetes.
+- `[!...]`: Coincide con un solo carácter que no está en la lista especificada entre corchetes.
+- `{...}`: Coincide con uno de los patrones especificados entre llaves.
+- [[:upper:]]: Coincide con un solo carácter en mayúsculas.
+- [[:lower:]]: Coincide con un solo carácter en minúsculas.
+- [[:digit:]]: Coincide con un solo dígito.
+- [[:alnum:]]: Coincide con un solo carácter alfanumérico.
+- [[:alpha:]]: Coincide con un solo carácter alfabético.
+- [[:space:]]: Coincide con un solo carácter de espacio en blanco.
+
+    
+```sh
+# Listar archivos que empiezan por "a"
+ls a*
+# Listar archivos que terminan en ".txt"
+ls *.txt
+# Listar archivos que empiezan por "a" y terminan en ".txt"
+ls a*.txt
+# Listar archivos que empiezan por "a" o "b"
+ls [ab]*
+# Listar archivos que empiezan por "a" o "b" y terminan en ".txt"
+ls [ab]*.txt
+# Listar archivos que empiezan por "a" o "b" y terminan en ".txt" o ".md"
+ls [ab]*.{txt,md}
+# Listar archivos que empiezan por "a" o "b" y terminan en ".txt" o ".md" excluyendo "a.txt"
+ls [ab]*.{txt,md} | grep -v a.txt
+```
+
+## Shell Expansions
+
+Las "shell expansions" o expansiones de la shell son mecanismos que permiten expandir o generar listas de archivos y directorios en la línea de comandos.
+
+- `*`: Expande a todos los archivos y directorios en el directorio actual.
+- `?`: Expande a un solo carácter.
+- `[]`: Expande a un solo carácter de los especificados entre corchetes.
+- `{...}`: Expande a una lista de palabras separadas por comas.
+- `~`: Expande al directorio de inicio del usuario actual.
+- `$HOME`: Expande al directorio de inicio del usuario actual.
+- `$USER`: Expande al nombre de usuario actual.
+- `$PWD`: Expande al directorio actual.
+- `$OLDPWD`: Expande al directorio anterior.
+- `$PATH`: Expande a la lista de directorios de búsqueda de comandos.
+- `$SHELL`: Expande al intérprete de comandos actual.
+- `$0`: Expande al nombre del script o comando actual.
+- `$1`, `$2`, ...: Expande a los argumentos del script o comando actual.
+
+```sh
+echo fichero*
+echo ~
+echo *
+echo /*/log
+echo $((2+2))
+echo {1,2,3}
+echo {01..20}
+echo {A..Z}
+echo texto{A{1,2},B{3,4}}
+mkdir {2020..2024}-{01..12}
+```
+
+## Command Substitution
+
+La "command substitution" o sustitución de comandos es un mecanismo que permite ejecutar un comando y utilizar su salida como argumento de otro comando.
+
+- `$(...)`: Ejecuta el comando entre paréntesis y sustituye su salida.
+- ``...``: Ejecuta el comando entre comillas invertidas y sustituye su salida.
+
+```sh
+echo $(ls)
+echo $(date)
+ls -la $(which cat)
+echo $(python3 -c 'print("Hello, World!")')
+```
+
+## Comillas en la Shell
+
+Las comillas en la shell se utilizan para agrupar palabras y evitar la expansión de caracteres especiales.
+
+>$ ` \ se interpretan dentro de las comillas dobles, pero no dentro de las comillas simples.
+
+- Comillas simples (`'...'`): Evitan la expansión de caracteres especiales.
+- Comillas dobles (`"..."`): Permiten la expansión de variables y comandos.
+
+```sh
+echo 'Hello, World!'
+echo "Hello, $USER!"
+echo "Today is $(date)."
+echo $(ls)
+echo "$(ls)"
+# Escapar caracteres especiales
+echo "Hello, \"World\"!"
+echo 'Hello, "World"!'
+echo "Expansion: $USER, Sin expansion: \$USER"
+# Crear un fichero de nombre: "fichero espacio.txt"
+ls -la fichero\ espacio.txt
+echo -e "Este texto \t esta tabulado"
+echo -e "Esto es una \nnueva línea"
+```

@@ -1,0 +1,9 @@
+@use '../../css/components/social' as social;
+
+.social {
+  @include social.social;
+}
+
+.social__svg:hover {
+  @include social.social__svg--hover;
+}

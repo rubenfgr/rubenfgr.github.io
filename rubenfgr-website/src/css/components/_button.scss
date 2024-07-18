@@ -1,0 +1,38 @@
+@mixin button {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: all 300ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.button___primary {
+  @include button;
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
+}
+
+.button___primary:hover {
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-color-primary);
+}
+
+.button___secondary {
+  @include button;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-color-primary);
+}
+
+.button___secondary:hover {
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-background-color);
+}

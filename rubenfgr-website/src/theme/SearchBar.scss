@@ -1,0 +1,115 @@
+.search-icon {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.search-modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.search-modal--content {
+  background-color: var(--ifm-background-color);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid var(--ifm-color-primary);
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 5px 15px rgba(var(--ifm-color-primary), 0.3);
+  max-height: 80vh; /* Limit the height of the modal */
+  display: flex;
+  flex-direction: column;
+  border-radius: 7px;
+}
+
+.search-modal--header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-modal--header-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.search-modal--header-close {
+  color: var(--ifm-color-primary-lightest);
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search-modal--header-close:hover,
+.search-modal--header-close:focus {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.search-modal--input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+.search-results {
+  list-style-type: none;
+  padding: 0 15px;
+  margin: 0;
+  overflow-y: auto; /* Add scroll to results */
+  scrollbar-color: var(--ifm-color-primary) var(--ifm-background-color);
+}
+
+.search-results ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-results--item {
+  margin: 7px 0;
+  padding: 10px;
+  border: 1px solid var(--ifm-color-primary-lightest);
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-results--item:hover {
+  border: 1px solid var(--ifm-color-primary);
+  box-shadow: inset 0 0 3px var(--ifm-color-primary);
+  cursor: pointer;
+}
+
+.search-results--item-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.search-results--item-path {
+  font-size: 0.9rem;
+  color: var(--ifm-color-primary-light);
+  margin-top: 5px;
+}
+
+.search-results--item-content {
+  background-color: var(--ifm-background-color);
+  opacity: 0.9;
+  width: 100%;
+  border-radius: 7px;
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,100 @@
+@use "../css/shared/index" as *;
+
+.home_arrow_up {
+  position: fixed;
+  right: 1.3rem;
+  bottom: 1.3rem;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary);
+  width: 3rem;
+  height: 3rem;
+  z-index: calc(var(--ifm-z-index-fixed) - 1);
+  border: 2px solid var(--ifm-background-color);
+  transition: all var(--ifm-transition-fast)
+    var(--ifm-transition-timing-default);
+  color: var(--ifm-background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+
+  span {
+    font-size: 30px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--ifm-background-color);
+    color: var(--ifm-color-primary);
+    border: 2px solid var(--ifm-color-primary);
+  }
+}
+
+.home_main {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.home_item {
+  padding: 80px 12.5% 80px 12.5% !important;
+}
+
+.home_experience {
+  @extend .home_item;
+  background-color: var(--ifm-color-primary);
+}
+
+.home_training {
+  @extend .home_item;
+  background-color: var(--ifm-color-primary);
+}
+
+.home_courses {
+  @extend .home_item;
+  background-color: var(--ifm-secondary);
+}
+
+@media screen and (max-width: 1280px) {
+  .home_item {
+    padding: 60px 10% 60px 10% !important;
+  }
+
+  .home_section_title {
+    margin-bottom: 60px;
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .home_item {
+    padding: 40px 7.5% 40px 7.5% !important;
+  }
+
+  .home_section_title {
+    margin-bottom: 40px;
+    font-size: 35px;
+
+    &::before {
+      content: "-- ";
+    }
+
+    &::after {
+      content: " --";
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .home_section_title {
+    font-size: 30px;
+
+    &::before {
+      content: "- ";
+    }
+
+    &::after {
+      content: " -";
+    }
+  }
+}

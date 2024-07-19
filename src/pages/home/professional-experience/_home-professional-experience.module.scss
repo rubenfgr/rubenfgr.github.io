@@ -1,0 +1,73 @@
+@use "../../../css/shared/colors" as colors;
+@use "../../../css/shared/mixins" as mixins;
+
+
+.homeexperience_title {
+  @include mixins.home_section_title;
+  color: colors.$background-color;
+  text-align: center;
+}
+
+.homeexperience_container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.homeexperience_item_container {
+  display: grid;
+  grid-template-columns: 15% 85%;
+  color: colors.$background-color;
+}
+
+.homeexperience_item_duration {
+  color: colors.$background-color;
+  text-align: center;
+  background-color: colors.$color-primary;
+  height: 100%;
+  padding: 6px;
+  margin-bottom: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+.homeexperience_item_content {
+  border-left: 1px solid colors.$background-color;
+}
+
+.homeexperience_item_company {
+  color: var(--ifm-color-primary);
+  background-color: colors.$background-color;
+  padding: 6px;
+  border-radius: 0 4px 4px 0;
+}
+
+.homeexperience_item_experience_container {
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 1280px) {
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 720px) {
+  .homeexperience_item_container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .homeexperience_item_duration {
+    border-radius: 4px 4px 0 0;
+  }
+
+  .homeexperience_item_content {
+    border-left: 0;
+  }
+
+  .homeexperience_item_company {
+    text-align: center;
+    border-radius: 0;
+  }
+}

@@ -1,0 +1,20 @@
+@mixin home_section_title {
+    margin-bottom: 80px;
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+
+    span {
+      font-size: 45px;
+    }
+  
+    // &::before {
+    //   content: "--- ";
+    // }
+  
+    // &::after {
+    //   content: " ---";
+    // }
+  }

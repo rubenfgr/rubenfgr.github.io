@@ -1,0 +1,46 @@
+@use "../../../css/shared/colors" as colors;
+@use "../../../css/shared/mixins" as mixins;
+
+.homeskills_title {
+  @include mixins.home_section_title;
+  text-align: center;
+  color: colors.$color-primary;
+}
+
+.homeskills_items_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.homeskills_bar_container {
+  background-color: var(--ifm-background-color);
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid var(--ifm-color-primary);
+}
+
+.homeskills_bar {
+  background-color: var(--ifm-color-primary);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  line-height: 30px;
+  color: var(--ifm-background-color);
+  padding: 0 20px;
+  border-radius: 10px;
+  animation: normal;
+}
+
+@media screen and (max-width: 1280px) {
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 720px) {
+  .homeskills_items_container {
+    display: flex;
+    flex-direction: column;
+  }
+}

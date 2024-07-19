@@ -1,0 +1,17 @@
+@use '../shared/colors' as colors;
+
+@mixin social {
+  display: flex;
+  gap: 16px;
+  z-index: 10;
+}
+
+@mixin social__svg--hover {
+  cursor: pointer;
+  color: colors.$accent;
+  transition: all 300ms;
+  path {
+    fill: colors.$accent;
+    transition: all 300ms;
+  }
+}

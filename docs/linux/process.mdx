@@ -57,16 +57,83 @@ ps aux | less
 - up: tiempo que lleva el sistema en funcionamiento.
 - load average: carga media del sistema en los últimos 1, 5 y 15 minutos.
 - tasks: número de tareas en ejecución, en espera y detenidas.
-- %CPU: porcentaje de uso de la CPU.
-- %MEM: porcentaje de uso de la memoria.
+- %Cpu(s): porcentaje de uso de la CPU.
+- Mem: memoria total, usada, libre, compartida, búfer y caché.
+- Swap: memoria de intercambio total, usada y libre.
+- PID: identificador del proceso.
+- USER: usuario que ha lanzado el proceso.
+- PR: prioridad del proceso.
+- NI: nivel de planificación del proceso.
 - VIRT: tamaño virtual del proceso.
 - RES: tamaño real del proceso.
 - SHR: tamaño compartido del proceso.
 - S: estado del proceso.
+- %CPU: porcentaje de uso de la CPU.
+- %MEM: porcentaje de uso de la memoria.
 - TIME+: tiempo de CPU consumido por el proceso.
 - COMMAND: comando que se está ejecutando.
+
 
 
 ```bash
 # Actualizar la información cada 1 segundo
 top
+# Top abierto. Tiempo de actualización
+s
+# Top abierto. Cambiar unidad de consumo
+e
+# Top abierto. Filtrar por usuario
+u
+# Top abierto. Filtro personalizado
+o # Por ejemplo, %CPU > 2
+```
+
+## Interrumpir procesos
+
+- Ctrl + C: enviar la señal SIGINT al proceso. El proceso se detiene y se envía al segundo plano.
+- Ctrl + Z: enviar la señal SIGTSTP al proceso. El proceso se detiene y se envía al segundo plano.
+- kill: enviar una señal a un proceso. Por defecto, envía la señal SIGTERM.
+- killall: enviar una señal a todos los procesos que coincidan con un nombre. Por defecto, envía la señal SIGTERM.
+- pkill: enviar una señal a todos los procesos que coincidan con un patrón. Por defecto, envía la señal SIGTERM.
+- xkill: matar un proceso con el ratón. Seleccionar la ventana del proceso y hacer clic en ella.
+
+```bash
+# Reaunudar un proceso detenido
+bg %1
+# Enviar la señal SIGINT al proceso
+kill -2 PID
+# Enviar la señal SIGKILL al proceso
+kill -9 PID
+# Enviar la señal SIGTERM al proceso
+kill -15 PID
+# Enviar la señal SIGSTOP al proceso
+kill -19 PID
+# Enviar la señal SIGCONT al proceso
+kill -18 PID
+# Enviar la señal SIGTSTP al proceso
+kill -20 PID # Ctrl + Z
+kill -TSTP PID
+```
+
+# Segundo plano
+
+Un proceso en segundo plano es un proceso que se ejecuta en segundo plano sin bloquear la terminal. Para ejecutar un proceso en segundo plano, se añade el carácter `&` al final del comando. Para enviar un proceso en primer plano a segundo plano, se ejecuta el comando `bg`. Para enviar un proceso en segundo plano a primer plano, se ejecuta el comando `fg`.
+
+```bash
+# Ejecutar un proceso en segundo plano
+sleep 10 &
+# Enviar un proceso en primer plano a segundo plano
+bg %1
+# Ver los procesos en segundo plano
+jobs
+# Enviar un proceso en segundo plano a primer plano
+fg %1
+```
+
+# Señales (Signals)
+
+Las señales son mensajes que se envían a un proceso para notificarle un evento. Las señales se pueden enviar a un proceso mediante el comando `kill`. Algunas señales comunes son:
+
+- SIGINT: señal de interrupción. Se envía al pulsar Ctrl + C.
+- SIGTSTP: señal de parada. Se envía al pulsar Ctrl + Z.
+

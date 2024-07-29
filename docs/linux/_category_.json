@@ -1,8 +1,7 @@
 {
   "label": "Linux",
-  "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "5 minutes to learn the most important Docusaurus concepts."
+    "description": "Linux es un sistema operativo de código abierto, robusto y versátil que ha sido desarrollado y mejorado por una comunidad global de desarrolladores y usuarios."
   }
 }

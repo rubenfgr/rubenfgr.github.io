@@ -27,10 +27,29 @@ export default function SearchBarWrapper() {
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const resultRefs = useRef<(HTMLLIElement | null)[]>([]);
   const history = useHistory();
 
   useEffect(() => {
     documents.forEach((doc) => index.add(doc));
+
+    // Manejador para abrir la búsqueda con Ctrl + F
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key === "f") {
+        event.preventDefault();
+        setIsModalOpen(true);
+      } else if (event.key === "Escape") {
+        console.log(event.key);
+        setIsModalOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    // Limpiar el evento al desmontar el componente
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   useEffect(() => {
@@ -82,6 +101,12 @@ export default function SearchBarWrapper() {
     toggleModal();
   }
 
+  const handleKeyDown = (event: React.KeyboardEvent<any>, index: number) => {
+    if (event.key === "Enter" && resultRefs.current[index]) {
+      handleNavigate(resultRefs.current[index]?.dataset.path || "");
+    }
+  };
+
   return (
     <>
       <div className="search-icon" onClick={toggleModal}>
@@ -97,6 +122,7 @@ export default function SearchBarWrapper() {
               </span>
             </div>
             <input
+              tabIndex={0}
               className="search-modal--input"
               ref={inputRef}
               type="text"
@@ -105,46 +131,54 @@ export default function SearchBarWrapper() {
               onChange={handleSearch}
             />
             <div className="search-results">
-            {searchTitleResults.length > 0 && (
-              <>
-                <h3>Resultados por título</h3>
-                <ul>
-                  {searchTitleResults.map((result, index) => (
-                    <li
-                    className="search-results--item"
-                    key={`${index}-${result.id}`}
-                    onClick={() => handleNavigate(result.path)}
-                  >
-                    <span className="search-results--item-title">{result.title}</span>
-                    <span className="search-results--item-path">{result.path}</span>
-                    <span className="search-results--item-content">
-                      {removeMarkdown(result.content).substring(0, 100)}...
-                    </span>
-                  </li>
-                  ))}
-                </ul>
-              </>
-            )}
-            {searchContentResults.length > 0 && (
-              <>
-                <h3>Resultados por contenido</h3>
-                <ul>
-                  {searchContentResults.map((result, index) => (
-                    <li
-                      className="search-results--item"
-                      key={`${index}-${result.id}`}
-                      onClick={() => handleNavigate(result.path)}
-                    >
-                      <span className="search-results--item-title">{result.title}</span>
-                      <span className="search-results--item-path">{result.path}</span>
-                      <span className="search-results--item-content">
-                        {removeMarkdown(result.content).substring(0, 100)}...
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
+              {searchTitleResults.length > 0 && (
+                <>
+                  <h3>Resultados por título</h3>
+                  <ul>
+                    {searchTitleResults.map((result, index) => (
+                      <li
+                        tabIndex={0}
+                        ref={(el) => (resultRefs.current[index] = el)}
+                        data-path={result.path}
+                        className="search-results--item"
+                        key={`${index}-${result.id}`}
+                        onClick={() => handleNavigate(result.path)}
+                        onKeyDown={(event) => handleKeyDown(event, index)}
+                      >
+                        <span className="search-results--item-title">{result.title}</span>
+                        <span className="search-results--item-path">{result.path}</span>
+                        <span className="search-results--item-content">
+                          {removeMarkdown(result.content).substring(0, 100)}...
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              {searchContentResults.length > 0 && (
+                <>
+                  <h3>Resultados por contenido</h3>
+                  <ul>
+                    {searchContentResults.map((result, index) => (
+                      <li
+                        tabIndex={0}
+                        ref={(el) => (resultRefs.current[searchTitleResults.length + index] = el)}
+                        data-path={result.path}
+                        className="search-results--item"
+                        key={`${index}-${result.id}`}
+                        onClick={() => handleNavigate(result.path)}
+                        onKeyDown={(event) => handleKeyDown(event, searchTitleResults.length + index)}
+                      >
+                        <span className="search-results--item-title">{result.title}</span>
+                        <span className="search-results--item-path">{result.path}</span>
+                        <span className="search-results--item-content">
+                          {removeMarkdown(result.content).substring(0, 100)}...
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </div>
           </div>
         </div>

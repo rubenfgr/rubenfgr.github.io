@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkruben_rosales_web=self.webpackChunkruben_rosales_web||[]).push([[9700],{5688:e=>{e.exports=JSON.parse('{"label":"hola","permalink":"/blog/tags/hola","allTagsPath":"/blog/tags","count":1}')}}]);

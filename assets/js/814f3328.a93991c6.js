@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrubenfgr_website=self.webpackChunkrubenfgr_website||[]).push([[7472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Bienvenidos","permalink":"/blog/welcome","unlisted":false}]}')}}]);

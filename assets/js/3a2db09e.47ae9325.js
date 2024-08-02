@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrubenfgr_website=self.webpackChunkrubenfgr_website||[]).push([[8121],{8070:e=>{e.exports=JSON.parse('{"tags":[{"label":"Blog","permalink":"/blog/tags/blog","description":"Noticas y novedades del portafolio","count":1}]}')}}]);

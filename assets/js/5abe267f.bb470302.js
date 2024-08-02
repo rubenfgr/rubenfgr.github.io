@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkruben_rosales_web=self.webpackChunkruben_rosales_web||[]).push([[7980],{5745:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-pages","id":"default"}')}}]);

@@ -1,0 +1,263 @@
+---
+
+---
+
+# Markdown
+
+## Referencias
+
+- Fuente de información: [Enlace](https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/tutorial-de-markdown/)
+- Tutorial Markdown de GitHub: [Enlace](http://www.markdowntutorial.com/)
+- GitHub Markdown Sheet: [Enlace](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
+- Emojis de GitHub: [Enlace](https://www.webpagefx.com/tools/emoji-cheat-sheet/)
+- IMPORTANTE: [Enlace](https://markdown.es/sintaxis-markdown/)
+
+## Negrita y cursiva
+
+```md
+_Texto en cursiva_
+```
+
+_Texto en cursiva_
+
+```md
+**Texto en negrita**
+```
+
+**Texto en negrita**
+
+```md
+**_Texto en cursiva y negrita_**
+```
+
+**_Texto en cursiva y negrita_**
+
+## Tachado
+
+```md
+~~Este texto está tachado.~~ Pero este no.
+```
+
+~~Este texto está tachado.~~ Pero este no.
+
+## Subrayado
+
+```md
+---
+```
+
+---
+
+## Títulos y subtítulos
+
+```d
+# Título 1
+## Título 2
+### Título 3
+#### Título 4
+##### Título 5
+###### Título 6
+```
+
+## Párrafos
+
+Línea en blanco completamente
+
+## Comillas y sangrado
+
+```md
+> Este es un **fragmento con comillas**.
+> El fragmento continúa aquí.
+
+> Este es otro **fragmento con comillas**.
+> Este fragmento continúa en la siguiente línea.
+
+Esta línea ya no está sangrada.
+```
+
+> Este es un **fragmento con comillas**.
+> El fragmento continúa aquí.
+
+> Este es otro **fragmento con comillas**.
+> Este fragmento continúa en la siguiente línea.
+
+Esta línea ya no está sangrada.
+
+## Listas
+
+> - **No ordenada**
+
+```md
+- Elemento de la lista 1
+- Elemento de la lista 2
+- Elemento de la lista 3
+```
+
+- Elemento de la lista 1
+- Elemento de la lista 2
+- Elemento de la lista 3
+
+> - **Ordenada**
+
+```md
+1. Elemento de la lista 1
+2. Elemento de la lista 2
+3. Elemento de la lista 3
+```
+
+1. Elemento de la lista 1
+2. Elemento de la lista 2
+3. Elemento de la lista 3
+
+## Casillas de verificación
+
+```md
+- [ ] A
+- [x] B
+- [ ] C
+```
+
+- [ ] A
+- [x] B
+- [ ] C
+
+## Código
+
+> - **Código**
+
+```md
+Esto es `código`.
+```
+
+Esto es `código`.
+
+> - **Código línea**
+
+```
+``Todo esto es `código`.``
+```
+
+`` Todo esto es `código`. ``
+
+> - **bloque**
+
+````md
+```html
+<html>
+  <head> </head>
+</html>
+```
+````
+
+```html
+<html>
+  <head> </head>
+</html>
+```
+
+## Hipervínculos
+
+```md
+A continuación se muestra un [Enlace](https://ejemplo.com/ "Título opcional del enlace")
+```
+
+A continuación se muestra un [Enlace](https://ejemplo.com/ "Título opcional del enlace")
+
+## Imágenes
+
+```md
+![Esta es una imagen de ejemplo](./static/markdown.png)
+```
+
+![Esta es una imagen de ejemplo](./static/markdown.png)
+
+> - **Imagen + Hipervínculo**
+
+```md
+[![Esta es una imagen de ejemplo](./static/markdown.png)](https://ejemplo.com)
+```
+
+[![Esta es una imagen de ejemplo](./static/markdown.png)](https://ejemplo.com)
+
+## Tablas
+
+```md
+| Columna 1 | Columna 2 |
+| --------- | --------- |
+| A         | B         |
+| C         | D         |
+```
+
+| Columna 1 | Columna 2 |
+| --------- | --------- |
+| A         | B         |
+| C         | D         |
+
+## Notas al pie de página
+
+Puedes colocar [^1] notas en el pie de página [^2] fácilmente.
+
+[^1]: Aquí encuentras el texto de la nota al pie de página.
+[^2]: **Las notas de pie de página** pueden _formatearse_ también.
+
+Estas pueden ocupar varias líneas.
+
+## & y \<\>
+
+A & B
+&alpha;
+1 < 2
+&gt;
+&lt;
+
+## Escape
+
+Asterisco: \*
+
+Guion: -
+
+Guion bajo: \_
+
+Paréntesis: ()
+
+Corchetes: []
+
+Llaves: {}
+
+Punto: .
+
+Signo de exclamación: !
+
+Almohadilla: #
+
+Acento grave: `
+
+Barra invertida: \
+
+Esto es un \*ejemplo con asteriscos\*.
+
+## Emojis
+
+Referencia: [www.emoji-cheat-sheet.com](https://www.webfx.com/tools/emoji-cheat-sheet)
+
+```md
+:+1: :sparkles: :camel: :tada: :rocket: :metal: :octocat:
+```
+
+:+1: :sparkles: :camel: :tada: :rocket:
+
+## Github issues | pull-request
+
+Cualquier número que referencie un issue o pull-request será convertido en un enlace
+
+```md
+#1
+github-flavored-markdown#1
+defunkt/github-flavored-markdown#1
+```
+
+## Github mención a usuarios
+
+```md
+@usuario
+```

@@ -1,0 +1,8 @@
+{
+    "label": "Web components",
+    "link": {
+      "type": "generated-index",
+      "description": "Conjunto de diferentes tecnologías que le permiten crear elementos personalizados reutilizables, con su funcionalidad encapsulada fuera del resto de su código, y utilizarlos en sus aplicaciones web."
+    }
+  }
+  

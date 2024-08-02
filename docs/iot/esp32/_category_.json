@@ -1,0 +1,7 @@
+{
+  "label": "ESP32",
+  "link": {
+    "type": "generated-index",
+    "description": "El ESP32 es un microcontrolador de bajo costo y alto rendimiento, desarrollado por Espressif Systems. Se caracteriza por su conectividad Wi-Fi y Bluetooth integrada, así como por su amplia capacidad de procesamiento y múltiples interfaces de E/S (Entradas/Salidas). Es una opción popular en la comunidad de desarrolladores y makers debido a su versatilidad y capacidad para proyectos de Internet de las Cosas (IoT), domótica, y electrónica en general."
+  }
+}

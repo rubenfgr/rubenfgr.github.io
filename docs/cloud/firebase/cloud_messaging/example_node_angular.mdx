@@ -1,0 +1,241 @@
+---
+title: "Ejemplo Node + Angular"
+sidebar_position: 3
+---
+
+:::info Repositorio
+
+Incluye el proyecto de Node (back) y Angular (front)
+
+[https://github.com/rubenfgr-doc/firebase-fcm-node-angular](https://github.com/rubenfgr-doc/firebase-fcm-node-angular)
+
+:::
+
+## Configurar FCM en la Consola de Firebase
+
+- Entramos al apartado de proyectos de Firebase
+- Agregamos un nuevo proyecto con el nombre: test-push-notifications
+- Deseleccionamos Google Analytics y lo creamos
+- Seleccionamos Participación / Messaging
+- Agregamos una App Web 
+- Sobrenombre: Test Push Notifications
+- Clic en "Registrar app"
+- En este punto no hacemos nada más (volvemos a la consola)
+
+## Configurar backend (Node)
+
+- En la consola de firebase, vamos a "Descripción general" > Configuración del proyecto
+- Pestaña de "Cuentas de servicio"
+- Clic en "Administrar permisos de la cuenta de servicio"
+- En el menú, seleccionamos APIs y servicios > APIs y servicios habilitados > HABILITAR APIS Y SERVICIOS
+- Buscamos "messaging"
+- Habilitamos: Cloud Messaging, Firebase Cloud Messaging API y FCM Registration API
+- En la consola, seleccionamos Node.js
+- Clic en Generar nueva clave privada
+- Renombramos el .json descargado a key.json
+- Creamos el proyecto de backend
+
+```sh
+mkdir test-push-notifications-back
+cd test-push-notifications-back
+npm init -y
+touch index.js
+npm i firebase@10.1.0
+```
+
+- Copiamos key.json en la raíz del proyecto
+- Agregamos el siguiente código en el index.js
+
+```js title="index.js"
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./key.json");
+
+var app = admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
+
+admin
+  .messaging(app)
+  .send({
+    token: "<AQUI-EL-TOKEN-DE-CLIENTE>",
+    data: { title: "Título", message: "Mensaje" },
+  })
+  .then((v) => {
+    console.log("Ok", v);
+  })
+  .catch((err) => {
+    console.log("KO", err);
+  });
+```
+
+## Configurar frontend (Angular)
+
+- Iniciamos un proyecto de Angular
+
+```sh
+ng new test-push-notifications-front
+cd test-push-notifications-front
+touch src/firebase-messaging-sw.js
+npm i firebase@10.1.0
+```
+
+- Modificamos el angular.json
+
+Agregamos el archivo firebase-messaging-sw.js en los assets.
+
+```json title=angular.json
+{
+  ...
+  "projects": {
+    "front": {
+      ...
+      "architect": {
+        "build": {
+          ...
+          "options": {
+            ...
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/firebase-messaging-sw.js"
+            ],
+            ...
+          },
+        }
+      }
+    }
+  }
+}
+```
+
+- Agregamos el siguiente código en firebase-messaging-sw.js
+
+La configuración la obtenemos en la consola de firebase > Configuración del proyecto > General
+
+```js title=firebase-messaging-sw.js
+importScripts(
+  "https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"
+);
+importScripts(
+  "https://www.gstatic.com/firebasejs/10.1.0/firebase-messaging-compat.js"
+);
+
+// Initialize the Firebase app in the service worker by passing the generated config
+var firebaseConfig = {
+  apiKey: "AIzaSyD9CxihmhjZYx7coxsRvjNY1WOUCumJGDU",
+  authDomain: "push-notifications-96ab3.firebaseapp.com",
+  projectId: "push-notifications-96ab3",
+  storageBucket: "push-notifications-96ab3.appspot.com",
+  messagingSenderId: "265925964312",
+  appId: "1:265925964312:web:e05d6f5246c1d9eb5a496d",
+  measurementId: "G-QBJE50HT2H",
+};
+
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+const messaging = firebase.messaging(firebaseApp);
+```
+
+- Modificamos el main.ts
+
+```ts title=main.ts
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+
+import { AppModule } from "./app/app.module";
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD9CxihmhjZYx7coxsRvjNY1WOUCumJGDU",
+  authDomain: "push-notifications-96ab3.firebaseapp.com",
+  projectId: "push-notifications-96ab3",
+  storageBucket: "push-notifications-96ab3.appspot.com",
+  messagingSenderId: "265925964312",
+  appId: "1:265925964312:web:e05d6f5246c1d9eb5a496d",
+  measurementId: "G-QBJE50HT2H",
+};
+
+initializeApp(firebaseConfig);
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch((err) => console.error(err));
+```
+
+- Modificamos el app.component.ts
+
+```ts title=app.component.ts
+import { Component, OnInit } from "@angular/core";
+import {
+  getMessaging,
+  getToken,
+  onMessage,
+  Messaging,
+} from "@firebase/messaging";
+
+@Component({
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
+})
+export class AppComponent implements OnInit {
+  title = "FCM Received Message";
+  payload = {};
+  token = "";
+
+  ngOnInit(): void {
+    const messaging: Messaging = getMessaging();
+
+    getToken(messaging, {
+      vapidKey:
+        "BAaTt4I12tsLSyl11S8hENePANoCp8FfzrjaPhczENU6Gnv9ZScgzOJPuy_-GwpbCogEg5ZxkEQLSzeOzVIckx8",
+    })
+      .then((currentToken) => {
+        if (currentToken) {
+          // Send the token to your server and update the UI if necessary
+          // ...
+          console.log("currentToken: ", currentToken);
+          this.token = currentToken;
+        } else {
+          // Show permission request UI
+          console.log(
+            "No registration token available. Request permission to generate one."
+          );
+          // ...
+        }
+      })
+      .catch((err) => {
+        console.log("An error occurred while retrieving token. ", err);
+        // ...
+      });
+
+    onMessage(messaging, (payload) => {
+      console.log("Message received (foreground): ", payload);
+      this.payload = payload;
+    });
+  }
+}
+```
+
+- Modificamos el app.component.html
+
+```html title=app.component.html
+<h1>{{ title }}</h1>
+<h2>Token</h2>
+<pre>
+{{ token }}
+</pre>
+<h2>Payload</h2>
+<pre>
+  {{ payload | json }}
+</pre>
+```
+
+## Obtener token en front y usar en back
+
+- Front. Ejecutamos el proyecto y copiamose el token que se imprimirá por html o consola
+- Back. Copiamos el token en: AQUI-EL-TOKEN-DE-CLIENTE
+- Ejecutamos el back
+- En este momento el front a tenido que recibir el mensaje del back y mostrarlo en pantalla

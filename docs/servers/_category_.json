@@ -1,0 +1,7 @@
+{
+  "label": "Servidores",
+  "link": {
+    "type": "generated-index",
+    "description": "Un servidor es un sistema informático que proporciona servicios, recursos, datos y aplicaciones a otros dispositivos llamados clientes, a través de una red, que puede ser una red local (LAN) o una red extensa (WAN), como Internet. Los servidores pueden ser hardware dedicado, software ejecutándose en un hardware compartido, o incluso servicios virtualizados en la nube."
+  }
+}

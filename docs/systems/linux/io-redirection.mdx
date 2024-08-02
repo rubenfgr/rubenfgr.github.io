@@ -1,0 +1,232 @@
+---
+sidebar_position: 5
+---
+
+# Redirecciones y pipelines
+
+## I/O Redirection
+
+La redirección de entrada/salida (I/O) es un mecanismo que permite cambiar la fuente o el destino de los flujos de entrada y salida de un comando en un sistema operativo Unix/Linux. Los flujos de entrada y salida estándar son:
+
+- /dev/stdin: entrada estándar
+- /dev/stdout: salida estándar
+- /dev/stderr: salida de error
+
+## Standard Output (stdout)
+
+La redirección de la salida estándar (stdout) permite enviar la salida de un comando a un archivo en lugar de a la pantalla. Para redirigir la salida estándar a un archivo, se utiliza el operador `>` seguido del nombre del archivo.
+
+```sh
+# Redirigir la salida estándar a un archivo
+comando > archivo
+# Concatenar la salida estándar a un archivo
+comando >> archivo
+```
+
+## Standard Error (stderr)
+
+La redirección de la salida de error (stderr) permite enviar los mensajes de error generados por un comando a un archivo en lugar de a la pantalla. Para redirigir la salida de error a un archivo, se utiliza el operador `2>` seguido del nombre del archivo.
+
+```sh
+# Redirigir la salida de error a un archivo
+comando 2> archivo
+# Concatenar la salida de error a un archivo
+comando 2>> archivo
+```
+
+### Redirección de la salida estándar y de error
+
+La redirección de la salida estándar y de error permite enviar tanto la salida estándar como la salida de error a un archivo. Para redirigir la salida estándar y de error a un archivo, se utiliza el operador `&>` seguido del nombre del archivo.
+
+```sh
+# Redirigir la salida estándar y de error a un archivo
+comando &> archivo
+# Concatenar la salida estándar y de error a un archivo
+comando &>> archivo
+# Antiguamente
+comando > archivo 2>&1
+```
+
+## /dev/null
+
+El archivo especial `/dev/null` es un dispositivo de nulo que descarta toda la entrada que recibe y devuelve un final de archivo (EOF, End Of File) inmediatamente. Se utiliza para redirigir la salida estándar o de error a la nada.
+
+```sh
+# Redirigir la salida estándar a /dev/null
+comando > /dev/null
+# Redirigir la salida de error a /dev/null
+comando 2> /dev/null
+# Redirigir la salida estándar y de error a /dev/null
+comando &> /dev/null
+# Ejemplo: redirigir la salida de error a /dev/null
+find /var/log -name auth.log 2> /dev/null
+```
+
+## Standar Input (stdin)
+
+La redirección de la entrada estándar (stdin) permite enviar un archivo como entrada a un comando en lugar de introducir los datos manualmente. Para redirigir la entrada estándar a un comando, se utiliza el operador `<` seguido del nombre del archivo.
+
+>cat recibe la entrada estándar y la imprime en la salida estándar.
+
+```sh
+# Redirigir la entrada estándar a un comando
+comando < archivo
+# Ejemplo: contar las líneas de un archivo
+wc -l < archivo
+# Añadir varias líneas a un archivo
+cat << EOF > archivo
+línea 1
+línea 2
+EOF
+# Sin EOF
+cat > archivo
+```
+
+## Pipelines
+
+Un pipeline es una secuencia de comandos conectados por tuberías (pipes) que permite enviar la salida de un comando como entrada a otro comando. Para crear un pipeline, se utiliza el operador `|` entre los comandos.
+
+>xargs: convierte la salida de un comando en argumentos de otro comando.
+
+```sh
+# Pipeline: comando1 | comando2
+comando1 | comando2
+# Ejemplo: contar las líneas de un archivo
+cat archivo | wc -l
+# Ejemplo: buscar un archivo y contar las líneas
+find /var/log -name auth.log | xargs wc -l
+# Ejemplo con ls
+ls -l /usr/bin | less
+```
+
+## Filtros y búsquedas: sort, uniq, wc
+
+Los filtros y búsquedas son comandos que permiten manipular y buscar información en los flujos de entrada y salida. Algunos de los filtros y búsquedas más comunes son:
+
+- `sort`: Ordena las líneas de un archivo.
+- `uniq`: Filtra líneas duplicadas consecutivas.
+- `wc`: Cuenta las líneas, palabras y caracteres de un archivo.
+
+```sh
+# Ordenar las líneas de un archivo
+sort archivo
+# Filtrar líneas duplicadas consecutivas
+uniq archivo
+# Contar las líneas, palabras y caracteres de un archivo
+wc archivo
+# Ejemplo de ls + sort + uniq + less
+ls -l /bin /usr/bin | sort | uniq | less
+# Ver los duplicados de anterior
+ls -l /bin /usr/bin | sort | uniq -d | less
+# Ejemplo de wc
+# Salida: líneas palabras caracteres archivo
+wc /var/log/auth.log
+# Cuantos ficheros hay en /usr/bin
+ls -l /bin /usr/bin | uniq | wc -l
+```
+
+## Filtros y búsquedas: grep, head, tail, tee
+
+Otros filtros y búsquedas comunes son:
+
+- `grep`: Busca líneas que contienen un patrón.
+- `head`: Muestra las primeras líneas de un archivo.
+- `tail`: Muestra las últimas líneas de un archivo.
+- `tee`: Divide la salida de un comando en un archivo y la pantalla.
+
+```sh
+# Buscar líneas que contienen un patrón
+grep patrón archivo
+# Mostrar las primeras líneas de un archivo
+head archivo
+# Mostrar las últimas líneas de un archivo
+tail archivo
+# Dividir la salida de un comando en un archivo y la pantalla
+comando | tee archivo
+# Ejemplo de grep
+grep $USER /var/log/auth.log
+# Ejemplo de grep ignorando mayúsculas y minúsculas
+grep -i $USER /var/log/auth.log
+# Ejemplo de grep ignorando líneas que contienen un patrón
+grep -v $USER archivo
+# Ejemplo de head
+head -n 10 /var/log/auth.log
+# Ejemplo de tail
+tail -n 10 /var/log/auth.log
+# Ver cambios de fichero en tiempo real con tail
+tail -f /var/log/auth.log
+# Ejemplo de tee
+ls -l /usr/bin | tee lista.txt
+# tee para volcar la salida de un comando a un fichero y a la salida estándar
+ls -l /usr/bin | tee lista.txt | less
+```
+
+## Ejercicios
+
+- Muestra por pantalla todos los archivos y directorios que tienes en tu directorio de trabajo ordenados por tamaño
+
+```sh
+ls -lS ~
+ls -l ~ | sort -h -rk5
+# h human readable
+# r reverse
+# k key
+```
+
+- Crea un nuevo fichero en tu sistema Linux ejecutando el siguiente comando:
+
+> echo -e "rojo,1,coche,madrid\nazul,4,moto,mexico\namarillo,2,bicicleta,paris\nverde,6,avion,roma" > fichero.csv
+
+Ordena el fichero que acabas de crear (fichero.csv) por el segundo campo teniendo en cuenta que los campos están separados por el delimitador ,
+
+```sh
+sort -t ',' -nk2 fichero.csv
+# t delimitador
+# n numérico
+# k key
+```
+
+## Comando sed
+
+El comando `sed` (stream editor) es un editor de flujo que permite realizar operaciones de búsqueda y sustitución en un flujo de texto. Algunas de las operaciones más comunes que se pueden realizar con `sed` son:
+
+- `s`: Sustituye un patrón por otro.
+- `d`: Borra líneas que coinciden con un patrón.
+- `p`: Imprime líneas que coinciden con un patrón.
+
+```sh
+# Sustituir un patrón por otro
+sed 's/patrón/sustitución/' archivo
+# Sustituir todas las ocurrencias de un patrón
+sed 's/patrón/sustitución/g' archivo
+# Sustituir un patrón por otro en un rango de líneas
+sed 'inicio,fin s/patrón/sustitución/' archivo
+# Sustituir un patrón por otro en un rango de líneas y guardar el resultado en un nuevo archivo
+sed 'inicio,fin s/patrón/sustitución/' archivo > nuevo_archivo
+# Borrar líneas que coinciden con un patrón
+sed '/patrón/d' archivo
+# Imprimir líneas que coinciden con un patrón
+sed -n '/patrón/p' archivo
+# Imprimir líneas que coinciden con un patrón y guardar el resultado en un nuevo archivo
+sed -n '/patrón/p' archivo > nuevo_archivo
+```
+
+### Ejemplos de uso de sed
+
+- Reemplazar o sustituir una cadena de texto en un fichero
+
+```sh
+sed 's/rojo/azul/g' fichero.txt
+```
+
+- Reemplazar una cadena de texto en una línea determinada de un fichero
+
+```sh
+sed '2 s/rojo/azul/' fichero.txt
+```
+
+- Añadir un carácter al comienzo de cada línea de un fichero
+
+```sh
+sed 's/^/-->/g' fichero.txt
+```

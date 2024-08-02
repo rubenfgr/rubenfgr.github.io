@@ -1,0 +1,7 @@
+{
+  "label": "Docker",
+  "link": {
+    "type": "generated-index",
+    "description": "Docker es una plataforma de software que permite a los desarrolladores construir, probar y desplegar aplicaciones rápidamente mediante el uso de contenedores. Los contenedores son entornos ligeros y portátiles que incluyen todo lo necesario para ejecutar una aplicación, lo que garantiza que se ejecutará de la misma manera sin importar dónde se despliegue."
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "label": "Nginx",
+  "link": {
+    "type": "generated-index",
+    "description": "Nginx es un servidor web y proxy inverso de alto rendimiento, conocido por su capacidad para manejar una gran cantidad de conexiones concurrentes con un uso eficiente de recursos."
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "label": "Protocolos",
+  "link": {
+    "type": "generated-index",
+    "description": "Los protocolos de red son reglas y estándares que permiten la comunicación entre dispositivos en una red. Ejemplos comunes incluyen FTP (File Transfer Protocol) para la transferencia de archivos, MQTT (Message Queuing Telemetry Transport) para la comunicación en sistemas IoT, y SSH (Secure Shell) para el acceso seguro a sistemas remotos."
+  }
+}

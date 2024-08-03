@@ -1,20 +1,42 @@
 @mixin home_section_title {
-    margin-bottom: 80px;
-    font-size: 45px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
+  margin-top: 15px;
+  margin-bottom: 60px;
+  font-size: 45px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
 
-    span {
-      font-size: 45px;
-    }
-  
-    // &::before {
-    //   content: "--- ";
-    // }
-  
-    // &::after {
-    //   content: " ---";
-    // }
+  span {
+    font-size: 45px;
   }
+
+  @media screen and (max-width: 1280px) {
+    font-size: 40px;
+    span {
+      font-size: 40px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    font-size: 35px;
+    span {
+      font-size: 35px;
+    }
+  }
+
+  @media screen and (max-width: 720px) {
+    font-size: 30px;
+    span {
+      font-size: 30px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 25px;
+    span {
+      font-size: 25px;
+    }
+  }
+
+}

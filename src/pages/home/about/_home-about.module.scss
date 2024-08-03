@@ -1,5 +1,6 @@
 @use "../../../css/shared/colors.scss" as colors;
 @use "../../../css/components/button" as button;
+@use "../../../css/shared/mixins" as mixins;
 
 .homeabout {
   display: flex;
@@ -20,15 +21,9 @@
 }
 
 .homeabout_title {
+  @include mixins.home_section_title;
+  text-align: center;
   color: colors.$color-primary;
-  font-size: 45px;
-  display: flex;
-  align-items: center;
-  width: 100%;
-
-  span {
-    font-size: 45px;
-  }
 }
 
 .homeabout_buttons {
@@ -57,6 +52,10 @@
 
   .homeabout_img {
     max-width: 250px;
+  }
+
+  .homeabout_buttons {
+    flex-direction: column;
   }
 }
 

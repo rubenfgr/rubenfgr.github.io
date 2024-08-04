@@ -5,6 +5,7 @@
   @include mixins.home_section_title;
   text-align: center;
   color: colors.$background-color;
+  margin-bottom: 2em;
 }
 
 .hometraining_top {
@@ -75,6 +76,10 @@
   .hometraining_top {
     grid-template-columns: repeat(2, 50%);
     gap: 30px;
+  }
+
+  .hometraining_title {
+    margin-bottom: 1.5em;
   }
 }
 

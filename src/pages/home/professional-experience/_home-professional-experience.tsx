@@ -11,8 +11,10 @@ export default function HomeProfessionalExperience(): JSX.Element {
       </h2>
       <div className={styles.homeexperience_container}>
         {professionalExperiencies &&
-          professionalExperiencies.map((professionalExperience) => (
-            <div className={styles.homeexperience_item_container}>
+          professionalExperiencies.map((professionalExperience, index) => (
+            <div 
+              key={'profesionalExperience_' + index} 
+              className={styles.homeexperience_item_container}>
               <h3 className={styles.homeexperience_item_duration}>
                 {professionalExperience.durationRange}
               </h3>
@@ -21,8 +23,8 @@ export default function HomeProfessionalExperience(): JSX.Element {
                   {professionalExperience.company}
                 </div>
                 <ul className={styles.homeexperience_item_experience_container}>
-                  {professionalExperience.experiencies.map((experience) => (
-                    <li>
+                  {professionalExperience.experiencies.map((experience, index) => (
+                    <li key={'experience_' + index}>
                       <span>{experience.type}</span>
                       <span>. {experience.description}</span>
                     </li>

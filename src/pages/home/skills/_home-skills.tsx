@@ -9,8 +9,10 @@ export default function HomeSkills(): JSX.Element {
       <span className="material-icons">bar_chart</span>SKILLS</h2>
       <div className={styles.homeskills_items_container}>
         {skills &&
-          skills.map((skill) => (
-            <div className={styles.homeskills_item}>
+          skills.map((skill, index) => (
+            <div 
+              key={'skill_' + index} 
+              className={styles.homeskills_item}>
               <span>{skill.name}</span>
               <div className={styles.homeskills_bar_container}>
                 <div

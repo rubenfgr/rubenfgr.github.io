@@ -10,8 +10,9 @@ export default function HomeTraining(): JSX.Element {
         FORMACIÓN
       </h2>
       <div className={styles.hometraining_top}>
-        {trainings.map((academicFormation) => (
+        {trainings.map((academicFormation, index) => (
           <div
+            key={'training_' + index}
             className={styles.hometraining_top_item_container}
             onClick={() => window.open(academicFormation.url, "_blank")}
           >

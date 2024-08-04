@@ -10,14 +10,17 @@ export default function HomeCourses(): JSX.Element {
         OTROS CURSOS
       </h2>
       <div className={styles.homecourses_container}>
-        {courses.map((courses) => (
-          <div className={styles.homecourses_courses_container}>
+        {courses.map((courses, index) => (
+          <div 
+            key={'homeCourse_' + index}
+            className={styles.homecourses_courses_container}>
             <div className={styles.homecourses_courses_year}>
               <h3>{courses.year}</h3>
             </div>
             <div className={styles.homecourses_courses_items}>
-              {courses.courses.map((course) => (
+              {courses.courses.map((course, index) => (
                 <div
+                  key={'course_' + index}
                   className={styles.homecourses_course_container}
                   onClick={() => window.open(course.url, "_blank")}
                 >

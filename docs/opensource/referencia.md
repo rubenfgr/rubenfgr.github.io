@@ -4,23 +4,27 @@ title: "Referencia"
 
 ## Dibujo digital
 
-- **Krita**. Pintura y dibujo digital
-  [https://maslinux.es/software-libre-excelente-el-caso-de-krita/](https://maslinux.es/software-libre-excelente-el-caso-de-krita/)
+- [Krita](https://maslinux.es/software-libre-excelente-el-caso-de-krita/) Pintura y dibujo digital
 
 ## Música
 
-- **MIXX**. Herramienta DJ
-  [https://www.mixxx.org](https://www.mixxx.org)
-
+- [MIXX](https://www.mixxx.org) Herramienta DJ
+  
 ## Mensajería
 
-- **Pidgin**. Mensajería instantánea multiprotocolo
-  [http://pidgin.im/](http://pidgin.im/)
+- [Pidgin](http://pidgin.im/) Mensajería instantánea multiprotocolo
 
 ## Cliente Git
 
-- **Source Tree**. Cliente gráfico de Git
-  [https://www.sourcetreeapp.com/](https://www.sourcetreeapp.com/)
+- [Source Tree](https://www.sourcetreeapp.com/) Cliente gráfico de Git
+
+## Editor de Video
+
+- [ShotCut](https://shotcut.org/) Gratuito, de código abierto y multiplataforma
+
+## Grabación de vídeo
+
+- [OBS Studio](https://obsproject.com/) Software libre y de código abierto para grabación de video y transmisión en vivo
 
 ## Estadísticas Sistema Operativo
 

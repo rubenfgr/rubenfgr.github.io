@@ -212,7 +212,7 @@
   {
     "id": 35,
     "title": "referencia",
-    "content": "\r\n## Dibujo digital\r\n\r\n- **Krita**. Pintura y dibujo digital\r\n  [https://maslinux.es/software-libre-excelente-el-caso-de-krita/](https://maslinux.es/software-libre-excelente-el-caso-de-krita/)\r\n\r\n## Música\r\n\r\n- **MIXX**. Herramienta DJ\r\n  [https://www.mixxx.org](https://www.mixxx.org)\r\n\r\n## Mensajería\r\n\r\n- **Pidgin**. Mensajería instantánea multiprotocolo\r\n  [http://pidgin.im/](http://pidgin.im/)\r\n\r\n## Cliente Git\r\n\r\n- **Source Tree**. Cliente gráfico de Git\r\n  [https://www.sourcetreeapp.com/](https://www.sourcetreeapp.com/)\r\n\r\n## Estadísticas Sistema Operativo\r\n\r\n- **SAR**. Muestra todo tipo de estadísticas del sistema operativo\r\n  ",
+    "content": "\r\n## Dibujo digital\r\n\r\n- [Krita](https://maslinux.es/software-libre-excelente-el-caso-de-krita/) Pintura y dibujo digital\r\n\r\n## Música\r\n\r\n- [MIXX](https://www.mixxx.org) Herramienta DJ\r\n  \r\n## Mensajería\r\n\r\n- [Pidgin](http://pidgin.im/) Mensajería instantánea multiprotocolo\r\n\r\n## Cliente Git\r\n\r\n- [Source Tree](https://www.sourcetreeapp.com/) Cliente gráfico de Git\r\n\r\n## Editor de Video\r\n\r\n- [ShotCut](https://shotcut.org/) Gratuito, de código abierto y multiplataforma\r\n\r\n## Grabación de vídeo\r\n\r\n- [OBS Studio](https://obsproject.com/) Software libre y de código abierto para grabación de video y transmisión en vivo\r\n\r\n## Estadísticas Sistema Operativo\r\n\r\n- **SAR**. Muestra todo tipo de estadísticas del sistema operativo\r\n  ",
     "path": "/opensource/referencia"
   },
   {

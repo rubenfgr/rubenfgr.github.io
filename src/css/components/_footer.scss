@@ -1,9 +1,31 @@
-
 @use 'social';
+
+.footer {
+  background-color: var(--ifm-footer-background);
+  color: var(--ifm-footer-text);
+  padding: 20px;
+  text-align: center;
+}
+
+.footer a {
+  color: var(--ifm-color-accent);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
 
 .footer__social {
     @include social.social;
     justify-content: center;
+  }
+  
+  .footer__social__svg {
+    fill: var(--ifm-footer-text);
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
   }
   
   .footer__social__svg:hover {
@@ -15,7 +37,7 @@
   }
   
   .footer__material-symbols-outlined {
-    color: #9bc0d9;
+    color: var(--ifm-footer-link-color);
   }
   
   .footer__contact-info__item {
@@ -26,11 +48,11 @@
   }
   
   .footer__contact-info__item a {
-    color: #fefefe;
+    color: var(--ifm-footer-text);
   }
   
   .footer__contact-info__item:hover a {
-    color: #ee6b4d;
+    color: var(--ifm-color-accent);
   }
   
   .footer__link-item:hover {

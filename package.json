@@ -16,26 +16,26 @@
     "build:index": "tsc generateSearchIndex.ts && node generateSearchIndex.js"
   },
   "dependencies": {
-    "@docusaurus/core": "3.4.0",
-    "@docusaurus/preset-classic": "3.4.0",
-    "@mdx-js/react": "^3.0.0",
-    "clsx": "^2.0.0",
-    "docusaurus-plugin-sass": "^0.2.5",
-    "flexsearch": "^0.7.43",
+    "@docusaurus/core": "3.7.0",
+    "@docusaurus/preset-classic": "3.7.0",
+    "@mdx-js/react": "^3.1.0",
+    "clsx": "^2.1.1",
+    "docusaurus-plugin-sass": "^0.2.6",
+    "flexsearch": "^0.8.149",
     "gray-matter": "^4.0.3",
-    "prism-react-renderer": "^2.3.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "remove-markdown": "^0.5.0",
-    "sass": "^1.77.6"
+    "prism-react-renderer": "^2.4.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "remove-markdown": "^0.6.0",
+    "sass": "^1.86.3"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.4.0",
-    "@docusaurus/tsconfig": "3.4.0",
-    "@docusaurus/types": "3.4.0",
+    "@docusaurus/module-type-aliases": "3.7.0",
+    "@docusaurus/tsconfig": "3.7.0",
+    "@docusaurus/types": "3.7.0",
     "@types/remove-markdown": "^0.3.4",
     "cross-env": "^7.0.3",
-    "typescript": "~5.2.2"
+    "typescript": "~5.8.2"
   },
   "browserslist": {
     "production": [

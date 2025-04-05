@@ -1,7 +1,7 @@
 :root {
   --ifm-color-primary: #0F1626; // Navy Blue
   --ifm-color-secondary: #A89B7A; // Leather
-  --ifm-color-accent: #FF533D; // Coral
+  --ifm-color-accent: #dd4531; // Coral
   --ifm-background-color: #F5F5F5; // Eggshell
   --ifm-text-color: #0F1626; // Navy Blue
   --ifm-color-primary-dark: #0d1422;
@@ -17,7 +17,7 @@
 [data-theme="dark"] {
   --ifm-color-primary: #F5F5F5; // Eggshell
   --ifm-color-secondary: #A89B7A; // Leather
-  --ifm-color-accent: #FF533D; // Coral
+  --ifm-color-accent: #dd4531; // Coral
   --ifm-background-color: #0F1626; // Navy Blue
   --ifm-text-color: #F5F5F5; // Eggshell
   --ifm-color-primary-dark: #dddddd;
@@ -29,7 +29,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
 }
 
-$accent: #FF533D; // Coral
+$accent: #dd4531; // Coral
 $color-primary: var(--ifm-color-primary);
 $color-primary-dark: var(--ifm-color-primary-dark);
 $color-primary-darker: var(--ifm-color-primary-darker);

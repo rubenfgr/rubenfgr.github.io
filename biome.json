@@ -9,6 +9,9 @@
       },
       "suspicious": {
         "noExplicitAny": "warn"
+      },
+      "correctness": {
+        "noUnusedImports": "off"
       }
     }
   },

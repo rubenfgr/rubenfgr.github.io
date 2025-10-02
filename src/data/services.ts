@@ -7,14 +7,14 @@ export const services: Service[] = [
     features: ['SPA', 'SSR', 'PWA'],
     price: { from: '500', currency: 'EUR' },
     ctaUrl: '/contact',
-    order: 1
+    order: 1,
   },
   {
     slug: 'consultoria-iot',
     icon: 'wifi',
     features: ['Prototipado', 'Integración MQTT', 'Dashboards'],
     ctaUrl: '/contact',
-    order: 2
+    order: 2,
   },
   {
     slug: 'integracion-sistemas',
@@ -22,6 +22,6 @@ export const services: Service[] = [
     features: ['APIs REST', 'Microservicios', 'Mensajería'],
     price: 'Bajo presupuesto - consultar',
     ctaUrl: '/contact',
-    order: 3
-  }
+    order: 3,
+  },
 ];

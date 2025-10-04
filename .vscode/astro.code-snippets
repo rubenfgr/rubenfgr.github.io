@@ -1,0 +1,98 @@
+{
+  "Astro Component": {
+    "prefix": "astro-component",
+    "body": [
+      "---",
+      "interface Props {",
+      "  $1",
+      "}",
+      "",
+      "const { $2 } = Astro.props;",
+      "---",
+      "",
+      "<$3>",
+      "  $0",
+      "</$3>"
+    ],
+    "description": "Create a basic Astro component with props"
+  },
+  "Astro Layout": {
+    "prefix": "astro-layout",
+    "body": [
+      "---",
+      "interface Props {",
+      "  title: string;",
+      "  description?: string;",
+      "}",
+      "",
+      "const { title, description } = Astro.props;",
+      "---",
+      "",
+      "<!doctype html>",
+      "<html lang=\"en\">",
+      "  <head>",
+      "    <meta charset=\"UTF-8\" />",
+      "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />",
+      "    <title>{title}</title>",
+      "    {description && <meta name=\"description\" content={description} />}",
+      "    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\" />",
+      "  </head>",
+      "  <body>",
+      "    <slot />",
+      "  </body>",
+      "</html>"
+    ],
+    "description": "Create a basic Astro layout"
+  },
+  "Astro Page": {
+    "prefix": "astro-page",
+    "body": [
+      "---",
+      "import Layout from '../layouts/Layout.astro';",
+      "---",
+      "",
+      "<Layout title=\"$1\">",
+      "  <main>",
+      "    <h1>$2</h1>",
+      "    $0",
+      "  </main>",
+      "</Layout>"
+    ],
+    "description": "Create a basic Astro page"
+  },
+  "Astro Script": {
+    "prefix": "astro-script",
+    "body": ["---", "$0", "---"],
+    "description": "Create Astro frontmatter script section"
+  },
+  "Astro Style": {
+    "prefix": "astro-style",
+    "body": ["<style>", "  $0", "</style>"],
+    "description": "Create Astro style section"
+  },
+  "Astro Scoped Style": {
+    "prefix": "astro-style-scoped",
+    "body": ["<style define:vars={{ $1 }}>", "  $0", "</style>"],
+    "description": "Create Astro scoped style with CSS variables"
+  },
+  "Astro Client Script": {
+    "prefix": "astro-client-script",
+    "body": ["<script>", "  $0", "</script>"],
+    "description": "Create client-side script"
+  },
+  "Astro Fragment": {
+    "prefix": "fragment",
+    "body": ["<Fragment>", "  $0", "</Fragment>"],
+    "description": "Create Astro Fragment"
+  },
+  "Astro Conditional": {
+    "prefix": "astro-if",
+    "body": ["{$1 && (", "  <$2>", "    $0", "  </$2>", ")}"],
+    "description": "Create conditional rendering"
+  },
+  "Astro Map": {
+    "prefix": "astro-map",
+    "body": ["{$1.map(($2) => (", "  <$3 key={$2.$4}>", "    $0", "  </$3>", "))}"],
+    "description": "Create map rendering"
+  }
+}

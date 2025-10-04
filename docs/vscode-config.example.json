@@ -1,0 +1,64 @@
+{
+  "// Configuración de ejemplo para VS Code": "Copia este contenido a .vscode/settings.json",
+
+  "// === EDITOR GENERAL ===": "",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.rulers": [80, 120],
+  "editor.wordWrap": "on",
+
+  "// === ASTRO ESPECÍFICO ===": "",
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "astro.typescript.allowArbitraryAttributes": true,
+
+  "// === TYPESCRIPT ===": "",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  "// === ARCHIVOS ===": "",
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.astro": true
+  },
+
+  "// === EMMET ===": "",
+  "emmet.includeLanguages": {
+    "astro": "html"
+  },
+
+  "// === TERMINAL ===": "",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+
+  "// === EXTENSIONES RECOMENDADAS ===": "Ver .vscode/extensions.json",
+  "// Principales extensiones para este proyecto:": [
+    "astro-build.astro-vscode",
+    "biomejs.biome",
+    "bradlc.vscode-tailwindcss",
+    "eamodio.gitlens",
+    "usernamehw.errorlens"
+  ],
+
+  "// === VARIABLES DE ENTORNO ===": "Crear archivo .env en la raíz",
+  "// Ejemplo de .env:": [
+    "# API Keys (no subir a git)",
+    "GITHUB_TOKEN=tu_token_aqui",
+    "API_URL=https://api.ejemplo.com"
+  ],
+
+  "// === SNIPPETS PERSONALIZADOS ===": "Ver .vscode/astro.code-snippets",
+  "// Snippets disponibles:": [
+    "astro-component - Componente Astro básico",
+    "astro-layout - Layout completo",
+    "astro-page - Página básica"
+  ]
+}

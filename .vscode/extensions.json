@@ -1,4 +1,45 @@
 {
-  "recommendations": ["astro-build.astro-vscode", "biomejs.biome", "bradlc.vscode-tailwindcss"],
-  "unwantedRecommendations": []
+  "recommendations": [
+    // === CORE ASTRO ===
+    "astro-build.astro-vscode",
+
+    // === LINTING & FORMATTING ===
+    "biomejs.biome",
+
+    // === CSS FRAMEWORKS ===
+    "bradlc.vscode-tailwindcss",
+
+    // === TYPESCRIPT ===
+    "ms-vscode.vscode-typescript-next",
+
+    // === HTML/CSS HELPERS ===
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.path-intellisense",
+
+    // === GIT ===
+    "eamodio.gitlens",
+
+    // === PRODUCTIVITY ===
+    "vscode-icons-team.vscode-icons",
+    "ms-vscode.vscode-json",
+    "redhat.vscode-yaml",
+
+    // === MARKDOWN ===
+    "yzhang.markdown-all-in-one",
+
+    // === DEVELOPMENT TOOLS ===
+    "ms-vscode.live-server",
+    "bradlc.vscode-tailwindcss",
+    "usernamehw.errorlens",
+
+    // === THEME & UI ===
+    "github.github-vscode-theme",
+    "pkief.material-icon-theme"
+  ],
+  "unwantedRecommendations": [
+    "ms-vscode.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "hookyqr.beautify"
+  ]
 }

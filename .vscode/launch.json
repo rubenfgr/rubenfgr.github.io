@@ -2,10 +2,52 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "./node_modules/.bin/astro dev",
-      "name": "Development server",
+      "name": "🚀 Launch Astro Dev Server",
+      "type": "node-terminal",
       "request": "launch",
-      "type": "node-terminal"
+      "command": "pnpm dev",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "name": "🔨 Build Astro Project",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "name": "🔍 Preview Build",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm preview",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "name": "🧹 Lint & Format",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm check:fix",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
     }
   ]
 }

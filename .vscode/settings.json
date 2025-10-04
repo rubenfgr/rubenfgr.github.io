@@ -1,12 +1,138 @@
 {
-  "editor.defaultFormatter": "biomejs.biome",
+  // === EDITOR GENERAL ===
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
   "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.biome": "explicit"
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports": "explicit"
   },
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.wordWrap": "on",
+  "editor.rulers": [100],
+  "editor.minimap.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+
+  // === FILES ===
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.astro": true,
+    "**/coverage": true,
+    "**/.DS_Store": true
+  },
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/.astro/**": true,
+    "**/coverage/**": true
+  },
+
+  // === ASTRO ESPECÍFICO ===
   "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode"
+    "editor.defaultFormatter": "astro-build.astro-vscode",
+    "editor.quickSuggestions": {
+      "strings": true
+    }
   },
   "astro.typescript.allowArbitraryAttributes": true,
-  "typescript.preferences.importModuleSpecifier": "relative"
+  "astro.format.indentFrontmatter": true,
+
+  // === TYPESCRIPT/JAVASCRIPT ===
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.suggest.autoImports": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  // === CSS/STYLING ===
+  "[css]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "css.validate": true,
+  "scss.validate": true,
+
+  // === EMMET ===
+  "emmet.includeLanguages": {
+    "astro": "html"
+  },
+  "emmet.showExpandedAbbreviation": "always",
+
+  // === EXPLORER ===
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "package.json": "package-lock.json,pnpm-lock.yaml,yarn.lock",
+    "tsconfig.json": "tsconfig.*.json",
+    "*.js": "$(capture).js.map,$(capture).min.js,$(capture).d.ts",
+    "*.ts": "$(capture).js,$(capture).js.map,$(capture).min.js,$(capture).d.ts",
+    "*.astro": "$(capture).astro.snap"
+  },
+
+  // === SEARCH ===
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.astro": true,
+    "**/coverage": true,
+    "**/*.min.js": true
+  },
+
+  // === GIT ===
+  "git.ignoreLimitWarning": true,
+  "git.autofetch": true,
+
+  // === TERMINAL ===
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.fontSize": 14,
+
+  // === WORKBENCH ===
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.tree.indent": 20,
+  "workbench.editor.enablePreview": false,
+
+  // === EXTENSIONES ESPECÍFICAS ===
+  // Tailwind CSS
+  "tailwindCSS.includeLanguages": {
+    "astro": "html"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["class:list\\s*=\\s*\\{([^}]*)\\}", "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"],
+    ["classList\\s*=\\s*\\{([^}]*)\\}", "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"]
+  ],
+
+  // Auto Close Tag
+  "auto-close-tag.activationOnLanguage": ["xml", "php", "html", "astro", "jsx", "tsx"],
+
+  // Auto Rename Tag
+  "auto-rename-tag.activationOnLanguage": ["xml", "php", "html", "astro", "jsx", "tsx"],
+
+  // Path Intellisense
+  "path-intellisense.mappings": {
+    "@": "${workspaceRoot}/src",
+    "~": "${workspaceRoot}/src"
+  }
 }

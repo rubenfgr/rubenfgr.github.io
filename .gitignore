@@ -16,9 +16,34 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.env.local
+.env.*.local
 
 # macOS-specific files
 .DS_Store
 
 # jetbrains setting folder
 .idea/
+
+# VS Code settings (opcional - descomenta si no quieres versionar la config de VS Code)
+# .vscode/
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Temporary folders
+.tmp/
+.temp/
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+
+# Editor directories and files
+.vscode/settings.json.bak
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

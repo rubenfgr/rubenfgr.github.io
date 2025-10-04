@@ -41,8 +41,6 @@
       "strings": true
     }
   },
-  "astro.typescript.allowArbitraryAttributes": true,
-  "astro.format.indentFrontmatter": true,
   // === TYPESCRIPT/JAVASCRIPT ===
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
@@ -119,15 +117,6 @@
       "classList\\s*=\\s*\\{([^}]*)\\}",
       "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"
     ]
-  ],
-  // Auto Close Tag
-  "auto-close-tag.activationOnLanguage": [
-    "xml",
-    "php",
-    "html",
-    "astro",
-    "jsx",
-    "tsx"
   ],
   // Auto Rename Tag
   "auto-rename-tag.activationOnLanguage": [

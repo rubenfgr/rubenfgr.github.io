@@ -313,6 +313,13 @@ import { contactInfo, socialLinks } from "../data/personal";
     color: var(--color-accent);
     border-radius: var(--radius-lg);
     flex-shrink: 0;
+    transition: all var(--transition-base);
+  }
+
+  .contact-method:hover .method-icon {
+    background-color: var(--color-accent);
+    color: white;
+    transform: scale(1.1);
   }
 
   [data-theme="dark"] .method-icon {

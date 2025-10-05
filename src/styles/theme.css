@@ -12,15 +12,15 @@
   --color-text-tertiary: #9ca3af;
 
   /* Paleta principal - Verde Lima */
-  --color-accent: #8EBA43;
-  --color-accent-hover: #4B7447;
+  --color-accent: #8eba43;
+  --color-accent-hover: #4b7447;
   --color-accent-light: #e8f5d8;
   --color-accent-alpha: rgba(142, 186, 67, 0.1);
-  
+
   /* Colores secundarios de la paleta */
-  --color-secondary: #EB8A44;
+  --color-secondary: #eb8a44;
   --color-secondary-light: #fdeee5;
-  --color-highlight: #F9DC24;
+  --color-highlight: #f9dc24;
   --color-highlight-light: #fef9d9;
 
   --color-border: #e5e7eb;
@@ -116,10 +116,10 @@
 
   /* Paleta principal - Verde Lima (más brillante en oscuro) */
   --color-accent: #a3d15a;
-  --color-accent-hover: #8EBA43;
+  --color-accent-hover: #8eba43;
   --color-accent-light: #2d3a1f;
   --color-accent-alpha: rgba(163, 209, 90, 0.15);
-  
+
   /* Colores secundarios de la paleta */
   --color-secondary: #f5a463;
   --color-secondary-light: #3a2618;

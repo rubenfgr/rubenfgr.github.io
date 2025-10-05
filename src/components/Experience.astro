@@ -1,73 +1,91 @@
 ---
-import { experience } from '../data/experience';
-import { projects } from '../data/projects';
+import { experience } from "../data/experience";
+import { projects } from "../data/projects";
 ---
 
 <section class="experience section" id="experience">
   <div class="container">
     <h2 class="section-title reveal">Experiencia Profesional</h2>
     <p class="section-subtitle reveal">
-      Mi trayectoria profesional desarrollando soluciones tecnológicas innovadoras
+      Mi trayectoria profesional desarrollando soluciones tecnológicas
+      innovadoras
     </p>
 
     <div class="timeline">
-      {experience.map((exp, index) => {
-        const expProjects = projects.filter(p => exp.projectIds.includes(p.id));
-        
-        return (
-          <div class="timeline-item reveal" style={`animation-delay: ${index * 0.1}s`}>
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="timeline-company">{exp.company}</h3>
-                  {exp.position && (
-                    <h4 class="timeline-position">{exp.position}</h4>
-                  )}
-                </div>
-                <span class="timeline-period">{exp.period}</span>
-              </div>
+      {
+        experience.map((exp, index) => {
+          const expProjects = projects.filter((p) =>
+            exp.projectIds.includes(p.id),
+          );
 
-              {exp.description && (
-                <p class="timeline-description">{exp.description}</p>
-              )}
-
-              {exp.achievements && exp.achievements.length > 0 && (
-                <div class="timeline-achievements">
-                  <h5 class="achievements-title">Logros destacados:</h5>
-                  <ul class="achievements-list">
-                    {exp.achievements.map(achievement => (
-                      <li>{achievement}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {expProjects.length > 0 && (
-                <div class="timeline-projects">
-                  <h5 class="projects-title">Proyectos principales:</h5>
-                  <div class="projects-grid">
-                    {expProjects.slice(0, 3).map(project => (
-                      <div class="project-tag">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <polyline points="9 11 12 14 22 4"></polyline>
-                          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                        </svg>
-                        <span>{project.title}</span>
-                      </div>
-                    ))}
-                    {expProjects.length > 3 && (
-                      <span class="projects-more">
-                        +{expProjects.length - 3} más
-                      </span>
+          return (
+            <div
+              class="timeline-item reveal"
+              style={`animation-delay: ${index * 0.1}s`}
+            >
+              <div class="timeline-marker" />
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <div>
+                    <h3 class="timeline-company">{exp.company}</h3>
+                    {exp.position && (
+                      <h4 class="timeline-position">{exp.position}</h4>
                     )}
                   </div>
+                  <span class="timeline-period">{exp.period}</span>
                 </div>
-              )}
+
+                {exp.description && (
+                  <p class="timeline-description">{exp.description}</p>
+                )}
+
+                {exp.achievements && exp.achievements.length > 0 && (
+                  <div class="timeline-achievements">
+                    <h5 class="achievements-title">Logros destacados:</h5>
+                    <ul class="achievements-list">
+                      {exp.achievements.map((achievement) => (
+                        <li>{achievement}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {expProjects.length > 0 && (
+                  <div class="timeline-projects">
+                    <h5 class="projects-title">Proyectos principales:</h5>
+                    <div class="projects-grid">
+                      {expProjects.slice(0, 3).map((project) => (
+                        <div class="project-tag">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <polyline points="9 11 12 14 22 4" />
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                          </svg>
+                          <span>{project.title}</span>
+                        </div>
+                      ))}
+                      {expProjects.length > 3 && (
+                        <span class="projects-more">
+                          +{expProjects.length - 3} más
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })
+      }
     </div>
   </div>
 </section>
@@ -86,7 +104,7 @@ import { projects } from '../data/projects';
 
   /* Timeline line */
   .timeline::before {
-    content: '';
+    content: "";
     position: absolute;
     left: var(--space-4);
     top: 0;
@@ -196,7 +214,7 @@ import { projects } from '../data/projects';
     white-space: nowrap;
   }
 
-  [data-theme='dark'] .timeline-period {
+  [data-theme="dark"] .timeline-period {
     background-color: var(--color-accent-light);
     color: var(--color-accent-hover);
   }
@@ -239,7 +257,7 @@ import { projects } from '../data/projects';
   }
 
   .achievements-list li::before {
-    content: '▸';
+    content: "▸";
     position: absolute;
     left: 0;
     color: var(--color-accent);

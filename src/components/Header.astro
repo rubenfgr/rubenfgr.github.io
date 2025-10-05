@@ -37,7 +37,17 @@
       </ul>
 
       <div class="nav-close" id="nav-close">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
@@ -46,7 +56,18 @@
 
     <div class="nav-actions">
       <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
-        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          class="sun-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
           <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -57,13 +78,34 @@
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
-        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          class="moon-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </button>
 
       <div class="nav-toggle" id="nav-toggle">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -119,7 +161,7 @@
   }
 
   .nav-link::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -4px;
     left: 0;
@@ -173,11 +215,11 @@
     display: block;
   }
 
-  [data-theme='dark'] .sun-icon {
+  [data-theme="dark"] .sun-icon {
     display: block;
   }
 
-  [data-theme='dark'] .moon-icon {
+  [data-theme="dark"] .moon-icon {
     display: none;
   }
 
@@ -254,74 +296,74 @@
 
 <script>
   // Theme toggle
-  const themeToggle = document.getElementById('theme-toggle');
+  const themeToggle = document.getElementById("theme-toggle");
   const html = document.documentElement;
 
   // Get saved theme or default to light
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  html.setAttribute('data-theme', savedTheme);
+  const savedTheme = localStorage.getItem("theme") || "light";
+  html.setAttribute("data-theme", savedTheme);
 
-  themeToggle?.addEventListener('click', () => {
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+  themeToggle?.addEventListener("click", () => {
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
   });
 
   // Mobile menu toggle
-  const navToggle = document.getElementById('nav-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  const navClose = document.getElementById('nav-close');
-  const navLinks = document.querySelectorAll('.nav-link');
+  const navToggle = document.getElementById("nav-toggle");
+  const navMenu = document.getElementById("nav-menu");
+  const navClose = document.getElementById("nav-close");
+  const navLinks = document.querySelectorAll(".nav-link");
 
-  navToggle?.addEventListener('click', () => {
-    navMenu?.classList.add('show-menu');
+  navToggle?.addEventListener("click", () => {
+    navMenu?.classList.add("show-menu");
   });
 
-  navClose?.addEventListener('click', () => {
-    navMenu?.classList.remove('show-menu');
+  navClose?.addEventListener("click", () => {
+    navMenu?.classList.remove("show-menu");
   });
 
   // Close menu when clicking a link
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu?.classList.remove('show-menu');
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navMenu?.classList.remove("show-menu");
     });
   });
 
   // Active link on scroll
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll("section[id]");
 
   function scrollActive() {
     const scrollY = window.pageYOffset;
 
-    sections.forEach(section => {
+    sections.forEach((section) => {
       const htmlSection = section as HTMLElement;
       const sectionHeight = htmlSection.offsetHeight;
       const sectionTop = htmlSection.offsetTop - 100;
-      const sectionId = section.getAttribute('id');
+      const sectionId = section.getAttribute("id");
       const link = document.querySelector(`.nav-link[href="#${sectionId}"]`);
 
       if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        link?.classList.add('active');
+        link?.classList.add("active");
       } else {
-        link?.classList.remove('active');
+        link?.classList.remove("active");
       }
     });
   }
 
-  window.addEventListener('scroll', scrollActive);
+  window.addEventListener("scroll", scrollActive);
 
   // Scroll header shadow
   function scrollHeader() {
-    const header = document.getElementById('header');
+    const header = document.getElementById("header");
     if (window.scrollY >= 50) {
-      header?.classList.add('scroll-header');
+      header?.classList.add("scroll-header");
     } else {
-      header?.classList.remove('scroll-header');
+      header?.classList.remove("scroll-header");
     }
   }
 
-  window.addEventListener('scroll', scrollHeader);
+  window.addEventListener("scroll", scrollHeader);
 </script>

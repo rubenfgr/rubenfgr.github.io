@@ -1,9 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { projects } from '../../data/projects';
+import { projects } from "../../data/projects";
+import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
-  return projects.map(project => ({
+  return projects.map((project) => ({
     params: { slug: project.slug },
     props: { project },
   }));
@@ -12,12 +12,25 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 ---
 
-<Layout title={`${project.title} - Rubén Rosales`} description={project.summary}>
+<Layout
+  title={`${project.title} - Rubén Rosales`}
+  description={project.summary}
+>
   <div class="project-detail">
     <div class="project-hero">
       <div class="container">
         <a href="/#projects" class="back-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
           </svg>
@@ -27,45 +40,71 @@ const { project } = Astro.props;
         <div class="hero-content">
           <div class="project-badges">
             <span class="type-badge">
-              {project.type === 'web' && '🌐 Web'}
-              {project.type === 'mobile' && '📱 Mobile'}
-              {project.type === 'iot' && '🔌 IoT'}
-              {project.type === 'desktop' && '💻 Desktop'}
-              {project.type === 'api' && '⚡ API'}
-              {project.type === 'infrastructure' && '🏗️ Infraestructura'}
+              {project.type === "web" && "🌐 Web"}
+              {project.type === "mobile" && "📱 Mobile"}
+              {project.type === "iot" && "🔌 IoT"}
+              {project.type === "desktop" && "💻 Desktop"}
+              {project.type === "api" && "⚡ API"}
+              {project.type === "infrastructure" && "🏗️ Infraestructura"}
             </span>
-            {project.status && (
-              <span class={`status-badge status-${project.status}`}>
-                {project.status === 'maintained' && '🔄 En mantenimiento'}
-                {project.status === 'completed' && '✅ Completado'}
-                {project.status === 'in-progress' && '🚧 En progreso'}
-              </span>
-            )}
+            {
+              project.status && (
+                <span class={`status-badge status-${project.status}`}>
+                  {project.status === "maintained" && "🔄 En mantenimiento"}
+                  {project.status === "completed" && "✅ Completado"}
+                  {project.status === "in-progress" && "🚧 En progreso"}
+                </span>
+              )
+            }
           </div>
 
           <h1 class="project-title">{project.title}</h1>
-          
-          {project.company && (
-            <p class="project-company">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-              {project.company}
-            </p>
-          )}
 
-          {project.year && (
-            <p class="project-year">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              {project.year}
-            </p>
-          )}
+          {
+            project.company && (
+              <p class="project-company">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+                {project.company}
+              </p>
+            )
+          }
+
+          {
+            project.year && (
+              <p class="project-year">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+                {project.year}
+              </p>
+            )
+          }
         </div>
       </div>
     </div>
@@ -77,111 +116,176 @@ const { project } = Astro.props;
             <section class="content-section">
               <h2 class="section-title">Descripción del Proyecto</h2>
               <p class="description">
-                {project.longDescription || project.summary || project.description}
+                {
+                  project.longDescription ||
+                    project.summary ||
+                    project.description
+                }
               </p>
             </section>
 
             <section class="content-section">
               <h2 class="section-title">Tecnologías Utilizadas</h2>
               <div class="technologies-grid">
-                {project.technologies.map(tech => (
-                  <div class="tech-card">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <polyline points="16 18 22 12 16 6"></polyline>
-                      <polyline points="8 6 2 12 8 18"></polyline>
-                    </svg>
-                    <span>{tech}</span>
-                  </div>
-                ))}
+                {
+                  project.technologies.map((tech) => (
+                    <div class="tech-card">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                      </svg>
+                      <span>{tech}</span>
+                    </div>
+                  ))
+                }
               </div>
             </section>
 
-            {project.images && project.images.length > 0 && (
-              <section class="content-section">
-                <h2 class="section-title">Galería</h2>
-                <div class="images-grid">
-                  {project.images.map((image, index) => (
-                    <img 
-                      src={image} 
-                      alt={`${project.title} - Captura ${index + 1}`}
-                      class="project-image"
-                    />
-                  ))}
-                </div>
-              </section>
-            )}
+            {
+              project.images && project.images.length > 0 && (
+                <section class="content-section">
+                  <h2 class="section-title">Galería</h2>
+                  <div class="images-grid">
+                    {project.images.map((image, index) => (
+                      <img
+                        src={image}
+                        alt={`${project.title} - Captura ${index + 1}`}
+                        class="project-image"
+                      />
+                    ))}
+                  </div>
+                </section>
+              )
+            }
           </div>
 
           <aside class="sidebar">
             <div class="info-card">
               <h3 class="info-title">Información del Proyecto</h3>
-              
+
               <div class="info-items">
-                {project.type && (
-                  <div class="info-item">
-                    <span class="info-label">Tipo:</span>
-                    <span class="info-value">{project.type}</span>
-                  </div>
-                )}
-                
-                {project.year && (
-                  <div class="info-item">
-                    <span class="info-label">Año:</span>
-                    <span class="info-value">{project.year}</span>
-                  </div>
-                )}
-                
-                {project.company && (
-                  <div class="info-item">
-                    <span class="info-label">Cliente:</span>
-                    <span class="info-value">{project.company}</span>
-                  </div>
-                )}
-                
-                {project.status && (
-                  <div class="info-item">
-                    <span class="info-label">Estado:</span>
-                    <span class="info-value">
-                      {project.status === 'maintained' && 'En mantenimiento'}
-                      {project.status === 'completed' && 'Completado'}
-                      {project.status === 'in-progress' && 'En progreso'}
-                    </span>
-                  </div>
-                )}
+                {
+                  project.type && (
+                    <div class="info-item">
+                      <span class="info-label">Tipo:</span>
+                      <span class="info-value">{project.type}</span>
+                    </div>
+                  )
+                }
+
+                {
+                  project.year && (
+                    <div class="info-item">
+                      <span class="info-label">Año:</span>
+                      <span class="info-value">{project.year}</span>
+                    </div>
+                  )
+                }
+
+                {
+                  project.company && (
+                    <div class="info-item">
+                      <span class="info-label">Cliente:</span>
+                      <span class="info-value">{project.company}</span>
+                    </div>
+                  )
+                }
+
+                {
+                  project.status && (
+                    <div class="info-item">
+                      <span class="info-label">Estado:</span>
+                      <span class="info-value">
+                        {project.status === "maintained" && "En mantenimiento"}
+                        {project.status === "completed" && "Completado"}
+                        {project.status === "in-progress" && "En progreso"}
+                      </span>
+                    </div>
+                  )
+                }
               </div>
 
-              {(project.demoUrl || project.repoUrl) && (
-                <div class="project-links">
-                  {project.demoUrl && (
-                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                      Ver Demo
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                      </svg>
-                    </a>
-                  )}
-                  {project.repoUrl && (
-                    <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                      Ver Código
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                      </svg>
-                    </a>
-                  )}
-                </div>
-              )}
+              {
+                (project.demoUrl || project.repoUrl) && (
+                  <div class="project-links">
+                    {project.demoUrl && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary"
+                      >
+                        Ver Demo
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                          <polyline points="15 3 21 3 21 9" />
+                          <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                      </a>
+                    )}
+                    {project.repoUrl && (
+                      <a
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-secondary"
+                      >
+                        Ver Código
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                )
+              }
             </div>
 
             <div class="cta-card">
               <h3 class="cta-title">¿Interesado en un proyecto similar?</h3>
               <p class="cta-text">
-                Puedo ayudarte a desarrollar una solución personalizada para tu negocio.
+                Puedo ayudarte a desarrollar una solución personalizada para tu
+                negocio.
               </p>
               <a href="/#contact" class="btn btn-primary">
                 Contactar
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
@@ -200,7 +304,11 @@ const { project } = Astro.props;
   }
 
   .project-hero {
-    background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-tertiary) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-bg-secondary) 0%,
+      var(--color-bg-tertiary) 100%
+    );
     padding: var(--space-12) 0 var(--space-16);
   }
 
@@ -243,7 +351,7 @@ const { project } = Astro.props;
     color: var(--color-accent);
   }
 
-  [data-theme='dark'] .type-badge {
+  [data-theme="dark"] .type-badge {
     background-color: var(--color-accent-light);
     color: var(--color-accent-hover);
   }
@@ -263,17 +371,17 @@ const { project } = Astro.props;
     color: #92400e;
   }
 
-  [data-theme='dark'] .status-maintained {
+  [data-theme="dark"] .status-maintained {
     background-color: #1e3a8a;
     color: #93c5fd;
   }
 
-  [data-theme='dark'] .status-completed {
+  [data-theme="dark"] .status-completed {
     background-color: #064e3b;
     color: #6ee7b7;
   }
 
-  [data-theme='dark'] .status-in-progress {
+  [data-theme="dark"] .status-in-progress {
     background-color: #78350f;
     color: #fcd34d;
   }

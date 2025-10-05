@@ -1,31 +1,37 @@
 ---
-import { skills } from '../data/skills';
+import { skills } from "../data/skills";
 
 const categorizedSkills = {
-  frontend: skills.filter(s => s.category === 'frontend'),
-  backend: skills.filter(s => s.category === 'backend'),
-  database: skills.filter(s => s.category === 'database'),
-  tools: skills.filter(s => s.category === 'tools'),
-  design: skills.filter(s => s.category === 'design'),
-  other: skills.filter(s => s.category === 'other'),
+  frontend: skills.filter((s) => s.category === "frontend"),
+  backend: skills.filter((s) => s.category === "backend"),
+  database: skills.filter((s) => s.category === "database"),
+  tools: skills.filter((s) => s.category === "tools"),
+  design: skills.filter((s) => s.category === "design"),
+  other: skills.filter((s) => s.category === "other"),
 };
 
 const categoryNames = {
-  frontend: 'Frontend',
-  backend: 'Backend',
-  database: 'Bases de Datos',
-  tools: 'Herramientas & DevOps',
-  design: 'Diseño',
-  other: 'Otros',
+  frontend: "Frontend",
+  backend: "Backend",
+  database: "Bases de Datos",
+  tools: "Herramientas & DevOps",
+  design: "Diseño",
+  other: "Otros",
 };
 
 const categoryIcons = {
-  frontend: '<polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>',
-  backend: '<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line>',
-  database: '<ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>',
-  tools: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>',
-  design: '<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline>',
-  other: '<circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>',
+  frontend:
+    '<polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline>',
+  backend:
+    '<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line>',
+  database:
+    '<ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>',
+  tools:
+    '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>',
+  design:
+    '<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline>',
+  other:
+    '<circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>',
 };
 ---
 
@@ -37,36 +43,57 @@ const categoryIcons = {
     </p>
 
     <div class="skills-grid">
-      {Object.entries(categorizedSkills).map(([category, categorySkills], index) => (
-        categorySkills.length > 0 && (
-          <div class="skill-category reveal" style={`animation-delay: ${index * 0.1}s`}>
-            <div class="category-header">
-              <div class="category-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={categoryIcons[category as keyof typeof categoryIcons]} />
-              </div>
-              <h3 class="category-title">{categoryNames[category as keyof typeof categoryNames]}</h3>
-            </div>
-
-            <div class="skills-list">
-              {categorySkills.map(skill => (
-                <div class="skill-item">
-                  <div class="skill-header">
-                    <span class="skill-name">{skill.name}</span>
-                    <span class="skill-level-text">{skill.level}%</span>
+      {
+        Object.entries(categorizedSkills).map(
+          ([category, categorySkills], index) =>
+            categorySkills.length > 0 && (
+              <div
+                class="skill-category reveal"
+                style={`animation-delay: ${index * 0.1}s`}
+              >
+                <div class="category-header">
+                  <div class="category-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      set:html={
+                        categoryIcons[category as keyof typeof categoryIcons]
+                      }
+                    />
                   </div>
-                  <div class="skill-bar">
-                    <div 
-                      class="skill-progress" 
-                      style={`width: ${skill.level}%`}
-                      data-level={skill.level}
-                    ></div>
-                  </div>
+                  <h3 class="category-title">
+                    {categoryNames[category as keyof typeof categoryNames]}
+                  </h3>
                 </div>
-              ))}
-            </div>
-          </div>
+
+                <div class="skills-list">
+                  {categorySkills.map((skill) => (
+                    <div class="skill-item">
+                      <div class="skill-header">
+                        <span class="skill-name">{skill.name}</span>
+                        <span class="skill-level-text">{skill.level}%</span>
+                      </div>
+                      <div class="skill-bar">
+                        <div
+                          class="skill-progress"
+                          style={`width: ${skill.level}%`}
+                          data-level={skill.level}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ),
         )
-      ))}
+      }
     </div>
 
     <div class="skills-summary reveal">
@@ -139,7 +166,11 @@ const categoryIcons = {
     justify-content: center;
     width: 3rem;
     height: 3rem;
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-accent) 0%,
+      var(--color-accent-hover) 100%
+    );
     color: white;
     border-radius: var(--radius-lg);
   }
@@ -190,13 +221,21 @@ const categoryIcons = {
 
   .skill-progress {
     height: 100%;
-    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+    background: linear-gradient(
+      90deg,
+      var(--color-accent) 0%,
+      var(--color-accent-hover) 100%
+    );
     border-radius: var(--radius-full);
     transition: width 1s ease-out;
   }
 
   .skills-summary {
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-accent) 0%,
+      var(--color-accent-hover) 100%
+    );
     padding: var(--space-10);
     border-radius: var(--radius-xl);
     text-align: center;
@@ -253,11 +292,11 @@ const categoryIcons = {
   };
 
   const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const progressBars = entry.target.querySelectorAll('.skill-progress');
-        progressBars.forEach(bar => {
-          const level = (bar as HTMLElement).dataset.level || '0';
+        const progressBars = entry.target.querySelectorAll(".skill-progress");
+        progressBars.forEach((bar) => {
+          const level = (bar as HTMLElement).dataset.level || "0";
           (bar as HTMLElement).style.width = `${level}%`;
         });
         skillObserver.unobserve(entry.target);
@@ -265,14 +304,14 @@ const categoryIcons = {
     });
   }, observerOptions);
 
-  const skillCategories = document.querySelectorAll('.skill-category');
-  skillCategories.forEach(category => {
+  const skillCategories = document.querySelectorAll(".skill-category");
+  skillCategories.forEach((category) => {
     // Reset progress bars to 0
-    const progressBars = category.querySelectorAll('.skill-progress');
-    progressBars.forEach(bar => {
-      (bar as HTMLElement).style.width = '0%';
+    const progressBars = category.querySelectorAll(".skill-progress");
+    progressBars.forEach((bar) => {
+      (bar as HTMLElement).style.width = "0%";
     });
-    
+
     skillObserver.observe(category);
   });
 </script>

@@ -1,18 +1,18 @@
 ---
-import { personalInfo, contactInfo } from '../data/personal';
+import { contactInfo, personalInfo } from "../data/personal";
 ---
 
 <section class="about section" id="about">
   <div class="container">
     <h2 class="section-title reveal">Sobre mí</h2>
-    
+
     <div class="about-content">
       <div class="about-text reveal">
         <h3 class="about-subtitle">Desarrollador FullStack Apasionado</h3>
         <p class="about-description">
           {personalInfo.bio}
         </p>
-        
+
         <div class="about-info">
           <div class="about-info-item">
             <span class="info-label">Email:</span>
@@ -20,20 +20,22 @@ import { personalInfo, contactInfo } from '../data/personal';
               {contactInfo.email}
             </a>
           </div>
-          
+
           <div class="about-info-item">
             <span class="info-label">Ubicación:</span>
             <span class="info-value">{contactInfo.location}</span>
           </div>
-          
-          {contactInfo.phone && (
-            <div class="about-info-item">
-              <span class="info-label">Teléfono:</span>
-              <a href={`tel:${contactInfo.phone}`} class="info-value">
-                {contactInfo.phone}
-              </a>
-            </div>
-          )}
+
+          {
+            contactInfo.phone && (
+              <div class="about-info-item">
+                <span class="info-label">Teléfono:</span>
+                <a href={`tel:${contactInfo.phone}`} class="info-value">
+                  {contactInfo.phone}
+                </a>
+              </div>
+            )
+          }
         </div>
 
         <div class="about-stats">
@@ -41,12 +43,12 @@ import { personalInfo, contactInfo } from '../data/personal';
             <span class="stat-number">4+</span>
             <span class="stat-label">Años de experiencia</span>
           </div>
-          
+
           <div class="stat-item">
             <span class="stat-number">15+</span>
             <span class="stat-label">Proyectos completados</span>
           </div>
-          
+
           <div class="stat-item">
             <span class="stat-number">25+</span>
             <span class="stat-label">Tecnologías dominadas</span>
@@ -57,20 +59,41 @@ import { personalInfo, contactInfo } from '../data/personal';
       <div class="about-features reveal">
         <div class="feature-card">
           <div class="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <polyline points="16 18 22 12 16 6"></polyline>
               <polyline points="8 6 2 12 8 18"></polyline>
             </svg>
           </div>
           <h4 class="feature-title">Desarrollo FullStack</h4>
           <p class="feature-description">
-            Experiencia en desarrollo frontend con Angular y React, y backend con Node.js, NestJS y Laravel.
+            Experiencia en desarrollo frontend con Angular y React, y backend
+            con Node.js, NestJS y Laravel.
           </p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
               <line x1="8" y1="21" x2="16" y2="21"></line>
               <line x1="12" y1="17" x2="12" y2="21"></line>
@@ -78,13 +101,24 @@ import { personalInfo, contactInfo } from '../data/personal';
           </div>
           <h4 class="feature-title">UI/UX Design</h4>
           <p class="feature-description">
-            Diseño de interfaces modernas e intuitivas con herramientas como Figma, enfocado en la experiencia del usuario.
+            Diseño de interfaces modernas e intuitivas con herramientas como
+            Figma, enfocado en la experiencia del usuario.
           </p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <circle cx="12" cy="12" r="10"></circle>
               <circle cx="12" cy="12" r="6"></circle>
               <circle cx="12" cy="12" r="2"></circle>
@@ -92,13 +126,24 @@ import { personalInfo, contactInfo } from '../data/personal';
           </div>
           <h4 class="feature-title">IoT & Sistemas</h4>
           <p class="feature-description">
-            Desarrollo de soluciones IoT con MQTT, WebSockets y sistemas embebidos como Arduino y ESP32.
+            Desarrollo de soluciones IoT con MQTT, WebSockets y sistemas
+            embebidos como Arduino y ESP32.
           </p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
               <path d="M2 17l10 5 10-5"></path>
               <path d="M2 12l10 5 10-5"></path>
@@ -106,7 +151,8 @@ import { personalInfo, contactInfo } from '../data/personal';
           </div>
           <h4 class="feature-title">DevOps & Cloud</h4>
           <p class="feature-description">
-            Gestión de infraestructura con Docker, CI/CD con GitLab y administración de servidores Linux.
+            Gestión de infraestructura con Docker, CI/CD con GitLab y
+            administración de servidores Linux.
           </p>
         </div>
       </div>
@@ -247,7 +293,11 @@ import { personalInfo, contactInfo } from '../data/personal';
     justify-content: center;
     width: 4rem;
     height: 4rem;
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--color-accent) 0%,
+      var(--color-accent-hover) 100%
+    );
     color: white;
     border-radius: var(--radius-lg);
     margin-bottom: var(--space-4);

@@ -1,7 +1,7 @@
 ---
-import { projects } from '../data/projects';
+import { projects } from "../data/projects";
 
-const featuredProjects = projects.filter(p => p.featured);
+const featuredProjects = projects.filter((p) => p.featured);
 ---
 
 <section class="projects section" id="projects">
@@ -13,82 +13,128 @@ const featuredProjects = projects.filter(p => p.featured);
 
     <div class="projects-carousel-wrapper">
       <div class="projects-carousel" id="projects-carousel">
-        {featuredProjects.map((project, index) => (
-          <div class="project-slide" data-index={index}>
-            <div class="project-card">
-              <div class="project-type-badge">
-                {project.type === 'web' && '🌐 Web'}
-                {project.type === 'mobile' && '📱 Mobile'}
-                {project.type === 'iot' && '🔌 IoT'}
-                {project.type === 'desktop' && '💻 Desktop'}
-                {project.type === 'api' && '⚡ API'}
-                {project.type === 'infrastructure' && '🏗️ Infraestructura'}
-              </div>
-
-              <div class="project-content">
-                <div class="project-header">
-                  <h3 class="project-title">{project.title}</h3>
-                  {project.year && (
-                    <span class="project-year">{project.year}</span>
-                  )}
+        {
+          featuredProjects.map((project, index) => (
+            <div class="project-slide" data-index={index}>
+              <div class="project-card">
+                <div class="project-type-badge">
+                  {project.type === "web" && "🌐 Web"}
+                  {project.type === "mobile" && "📱 Mobile"}
+                  {project.type === "iot" && "🔌 IoT"}
+                  {project.type === "desktop" && "💻 Desktop"}
+                  {project.type === "api" && "⚡ API"}
+                  {project.type === "infrastructure" && "🏗️ Infraestructura"}
                 </div>
 
-                {project.company && (
-                  <p class="project-company">{project.company}</p>
-                )}
+                <div class="project-content">
+                  <div class="project-header">
+                    <h3 class="project-title">{project.title}</h3>
+                    {project.year && (
+                      <span class="project-year">{project.year}</span>
+                    )}
+                  </div>
 
-                <p class="project-summary">{project.summary}</p>
-
-                <div class="project-technologies">
-                  {project.technologies.map(tech => (
-                    <span class="tech-tag">{tech}</span>
-                  ))}
-                </div>
-
-                <div class="project-actions">
-                  {project.slug && (
-                    <a href={`/projects/${project.slug}`} class="btn btn-primary">
-                      Ver Detalles
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </a>
+                  {project.company && (
+                    <p class="project-company">{project.company}</p>
                   )}
-                  {project.status && (
-                    <span class={`project-status status-${project.status}`}>
-                      {project.status === 'maintained' && '🔄 En mantenimiento'}
-                      {project.status === 'completed' && '✅ Completado'}
-                      {project.status === 'in-progress' && '🚧 En progreso'}
-                    </span>
-                  )}
+
+                  <p class="project-summary">{project.summary}</p>
+
+                  <div class="project-technologies">
+                    {project.technologies.map((tech) => (
+                      <span class="tech-tag">{tech}</span>
+                    ))}
+                  </div>
+
+                  <div class="project-actions">
+                    {project.slug && (
+                      <a
+                        href={`/projects/${project.slug}`}
+                        class="btn btn-primary"
+                      >
+                        Ver Detalles
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                          <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                      </a>
+                    )}
+                    {project.status && (
+                      <span class={`project-status status-${project.status}`}>
+                        {project.status === "maintained" &&
+                          "🔄 En mantenimiento"}
+                        {project.status === "completed" && "✅ Completado"}
+                        {project.status === "in-progress" && "🚧 En progreso"}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
 
-      <button class="carousel-btn carousel-btn-prev" id="carousel-prev" aria-label="Previous project">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <button
+        class="carousel-btn carousel-btn-prev"
+        id="carousel-prev"
+        aria-label="Previous project"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
       </button>
 
-      <button class="carousel-btn carousel-btn-next" id="carousel-next" aria-label="Next project">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <button
+        class="carousel-btn carousel-btn-next"
+        id="carousel-next"
+        aria-label="Next project"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
       </button>
 
       <div class="carousel-dots" id="carousel-dots">
-        {featuredProjects.map((_, index) => (
-          <button 
-            class={`carousel-dot ${index === 0 ? 'active' : ''}`} 
-            data-index={index}
-            aria-label={`Go to project ${index + 1}`}
-          />
-        ))}
+        {
+          featuredProjects.map((_, index) => (
+            <button
+              class={`carousel-dot ${index === 0 ? "active" : ""}`}
+              data-index={index}
+              aria-label={`Go to project ${index + 1}`}
+            />
+          ))
+        }
       </div>
     </div>
   </div>
@@ -141,7 +187,7 @@ const featuredProjects = projects.filter(p => p.featured);
     margin-bottom: var(--space-6);
   }
 
-  [data-theme='dark'] .project-type-badge {
+  [data-theme="dark"] .project-type-badge {
     background-color: var(--color-accent-light);
     color: var(--color-accent-hover);
   }
@@ -249,17 +295,17 @@ const featuredProjects = projects.filter(p => p.featured);
     color: #92400e;
   }
 
-  [data-theme='dark'] .status-maintained {
+  [data-theme="dark"] .status-maintained {
     background-color: #1e3a8a;
     color: #93c5fd;
   }
 
-  [data-theme='dark'] .status-completed {
+  [data-theme="dark"] .status-completed {
     background-color: #064e3b;
     color: #6ee7b7;
   }
 
-  [data-theme='dark'] .status-in-progress {
+  [data-theme="dark"] .status-in-progress {
     background-color: #78350f;
     color: #fcd34d;
   }
@@ -337,24 +383,24 @@ const featuredProjects = projects.filter(p => p.featured);
 </style>
 
 <script>
-  const carousel = document.getElementById('projects-carousel');
-  const prevBtn = document.getElementById('carousel-prev');
-  const nextBtn = document.getElementById('carousel-next');
-  const dots = document.querySelectorAll('.carousel-dot');
-  const slides = document.querySelectorAll('.project-slide');
+  const carousel = document.getElementById("projects-carousel");
+  const prevBtn = document.getElementById("carousel-prev");
+  const nextBtn = document.getElementById("carousel-next");
+  const dots = document.querySelectorAll(".carousel-dot");
+  const slides = document.querySelectorAll(".project-slide");
 
   let currentIndex = 0;
   const totalSlides = slides.length;
 
   function updateCarousel() {
     if (!carousel) return;
-    
+
     const offset = -currentIndex * 100;
     carousel.style.transform = `translateX(${offset}%)`;
 
     // Update dots
     dots.forEach((dot, index) => {
-      dot.classList.toggle('active', index === currentIndex);
+      dot.classList.toggle("active", index === currentIndex);
     });
   }
 
@@ -368,13 +414,13 @@ const featuredProjects = projects.filter(p => p.featured);
     updateCarousel();
   }
 
-  nextBtn?.addEventListener('click', nextSlide);
-  prevBtn?.addEventListener('click', prevSlide);
+  nextBtn?.addEventListener("click", nextSlide);
+  prevBtn?.addEventListener("click", prevSlide);
 
-  dots.forEach(dot => {
-    dot.addEventListener('click', (e) => {
+  dots.forEach((dot) => {
+    dot.addEventListener("click", (e) => {
       const target = e.target as HTMLElement;
-      const index = parseInt(target.dataset.index || '0');
+      const index = parseInt(target.dataset.index || "0");
       currentIndex = index;
       updateCarousel();
     });
@@ -384,17 +430,17 @@ const featuredProjects = projects.filter(p => p.featured);
   let autoplayInterval = setInterval(nextSlide, 5000);
 
   // Pause on hover
-  carousel?.addEventListener('mouseenter', () => {
+  carousel?.addEventListener("mouseenter", () => {
     clearInterval(autoplayInterval);
   });
 
-  carousel?.addEventListener('mouseleave', () => {
+  carousel?.addEventListener("mouseleave", () => {
     autoplayInterval = setInterval(nextSlide, 5000);
   });
 
   // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') prevSlide();
-    if (e.key === 'ArrowRight') nextSlide();
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") prevSlide();
+    if (e.key === "ArrowRight") nextSlide();
   });
 </script>

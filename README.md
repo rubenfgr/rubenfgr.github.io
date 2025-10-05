@@ -1,18 +1,92 @@
-# 🚀 Portfolio Personal - Astro
+# Portfolio Profesional - Rubén Rosales
 
-Portfolio personal moderno construido con Astro, TypeScript y las mejores prácticas de desarrollo.
+Portfolio profesional de desarrollador FullStack construido con Astro, TypeScript y diseño minimalista moderno.
 
-## ✨ Características
+## 🚀 Características
 
-- ⚡ **Astro 5.14** - Framework moderno para sitios web ultrarrápidos
-- 🎯 **TypeScript** - Tipado estático para código más robusto
-- 🎨 **Biome** - Linting y formateo ultrarrápido (reemplaza ESLint + Prettier)
-- 📱 **Responsive** - Diseño adaptativo para todos los dispositivos
-- 🎭 **Componentes Modulares** - Arquitectura reutilizable y mantenible
-- 🔍 **SEO Optimizado** - Meta tags y structured data
-- 🚀 **Performance** - Core Web Vitals optimizado
+- **Diseño Moderno**: Interfaz minimalista y profesional con animaciones sutiles
+- **Tema Claro/Oscuro**: Sistema de temas con persistencia en localStorage
+- **Fully Responsive**: Optimizado para todos los dispositivos
+- **SEO Optimizado**: Meta tags, Open Graph y structured data
+- **Performance**: Carga rápida y optimizada con Astro
+- **Accesibilidad**: Navegación por teclado y etiquetas ARIA
 
-## 🚀 Inicio Rápido
+## 🎨 Sistema de Temas
+
+El portfolio incluye un sistema de temas personalizado con:
+
+- **Paleta de colores**: Basada en #F9FAFB, #111827, #6B7280, #3B82F6
+- **Tipografía**: Inter y Roboto de Google Fonts
+- **Variables CSS**: Sistema completo de design tokens
+- **Componentes reutilizables**: Cards, buttons, forms, etc.
+
+### Archivo de tema
+
+El archivo `src/styles/theme.css` contiene:
+- Variables CSS para colores, tipografía, espaciado, bordes, sombras
+- Estilos base y reset
+- Utilidades y componentes base
+- Animaciones y transiciones
+
+## 📂 Estructura del Proyecto
+
+```
+├── public/
+│   ├── favicon.svg
+│   └── img/
+│       └── profile.jpg
+├── src/
+│   ├── assets/          # Assets estáticos
+│   ├── components/      # Componentes de Astro
+│   │   ├── Header.astro
+│   │   ├── Footer.astro
+│   │   ├── Hero.astro
+│   │   ├── About.astro
+│   │   ├── Experience.astro
+│   │   ├── Projects.astro
+│   │   ├── Skills.astro
+│   │   ├── Education.astro
+│   │   ├── Services.astro
+│   │   └── Contact.astro
+│   ├── data/            # Datos del portfolio
+│   │   ├── types.ts
+│   │   ├── personal.ts
+│   │   ├── experience.ts
+│   │   ├── projects.ts
+│   │   ├── skills.ts
+│   │   ├── education.ts
+│   │   └── services.ts
+│   ├── layouts/         # Layouts de página
+│   │   └── Layout.astro
+│   ├── pages/           # Páginas del sitio
+│   │   ├── index.astro
+│   │   └── projects/
+│   │       └── [slug].astro
+│   └── styles/          # Estilos globales
+│       └── theme.css
+└── package.json
+```
+
+## 🎯 Secciones del Portfolio
+
+1. **Hero**: Presentación principal con imagen de perfil y enlaces sociales
+2. **Sobre mí**: Biografía, información de contacto y estadísticas
+3. **Experiencia**: Timeline de experiencia profesional con logros
+4. **Proyectos**: Carousel de proyectos destacados con enlaces a páginas de detalle
+5. **Habilidades**: Grid categorizado de tecnologías con barras de progreso
+6. **Educación**: Formación académica y cursos realizados
+7. **Servicios**: Oferta de servicios profesionales
+8. **Contacto**: Formulario de contacto e información
+
+## 🛠️ Tecnologías
+
+- **Framework**: Astro 5.14.1
+- **Lenguaje**: TypeScript
+- **Estilos**: CSS Variables (Custom Properties)
+- **Fuentes**: Google Fonts (Inter, Roboto)
+- **Icons**: SVG inline
+
+## 📦 Instalación
 
 ```bash
 # Instalar dependencias
@@ -21,108 +95,92 @@ pnpm install
 # Iniciar servidor de desarrollo
 pnpm dev
 
-# Abrir en el navegador
-# http://localhost:4321
+# Build para producción
+pnpm build
+
+# Preview del build
+pnpm preview
 ```
 
-## 📦 Comandos Disponibles
+## 🎨 Personalización
 
-| Comando | Acción |
-|---------|--------|
-| `pnpm dev` | Inicia servidor de desarrollo en `localhost:4321` |
-| `pnpm build` | Construye para producción en `./dist/` |
-| `pnpm preview` | Vista previa del build de producción |
-| `pnpm lint` | Ejecuta el linter |
-| `pnpm lint:fix` | Corrige problemas de linting automáticamente |
-| `pnpm format` | Formatea el código |
-| `pnpm check` | Verifica linting y formateo |
-| `pnpm check:fix` | Corrige todos los problemas automáticamente |
+### Actualizar datos personales
 
-## 🏗️ Estructura del Proyecto
+Edita los archivos en `src/data/`:
 
-```text
-/
-├── public/              # Archivos estáticos
-│   └── favicon.svg
-├── src/
-│   ├── assets/         # Recursos (imágenes, fonts, etc)
-│   │   └── astro.svg
-│   ├── components/     # Componentes reutilizables
-│   │   └── Welcome.astro
-│   ├── data/          # Datos del portfolio
-│   │   ├── personal.ts
-│   │   ├── education.ts
-│   │   ├── experience.ts
-│   │   ├── projects.ts
-│   │   ├── services.ts
-│   │   ├── skills.ts
-│   │   └── types.ts
-│   ├── layouts/       # Layouts de página
-│   │   └── Layout.astro
-│   └── pages/         # Páginas del sitio
-│       └── index.astro
-├── .vscode/           # Configuración VS Code
-│   ├── settings.json
-│   ├── extensions.json
-│   ├── tasks.json
-│   ├── launch.json
-│   └── astro.code-snippets
-└── docs/              # Documentación adicional
-    ├── README.md
-    ├── MCPs-GUIDE.md
-    └── claude_desktop_config.example.json
+- `personal.ts`: Información personal, contacto y redes sociales
+- `experience.ts`: Experiencia laboral
+- `projects.ts`: Proyectos realizados
+- `skills.ts`: Habilidades técnicas
+- `education.ts`: Formación académica y cursos
+- `services.ts`: Servicios ofrecidos
+
+### Personalizar tema
+
+El archivo `src/styles/theme.css` contiene todas las variables CSS. Modifica las variables en `:root` para el tema claro y en `[data-theme='dark']` para el tema oscuro.
+
+### Añadir imagen de perfil
+
+Reemplaza el archivo `public/img/profile.jpg` con tu propia imagen.
+
+## 🚀 Despliegue
+
+El portfolio puede desplegarse en cualquier plataforma que soporte sitios estáticos:
+
+- **Vercel**: Conecta tu repositorio y despliega automáticamente
+- **Netlify**: Drag & drop o conexión con Git
+- **GitHub Pages**: Configura el workflow de GitHub Actions
+- **Cloudflare Pages**: Conexión directa con Git
+
+## 📝 Añadir nuevo proyecto
+
+1. Agrega el proyecto en `src/data/projects.ts`:
+
+```typescript
+{
+  id: 'mi-proyecto',
+  title: 'Mi Proyecto',
+  summary: 'Descripción breve',
+  slug: 'mi-proyecto',
+  longDescription: 'Descripción detallada',
+  technologies: ['Tech1', 'Tech2'],
+  type: 'web',
+  year: 2025,
+  featured: true,
+  status: 'completed'
+}
 ```
 
-## 🛠️ Tecnologías
+2. La página de detalle se generará automáticamente en `/projects/mi-proyecto`
 
-- **[Astro](https://astro.build)** - Framework para sitios web estáticos
-- **[TypeScript](https://www.typescriptlang.org/)** - JavaScript con tipos
-- **[Biome](https://biomejs.dev/)** - Linter y formateador ultrarrápido
-- **[pnpm](https://pnpm.io/)** - Gestor de paquetes eficiente
+## 🎯 SEO
 
-## 📚 Documentación
+El portfolio incluye:
+- Meta tags descriptivos
+- Open Graph para redes sociales
+- Twitter Cards
+- Títulos y descripciones optimizados
+- Estructura semántica de HTML
 
-### Configuración de VS Code
-- [`.vscode/settings.json`](.vscode/settings.json) - Configuración completa del editor
-- [`.vscode/extensions.json`](.vscode/extensions.json) - Extensiones recomendadas
-- [`.vscode/tasks.json`](.vscode/tasks.json) - Tareas automatizadas
-- [`.vscode/astro.code-snippets`](.vscode/astro.code-snippets) - Snippets personalizados
+## ♿ Accesibilidad
 
-### Claude Desktop (MCPs)
-- [`docs/MCPs-GUIDE.md`](docs/MCPs-GUIDE.md) - Guía completa de Model Context Protocols
-- [`docs/claude_desktop_config.example.json`](docs/claude_desktop_config.example.json) - Configuración de ejemplo
+- Navegación por teclado completa
+- Etiquetas ARIA apropiadas
+- Contraste de colores WCAG AA
+- HTML semántico
+- Scroll suave y skip links
 
-## 🎨 VS Code Snippets
+## 📄 Licencia
 
-Este proyecto incluye snippets personalizados para Astro:
+Este proyecto es de uso personal. Puedes usarlo como inspiración para tu propio portfolio.
 
-- `astro-component` - Componente básico con props
-- `astro-layout` - Layout completo
-- `astro-page` - Página básica
-- `astro-if` - Renderizado condicional
-- `astro-map` - Renderizado de listas
+## 👤 Autor
 
-## �� Contribuir
-
-Las contribuciones son bienvenidas:
-
-1. Fork del proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 📖 Recursos
-
-- [Documentación de Astro](https://docs.astro.build)
-- [Guía de TypeScript](https://www.typescriptlang.org/docs/)
-- [Documentación de Biome](https://biomejs.dev/)
-- [Discord de Astro](https://astro.build/chat)
-
-## 📝 Licencia
-
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+**Rubén Rosales**
+- Email: rubenfranciscogr@gmail.com
+- LinkedIn: [Rubén Francisco Gazquez Rosales](https://www.linkedin.com/in/rub%C3%A9n-francisco-gazquez-rosales-45b788160)
+- GitHub: [@rubenfgr](https://github.com/rubenfgr)
 
 ---
 
-**¿Te resultó útil?** ¡Dale una ⭐ al proyecto!
+Desarrollado con ❤️ usando Astro

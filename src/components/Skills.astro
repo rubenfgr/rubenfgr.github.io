@@ -231,11 +231,8 @@ const categoryIcons = {
   }
 
   .skills-summary {
-    background: linear-gradient(
-      135deg,
-      var(--color-accent) 0%,
-      var(--color-accent-hover) 100%
-    );
+    background-color: var(--color-bg-secondary);
+    border: 2px solid var(--color-border);
     padding: var(--space-10);
     border-radius: var(--radius-xl);
     text-align: center;
@@ -244,8 +241,26 @@ const categoryIcons = {
   .summary-title {
     font-size: var(--text-2xl);
     font-weight: var(--font-bold);
-    color: white;
+    color: var(--color-text-primary);
     margin-bottom: var(--space-6);
+    position: relative;
+    display: inline-block;
+  }
+
+  .summary-title::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      var(--color-accent) 0%,
+      var(--color-accent-hover) 100%
+    );
+    border-radius: var(--radius-full);
   }
 
   .stack-tags {
@@ -253,6 +268,7 @@ const categoryIcons = {
     flex-wrap: wrap;
     justify-content: center;
     gap: var(--space-3);
+    margin-top: var(--space-8);
   }
 
   .stack-tag {
@@ -261,27 +277,33 @@ const categoryIcons = {
     font-weight: var(--font-semibold);
     border-radius: var(--radius-md);
     transition: all var(--transition-fast);
+    cursor: default;
   }
 
   .stack-tag-primary {
-    background-color: white;
+    background-color: var(--color-accent-light);
     color: var(--color-accent);
+    border: 2px solid var(--color-accent);
   }
 
   .stack-tag-primary:hover {
-    transform: translateY(-2px);
+    background-color: var(--color-accent);
+    color: white;
+    transform: translateY(-2px) scale(1.05);
     box-shadow: var(--shadow-lg);
   }
 
   .stack-tag-secondary {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    border: 2px solid var(--color-border);
   }
 
   .stack-tag-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    border-color: var(--color-accent);
+    transform: translateY(-2px) scale(1.05);
   }
 </style>
 

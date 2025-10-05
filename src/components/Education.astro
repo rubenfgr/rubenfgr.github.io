@@ -1,0 +1,243 @@
+---
+import { education, courses } from '../data/education';
+---
+
+<section class="education section" id="education">
+  <div class="container">
+    <h2 class="section-title reveal">Educación y Formación</h2>
+    <p class="section-subtitle reveal">
+      Mi formación académica y cursos especializados
+    </p>
+
+    <div class="education-content">
+      <div class="formal-education reveal">
+        <h3 class="subsection-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+          Formación Académica
+        </h3>
+        
+        <div class="education-list">
+          {education.map(edu => (
+            <div class="education-card">
+              <div class="education-header">
+                <h4 class="education-title">{edu.title}</h4>
+                <span class="education-period">{edu.period}</span>
+              </div>
+              <p class="education-institution">{edu.institution}</p>
+              <p class="education-grade">{edu.grade}</p>
+              {edu.description && (
+                <p class="education-description">{edu.description}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="courses reveal">
+        <h3 class="subsection-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+          Cursos y Certificaciones
+        </h3>
+
+        <div class="courses-by-year">
+          {[2023, 2021, 2020, 2019, 2018].map(year => {
+            const yearCourses = courses.filter(c => c.year === year);
+            return yearCourses.length > 0 && (
+              <div class="year-group">
+                <h4 class="year-title">{year}</h4>
+                <ul class="courses-list">
+                  {yearCourses.map(course => (
+                    <li class="course-item">
+                      <div class="course-info">
+                        <span class="course-title">{course.title}</span>
+                        {course.provider && (
+                          <span class="course-provider"> - {course.provider}</span>
+                        )}
+                      </div>
+                      <span class="course-duration">{course.duration}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .education {
+    background-color: var(--color-bg-secondary);
+  }
+
+  .education-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  @media (min-width: 1024px) {
+    .education-content {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+    }
+  }
+
+  .subsection-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-8);
+  }
+
+  .subsection-title svg {
+    color: var(--color-accent);
+  }
+
+  .education-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .education-card {
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: all var(--transition-base);
+  }
+
+  .education-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateX(4px);
+  }
+
+  .education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-4);
+    margin-bottom: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .education-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--color-text-primary);
+    margin: 0;
+    flex: 1;
+  }
+
+  .education-period {
+    padding: var(--space-1) var(--space-3);
+    background-color: var(--color-accent-light);
+    color: var(--color-accent);
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    border-radius: var(--radius-md);
+    white-space: nowrap;
+  }
+
+  [data-theme='dark'] .education-period {
+    background-color: var(--color-accent-light);
+    color: var(--color-accent-hover);
+  }
+
+  .education-institution {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    margin: var(--space-2) 0;
+  }
+
+  .education-grade {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--color-accent);
+    margin: 0;
+  }
+
+  .education-description {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-3);
+  }
+
+  .courses-by-year {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .year-group {
+    position: relative;
+  }
+
+  .year-title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .courses-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .course-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-3);
+    background-color: var(--color-bg-primary);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+
+  .course-item:hover {
+    background-color: var(--color-bg-tertiary);
+    transform: translateX(4px);
+  }
+
+  .course-info {
+    flex: 1;
+  }
+
+  .course-title {
+    font-size: var(--text-sm);
+    color: var(--color-text-primary);
+    font-weight: var(--font-medium);
+  }
+
+  .course-provider {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .course-duration {
+    font-size: var(--text-xs);
+    color: var(--color-accent);
+    font-weight: var(--font-semibold);
+    white-space: nowrap;
+  }
+</style>

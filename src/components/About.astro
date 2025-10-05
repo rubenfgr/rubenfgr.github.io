@@ -1,0 +1,269 @@
+---
+import { personalInfo, contactInfo } from '../data/personal';
+---
+
+<section class="about section" id="about">
+  <div class="container">
+    <h2 class="section-title reveal">Sobre mí</h2>
+    
+    <div class="about-content">
+      <div class="about-text reveal">
+        <h3 class="about-subtitle">Desarrollador FullStack Apasionado</h3>
+        <p class="about-description">
+          {personalInfo.bio}
+        </p>
+        
+        <div class="about-info">
+          <div class="about-info-item">
+            <span class="info-label">Email:</span>
+            <a href={`mailto:${contactInfo.email}`} class="info-value">
+              {contactInfo.email}
+            </a>
+          </div>
+          
+          <div class="about-info-item">
+            <span class="info-label">Ubicación:</span>
+            <span class="info-value">{contactInfo.location}</span>
+          </div>
+          
+          {contactInfo.phone && (
+            <div class="about-info-item">
+              <span class="info-label">Teléfono:</span>
+              <a href={`tel:${contactInfo.phone}`} class="info-value">
+                {contactInfo.phone}
+              </a>
+            </div>
+          )}
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-number">4+</span>
+            <span class="stat-label">Años de experiencia</span>
+          </div>
+          
+          <div class="stat-item">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Proyectos completados</span>
+          </div>
+          
+          <div class="stat-item">
+            <span class="stat-number">25+</span>
+            <span class="stat-label">Tecnologías dominadas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-features reveal">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h4 class="feature-title">Desarrollo FullStack</h4>
+          <p class="feature-description">
+            Experiencia en desarrollo frontend con Angular y React, y backend con Node.js, NestJS y Laravel.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h4 class="feature-title">UI/UX Design</h4>
+          <p class="feature-description">
+            Diseño de interfaces modernas e intuitivas con herramientas como Figma, enfocado en la experiencia del usuario.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+          </div>
+          <h4 class="feature-title">IoT & Sistemas</h4>
+          <p class="feature-description">
+            Desarrollo de soluciones IoT con MQTT, WebSockets y sistemas embebidos como Arduino y ESP32.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <h4 class="feature-title">DevOps & Cloud</h4>
+          <p class="feature-description">
+            Gestión de infraestructura con Docker, CI/CD con GitLab y administración de servidores Linux.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background-color: var(--color-bg-secondary);
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  @media (min-width: 1024px) {
+    .about-content {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: start;
+    }
+  }
+
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .about-subtitle {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-text-primary);
+  }
+
+  .about-description {
+    font-size: var(--text-base);
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+  }
+
+  .about-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-6);
+    background-color: var(--color-bg-tertiary);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-4);
+  }
+
+  .about-info-item {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+  }
+
+  .info-label {
+    font-weight: var(--font-semibold);
+    color: var(--color-text-primary);
+    min-width: 100px;
+  }
+
+  .info-value {
+    color: var(--color-text-secondary);
+  }
+
+  .info-value:is(a) {
+    color: var(--color-accent);
+  }
+
+  .info-value:is(a):hover {
+    color: var(--color-accent-hover);
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-6);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-4);
+    background-color: var(--color-bg-tertiary);
+    border-radius: var(--radius-lg);
+  }
+
+  .stat-number {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: var(--color-accent);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-2);
+  }
+
+  .about-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .about-features {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .feature-card {
+    padding: var(--space-6);
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+  }
+
+  .feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+    color: white;
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-4);
+  }
+
+  .feature-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+  }
+
+  .feature-description {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+</style>

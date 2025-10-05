@@ -1,0 +1,400 @@
+---
+import { projects } from '../data/projects';
+
+const featuredProjects = projects.filter(p => p.featured);
+---
+
+<section class="projects section" id="projects">
+  <div class="container">
+    <h2 class="section-title reveal">Proyectos Destacados</h2>
+    <p class="section-subtitle reveal">
+      Algunos de los proyectos más significativos en los que he trabajado
+    </p>
+
+    <div class="projects-carousel-wrapper">
+      <div class="projects-carousel" id="projects-carousel">
+        {featuredProjects.map((project, index) => (
+          <div class="project-slide" data-index={index}>
+            <div class="project-card">
+              <div class="project-type-badge">
+                {project.type === 'web' && '🌐 Web'}
+                {project.type === 'mobile' && '📱 Mobile'}
+                {project.type === 'iot' && '🔌 IoT'}
+                {project.type === 'desktop' && '💻 Desktop'}
+                {project.type === 'api' && '⚡ API'}
+                {project.type === 'infrastructure' && '🏗️ Infraestructura'}
+              </div>
+
+              <div class="project-content">
+                <div class="project-header">
+                  <h3 class="project-title">{project.title}</h3>
+                  {project.year && (
+                    <span class="project-year">{project.year}</span>
+                  )}
+                </div>
+
+                {project.company && (
+                  <p class="project-company">{project.company}</p>
+                )}
+
+                <p class="project-summary">{project.summary}</p>
+
+                <div class="project-technologies">
+                  {project.technologies.map(tech => (
+                    <span class="tech-tag">{tech}</span>
+                  ))}
+                </div>
+
+                <div class="project-actions">
+                  {project.slug && (
+                    <a href={`/projects/${project.slug}`} class="btn btn-primary">
+                      Ver Detalles
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </a>
+                  )}
+                  {project.status && (
+                    <span class={`project-status status-${project.status}`}>
+                      {project.status === 'maintained' && '🔄 En mantenimiento'}
+                      {project.status === 'completed' && '✅ Completado'}
+                      {project.status === 'in-progress' && '🚧 En progreso'}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <button class="carousel-btn carousel-btn-prev" id="carousel-prev" aria-label="Previous project">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <button class="carousel-btn carousel-btn-next" id="carousel-next" aria-label="Next project">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="carousel-dots" id="carousel-dots">
+        {featuredProjects.map((_, index) => (
+          <button 
+            class={`carousel-dot ${index === 0 ? 'active' : ''}`} 
+            data-index={index}
+            aria-label={`Go to project ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    background-color: var(--color-bg-secondary);
+    overflow: hidden;
+  }
+
+  .projects-carousel-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .projects-carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .project-slide {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .project-card {
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+  }
+
+  .project-card:hover {
+    box-shadow: var(--shadow-xl);
+  }
+
+  .project-type-badge {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background-color: var(--color-accent-light);
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-6);
+  }
+
+  [data-theme='dark'] .project-type-badge {
+    background-color: var(--color-accent-light);
+    color: var(--color-accent-hover);
+  }
+
+  .project-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .project-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .project-title {
+      font-size: var(--text-3xl);
+    }
+  }
+
+  .project-year {
+    padding: var(--space-1) var(--space-3);
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    border-radius: var(--radius-md);
+  }
+
+  .project-company {
+    font-size: var(--text-sm);
+    color: var(--color-accent);
+    font-weight: var(--font-medium);
+    margin: 0;
+  }
+
+  .project-summary {
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding-top: var(--space-2);
+  }
+
+  .tech-tag {
+    padding: var(--space-2) var(--space-3);
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+
+  .tech-tag:hover {
+    background-color: var(--color-accent);
+    color: white;
+  }
+
+  .project-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .project-status {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    border-radius: var(--radius-md);
+  }
+
+  .status-maintained {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
+
+  .status-completed {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+
+  .status-in-progress {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+
+  [data-theme='dark'] .status-maintained {
+    background-color: #1e3a8a;
+    color: #93c5fd;
+  }
+
+  [data-theme='dark'] .status-completed {
+    background-color: #064e3b;
+    color: #6ee7b7;
+  }
+
+  [data-theme='dark'] .status-in-progress {
+    background-color: #78350f;
+    color: #fcd34d;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    z-index: 10;
+    box-shadow: var(--shadow-md);
+  }
+
+  .carousel-btn:hover {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .carousel-btn-prev {
+    left: calc(var(--space-4) * -1);
+  }
+
+  .carousel-btn-next {
+    right: calc(var(--space-4) * -1);
+  }
+
+  @media (max-width: 767px) {
+    .carousel-btn-prev {
+      left: 0;
+    }
+
+    .carousel-btn-next {
+      right: 0;
+    }
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-top: var(--space-8);
+  }
+
+  .carousel-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: var(--color-border);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .carousel-dot:hover {
+    background-color: var(--color-text-secondary);
+  }
+
+  .carousel-dot.active {
+    background-color: var(--color-accent);
+    width: 2rem;
+    border-radius: var(--radius-full);
+  }
+</style>
+
+<script>
+  const carousel = document.getElementById('projects-carousel');
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const slides = document.querySelectorAll('.project-slide');
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+
+  function updateCarousel() {
+    if (!carousel) return;
+    
+    const offset = -currentIndex * 100;
+    carousel.style.transform = `translateX(${offset}%)`;
+
+    // Update dots
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  }
+
+  nextBtn?.addEventListener('click', nextSlide);
+  prevBtn?.addEventListener('click', prevSlide);
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const index = parseInt(target.dataset.index || '0');
+      currentIndex = index;
+      updateCarousel();
+    });
+  });
+
+  // Auto-play (optional)
+  let autoplayInterval = setInterval(nextSlide, 5000);
+
+  // Pause on hover
+  carousel?.addEventListener('mouseenter', () => {
+    clearInterval(autoplayInterval);
+  });
+
+  carousel?.addEventListener('mouseleave', () => {
+    autoplayInterval = setInterval(nextSlide, 5000);
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+  });
+</script>

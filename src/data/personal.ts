@@ -4,16 +4,16 @@ export const personalInfo: PersonalInfo = {
   name: 'Rubén Rosales',
   title: 'Desarrollador de Aplicaciones Web y Multiplataforma',
   // Bio: Resumen corto para la sección Hero
-  bio: 'Desarrollador FullStack especializado en TypeScript/JavaScript con más de 4 años de experiencia creando soluciones web escalables y eficientes. Apasionado por la innovación tecnológica y la mejora continua.',
+  bio: 'Desarrollador FullStack con más de 5 años de experiencia especializándome en TypeScript/JavaScript, Angular, Node.js y NestJS. Experto en crear aplicaciones web y multiplataforma escalables, con sólida experiencia en DevOps y arquitectura de software.',
   // Summary: Descripción más detallada para la sección About
   summary:
-    'Con experiencia profesional en desarrollo FullStack, me especializo en crear aplicaciones web robustas y escalables utilizando tecnologías modernas. Mi stack principal incluye TypeScript, Node.js, NestJS y Angular, con conocimientos sólidos en React, React Native y Laravel. Tengo competencias en arquitectura de software, diseño UI/UX, containerización con Docker, gestión de bases de datos SQL y Redis, desarrollo IoT con MQTT, y metodologías ágiles. Mi enfoque está en desarrollar soluciones de alta calidad que generen impacto real en los usuarios finales.',
+    'Desarrollador FullStack con más de 5 años de experiencia profesional en dos empresas líderes, especializándome en el desarrollo de aplicaciones web y multiplataforma de alto rendimiento. Mi stack principal incluye Angular, Node.js y NestJS, con dominio avanzado en React, React Native y Flutter. Poseo amplia experiencia en arquitectura de software, diseño e implementación de soluciones DevOps, desarrollo de interfaces UI/UX intuitivas, y gestión de infraestructura con Docker. Trabajo diariamente con bases de datos SQL, MongoDB y Redis, sistemas de comunicación en tiempo real mediante MQTT, WebSockets y SSE, e integración de IA generativa y automatizaciones con n8n. Aplico la metodología SCRUM en mi día a día, combinando prácticas ágiles con las mejores técnicas de desarrollo para entregar soluciones robustas, escalables y de alto impacto que superan las expectativas de los usuarios finales.',
   profileImage: '/img/profile-avatar.png',
   // Estadísticas clave
   stats: [
-    { value: '4+', label: 'Años de experiencia' },
+    { value: '5+', label: 'Años de experiencia' },
     { value: '15+', label: 'Proyectos completados' },
-    { value: '25+', label: 'Tecnologías dominadas' },
+    { value: '30+', label: 'Tecnologías dominadas' },
   ],
   // Características/especialidades
   features: [
@@ -21,25 +21,31 @@ export const personalInfo: PersonalInfo = {
       icon: 'code',
       title: 'Desarrollo FullStack',
       description:
-        'Experiencia en desarrollo frontend con Angular y React, y backend con Node.js, NestJS y Laravel.',
-    },
-    {
-      icon: 'design',
-      title: 'UI/UX Design',
-      description:
-        'Diseño de interfaces modernas e intuitivas con herramientas como Figma, enfocado en la experiencia del usuario.',
-    },
-    {
-      icon: 'iot',
-      title: 'IoT & Sistemas',
-      description:
-        'Desarrollo de soluciones IoT con MQTT, WebSockets y sistemas embebidos como Arduino y ESP32.',
+        'Stack principal: Angular, Node.js y NestJS. Conocimientos avanzados en React, React Native y Flutter para aplicaciones web y multiplataforma de alto rendimiento.',
     },
     {
       icon: 'layers',
-      title: 'DevOps & Cloud',
+      title: 'DevOps & Arquitectura',
       description:
-        'Implementación de pipelines CI/CD, containerización con Docker y despliegue en entornos cloud.',
+        'Experiencia diaria en DevOps: Docker, CI/CD, arquitectura de software escalable y gestión de infraestructura cloud. Metodología SCRUM.',
+    },
+    {
+      icon: 'iot',
+      title: 'Tiempo Real & IoT',
+      description:
+        'Desarrollo de sistemas de comunicación en tiempo real con MQTT, WebSockets y SSE. Integración de dispositivos IoT y soluciones conectadas.',
+    },
+    {
+      icon: 'zap',
+      title: 'IA Generativa & Automatizaciones',
+      description:
+        'Integración de IA generativa en aplicaciones modernas. Diseño e implementación de workflows de automatización con n8n para optimizar procesos.',
+    },
+    {
+      icon: 'database',
+      title: 'Bases de Datos',
+      description:
+        'Gestión experta de bases de datos SQL (PostgreSQL, MySQL), NoSQL (MongoDB) y sistemas de caché con Redis para aplicaciones de alto rendimiento.',
     },
   ],
 };

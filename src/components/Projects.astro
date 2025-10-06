@@ -21,7 +21,7 @@ const featuredProjects = projects.filter((p) => p.featured);
                   {/* Imagen del proyecto */}
                   <div class="project-image-container">
                     <img
-                      src={`https://placehold.co/800x450/3B82F6/ffffff?text=${encodeURIComponent(project.title)}`}
+                      src="img/private-project.png"
                       alt={project.title}
                       class="project-image"
                       loading="lazy"
@@ -188,7 +188,8 @@ const featuredProjects = projects.filter((p) => p.featured);
 
   .project-image-container {
     width: 100%;
-    height: 240px;
+    max-height: 500px;
+    height: 500px;
     overflow: hidden;
     background: linear-gradient(
       135deg,
@@ -352,7 +353,7 @@ const featuredProjects = projects.filter((p) => p.featured);
     }
 
     .project-image-container {
-      height: 280px;
+      height: 500px;
     }
 
     .project-title {

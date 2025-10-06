@@ -2,6 +2,7 @@
 
 import { courses, education } from './education';
 import { experience } from './experience';
+import { icons } from './icons';
 import { contactInfo, personalInfo, socialLinks } from './personal';
 import { projects } from './projects';
 import { services } from './services';
@@ -51,16 +52,18 @@ export const portfolioData: Portfolio = {
 
 // Exports individuales para uso granular
 export {
-  personalInfo,
   contactInfo,
-  socialLinks,
-  skills,
-  projects,
-  experience,
-  education,
   courses,
+  education,
+  experience,
+  icons,
+  personalInfo,
+  projects,
   services,
+  skills,
+  socialLinks,
 };
 
+export * from './icons';
 // Export de tipos
 export * from './types';

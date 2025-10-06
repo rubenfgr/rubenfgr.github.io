@@ -1,5 +1,6 @@
 ---
 import { contactInfo, personalInfo } from "../data/personal";
+import Icon from "./Icon.astro";
 ---
 
 <section class="about section" id="about">
@@ -10,7 +11,7 @@ import { contactInfo, personalInfo } from "../data/personal";
       <div class="about-text reveal">
         <h3 class="about-subtitle">Desarrollador FullStack Apasionado</h3>
         <p class="about-description">
-          {personalInfo.bio}
+          {personalInfo.summary}
         </p>
 
         <div class="about-info">
@@ -39,122 +40,29 @@ import { contactInfo, personalInfo } from "../data/personal";
         </div>
 
         <div class="about-stats">
-          <div class="stat-item">
-            <span class="stat-number">4+</span>
-            <span class="stat-label">Años de experiencia</span>
-          </div>
-
-          <div class="stat-item">
-            <span class="stat-number">15+</span>
-            <span class="stat-label">Proyectos completados</span>
-          </div>
-
-          <div class="stat-item">
-            <span class="stat-number">25+</span>
-            <span class="stat-label">Tecnologías dominadas</span>
-          </div>
+          {
+            personalInfo.stats.map((stat) => (
+              <div class="stat-item">
+                <span class="stat-number">{stat.value}</span>
+                <span class="stat-label">{stat.label}</span>
+              </div>
+            ))
+          }
         </div>
       </div>
 
       <div class="about-features reveal">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
-            </svg>
-          </div>
-          <h4 class="feature-title">Desarrollo FullStack</h4>
-          <p class="feature-description">
-            Experiencia en desarrollo frontend con Angular y React, y backend
-            con Node.js, NestJS y Laravel.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-              <line x1="8" y1="21" x2="16" y2="21"></line>
-              <line x1="12" y1="17" x2="12" y2="21"></line>
-            </svg>
-          </div>
-          <h4 class="feature-title">UI/UX Design</h4>
-          <p class="feature-description">
-            Diseño de interfaces modernas e intuitivas con herramientas como
-            Figma, enfocado en la experiencia del usuario.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="12" cy="12" r="10"></circle>
-              <circle cx="12" cy="12" r="6"></circle>
-              <circle cx="12" cy="12" r="2"></circle>
-            </svg>
-          </div>
-          <h4 class="feature-title">IoT & Sistemas</h4>
-          <p class="feature-description">
-            Desarrollo de soluciones IoT con MQTT, WebSockets y sistemas
-            embebidos como Arduino y ESP32.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-              <path d="M2 17l10 5 10-5"></path>
-              <path d="M2 12l10 5 10-5"></path>
-            </svg>
-          </div>
-          <h4 class="feature-title">DevOps & Cloud</h4>
-          <p class="feature-description">
-            Gestión de infraestructura con Docker, CI/CD con GitLab y
-            administración de servidores Linux.
-          </p>
-        </div>
+        {
+          personalInfo.features.map((feature) => (
+            <div class="feature-card">
+              <div class="feature-icon">
+                <Icon name={feature.icon as any} width={32} height={32} />
+              </div>
+              <h4 class="feature-title">{feature.title}</h4>
+              <p class="feature-description">{feature.description}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>

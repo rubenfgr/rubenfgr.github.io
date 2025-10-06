@@ -1,0 +1,44 @@
+---
+import type { IconName } from "../data/icons";
+import { getIcon } from "../data/icons";
+
+interface Props {
+  name: IconName;
+  width?: number;
+  height?: number;
+  class?: string;
+  stroke?: string;
+  fill?: string;
+  strokeWidth?: number;
+}
+
+const {
+  name,
+  width = 24,
+  height = 24,
+  class: className = "",
+  stroke = "currentColor",
+  fill = "none",
+  strokeWidth = 2,
+} = Astro.props;
+
+const icon = getIcon(name);
+---
+
+{
+  icon && (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={width}
+      height={height}
+      viewBox={icon.viewBox || "0 0 24 24"}
+      fill={fill}
+      stroke={stroke}
+      stroke-width={strokeWidth}
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class={className}
+      set:html={icon.svg}
+    />
+  )
+}

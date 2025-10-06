@@ -12,6 +12,17 @@ export interface SocialLink {
   icon?: string;
 }
 
+export interface Stat {
+  value: string; // Ej: "4+", "15+", "25+"
+  label: string; // Ej: "Años de experiencia"
+}
+
+export interface Feature {
+  icon: string; // Nombre del icono desde icons.ts
+  title: string;
+  description: string;
+}
+
 export interface Skill {
   name: string;
   level: number; // 0-100
@@ -74,9 +85,12 @@ export interface Experience {
 export interface PersonalInfo {
   name: string;
   title: string;
-  bio: string;
+  bio: string; // Descripción breve para Hero
+  summary: string; // Resumen más detallado para About
   profileImage?: string;
   cv?: string;
+  stats: Stat[]; // Estadísticas clave
+  features: Feature[]; // Características/especialidades
 }
 
 export interface Portfolio {

@@ -20,32 +20,27 @@ export const personalInfo: PersonalInfo = {
     {
       icon: 'code',
       title: 'Desarrollo FullStack',
-      description:
-        'Stack principal: Angular, Node.js y NestJS. Conocimientos avanzados en React, React Native y Flutter para aplicaciones web y multiplataforma de alto rendimiento.',
+      description: 'Angular, Node.js, NestJS. React, React Native, Flutter.',
     },
     {
       icon: 'layers',
       title: 'DevOps & Arquitectura',
-      description:
-        'Experiencia diaria en DevOps: Docker, CI/CD, arquitectura de software escalable y gestión de infraestructura cloud. Metodología SCRUM.',
+      description: 'Docker, CI/CD, arquitectura escalable. SCRUM.',
     },
     {
       icon: 'iot',
       title: 'Tiempo Real & IoT',
-      description:
-        'Desarrollo de sistemas de comunicación en tiempo real con MQTT, WebSockets y SSE. Integración de dispositivos IoT y soluciones conectadas.',
+      description: 'MQTT, WebSockets, SSE. Integración IoT.',
     },
     {
       icon: 'zap',
       title: 'IA Generativa & Automatizaciones',
-      description:
-        'Integración de IA generativa en aplicaciones modernas. Diseño e implementación de workflows de automatización con n8n para optimizar procesos.',
+      description: 'Integración de IA. Automatización con n8n.',
     },
     {
       icon: 'database',
       title: 'Bases de Datos',
-      description:
-        'Gestión experta de bases de datos SQL (PostgreSQL, MySQL), NoSQL (MongoDB) y sistemas de caché con Redis para aplicaciones de alto rendimiento.',
+      description: 'SQL, MongoDB, Redis.',
     },
   ],
 };

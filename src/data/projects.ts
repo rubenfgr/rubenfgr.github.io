@@ -39,7 +39,7 @@ export const projects: Project[] = [
       'Plataforma IoT para monitorización de niveles de ruido con alertas, configuración Bluetooth y análisis en tiempo real',
     slug: 'sistema-gestion-ruido-iot',
     longDescription:
-      'Sistema complejo IoT para gestión y monitorización de niveles de ruido. Incluye configuración de dispositivos vía Bluetooth, sistema de alertas en tiempo real, dashboards de análisis, gestión de umbrales y reporting histórico. Stack tecnológico: NestJS para el backend, React para el frontend, Redis para caching y colas, CrateDB para series temporales y PostgreSQL para datos estructurados.',
+      'Sistema avanzado IoT para gestión y monitorización de niveles de ruido. Incluye configuración de dispositivos vía Bluetooth, sistema de alertas en tiempo real, dashboards de análisis, gestión de umbrales y reporting histórico. Stack tecnológico: NestJS para el backend, React para el frontend, Redis para caching y colas, CrateDB para series temporales y PostgreSQL para datos estructurados.',
     technologies: ['NestJS', 'React', 'Redis', 'CrateDB', 'PostgreSQL', 'Bluetooth', 'IoT'],
     type: 'iot',
     company: 'Digio',
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     longDescription:
       'Proyecto de integración avanzada con CRM/ERP SaaS para automatizar la entrada de nuevos pedidos de clientes utilizando IA generativa y workflows con n8n. El sistema procesa automáticamente emails, documentos y comunicaciones de clientes, extrae información relevante mediante IA, valida datos y crea pedidos automáticamente en el sistema ERP.',
     technologies: ['IA Generativa', 'n8n', 'Node.js', 'REST API', 'TypeScript'],
-    type: 'api',
+    type: 'web',
     company: 'Digio',
     year: 2025,
     featured: true,

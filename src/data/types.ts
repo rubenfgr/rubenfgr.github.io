@@ -45,7 +45,7 @@ export interface Education {
 }
 
 export interface Project {
-  id: string; // ID único para referencias
+  id: string;
   title: string;
   summary?: string;
   description?: string;

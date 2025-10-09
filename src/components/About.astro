@@ -117,18 +117,33 @@ import Icon from "./Icon.astro";
 
   .about-info-item {
     display: flex;
-    gap: var(--space-3);
+    flex-wrap: wrap;
+    gap: var(--space-2);
     align-items: center;
+  }
+
+  @media (min-width: 640px) {
+    .about-info-item {
+      flex-wrap: nowrap;
+      gap: var(--space-3);
+    }
   }
 
   .info-label {
     font-weight: var(--font-semibold);
     color: var(--color-text-primary);
-    min-width: 100px;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 640px) {
+    .info-label {
+      min-width: 100px;
+    }
   }
 
   .info-value {
     color: var(--color-text-secondary);
+    word-break: break-word;
   }
 
   .info-value:is(a) {
@@ -141,9 +156,16 @@ import Icon from "./Icon.astro";
 
   .about-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: var(--space-6);
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--space-4);
     margin-top: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .about-stats {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: var(--space-6);
+    }
   }
 
   .stat-item {

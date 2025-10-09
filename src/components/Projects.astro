@@ -188,8 +188,7 @@ const featuredProjects = projects.filter((p) => p.featured);
 
   .project-image-container {
     width: 100%;
-    max-height: 500px;
-    height: 500px;
+    height: 250px;
     overflow: hidden;
     background: linear-gradient(
       135deg,
@@ -197,6 +196,24 @@ const featuredProjects = projects.filter((p) => p.featured);
       var(--color-accent-hover) 100%
     );
     flex-shrink: 0;
+  }
+
+  @media (min-width: 640px) {
+    .project-image-container {
+      height: 350px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .project-image-container {
+      height: 400px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .project-image-container {
+      height: 500px;
+    }
   }
 
   .project-image {

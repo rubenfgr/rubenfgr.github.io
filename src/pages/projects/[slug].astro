@@ -10,6 +10,24 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+
+// Determinar la imagen principal
+const getMainImage = () => {
+  // Si tiene imágenes en project.images, usar la primera
+  if (project.images && project.images.length > 0) {
+    return project.images[0];
+  }
+  // Si es proyecto personal, usar imagen personal
+  if (project.company === "Personal") {
+    return "/img/personal-project.png";
+  }
+  // Por defecto, usar imagen privada
+  return "/img/private-project.png";
+};
+
+const mainImage = getMainImage();
+const additionalImages =
+  project.images && project.images.length > 1 ? project.images.slice(1) : [];
 ---
 
 <Layout
@@ -40,7 +58,7 @@ const { project } = Astro.props;
         <div class="hero-content">
           <div class="project-badges">
             <span class="type-badge">
-              {project.type === "app web" && "🌐 Web"}
+              {project.type === "web" && "🌐 Web"}
               {project.type === "mobile" && "📱 Mobile"}
               {project.type === "iot" && "🔌 IoT"}
               {project.type === "desktop" && "💻 Desktop"}
@@ -109,6 +127,152 @@ const { project } = Astro.props;
       </div>
     </div>
 
+    <!-- Imagen principal destacada -->
+    <div class="project-featured-image">
+      <div class="container">
+        <div class="main-image-container">
+          <img
+            src={mainImage}
+            alt={project.title}
+            class="featured-image"
+            id="mainImage"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Carrusel de imágenes adicionales -->
+    {
+      additionalImages.length > 0 && (
+        <div class="project-gallery">
+          <div class="container">
+            <h3 class="gallery-title">Más capturas</h3>
+            <div class="gallery-carousel">
+              <button
+                class="gallery-btn gallery-prev"
+                id="gallery-prev"
+                aria-label="Anterior"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+
+              <div class="gallery-scroll">
+                {additionalImages.map((image, index) => (
+                  <div class="gallery-item">
+                    <img
+                      src={image}
+                      alt={`${project.title} - Captura ${index + 2}`}
+                      class="gallery-image"
+                      data-full-image={image}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <button
+                class="gallery-btn gallery-next"
+                id="gallery-next"
+                aria-label="Siguiente"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+    <!-- Modal para imagen ampliada -->
+    <div class="image-modal" id="imageModal">
+      <div class="modal-backdrop" id="modalBackdrop"></div>
+      <div class="modal-content">
+        <button class="modal-close" id="modalClose" aria-label="Cerrar">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <button
+          class="modal-nav modal-prev"
+          id="modalPrev"
+          aria-label="Imagen anterior"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <img src="" alt="" class="modal-image" id="modalImage" />
+
+        <button
+          class="modal-nav modal-next"
+          id="modalNext"
+          aria-label="Siguiente imagen"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="modal-counter" id="modalCounter">1 / 10</div>
+      </div>
+    </div>
+
     <div class="project-content">
       <div class="container">
         <div class="content-grid">
@@ -150,23 +314,6 @@ const { project } = Astro.props;
                 }
               </div>
             </section>
-
-            {
-              project.images && project.images.length > 0 && (
-                <section class="content-section">
-                  <h2 class="section-title">Galería</h2>
-                  <div class="images-grid">
-                    {project.images.map((image, index) => (
-                      <img
-                        src={image}
-                        alt={`${project.title} - Captura ${index + 1}`}
-                        class="project-image"
-                      />
-                    ))}
-                  </div>
-                </section>
-              )
-            }
           </div>
 
           <aside class="sidebar">
@@ -414,6 +561,281 @@ const { project } = Astro.props;
     color: var(--color-accent);
   }
 
+  .project-featured-image {
+    background-color: var(--color-bg-secondary);
+    padding: var(--space-8) 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .main-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .featured-image {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    cursor: pointer;
+    transition: transform var(--transition-base);
+  }
+
+  .featured-image:hover {
+    transform: scale(1.02);
+  }
+
+  /* Galería de imágenes adicionales */
+  .project-gallery {
+    background-color: var(--color-bg-primary);
+    padding: var(--space-8) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .gallery-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .gallery-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .gallery-scroll {
+    display: flex;
+    gap: var(--space-4);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: var(--space-2) 0;
+  }
+
+  .gallery-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-item {
+    flex-shrink: 0;
+    width: 200px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: transform var(--transition-base);
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.05);
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast);
+  }
+
+  .gallery-item:hover .gallery-image {
+    border-color: var(--color-accent);
+  }
+
+  .gallery-btn {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .gallery-btn:hover {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+  }
+
+  .gallery-btn:active {
+    transform: scale(0.95);
+  }
+
+  /* Modal para imagen ampliada */
+  .image-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image-modal.active {
+    display: flex;
+  }
+
+  .modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+  }
+
+  .modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    z-index: 10000;
+  }
+
+  .modal-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+  }
+
+  .modal-close:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    z-index: 10001;
+  }
+
+  .modal-nav:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .modal-nav:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  .modal-nav.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .modal-prev {
+    left: -80px;
+  }
+
+  .modal-next {
+    right: -80px;
+  }
+
+  .modal-counter {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: var(--space-2) var(--space-4);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .modal-nav {
+      width: 48px;
+      height: 48px;
+    }
+
+    .modal-prev {
+      left: 10px;
+    }
+
+    .modal-next {
+      right: 10px;
+    }
+
+    .modal-close {
+      top: 10px;
+      right: 10px;
+    }
+
+    .modal-counter {
+      bottom: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .gallery-carousel {
+      gap: var(--space-2);
+    }
+
+    .gallery-btn {
+      display: none;
+    }
+
+    .gallery-item {
+      width: 150px;
+      height: 112px;
+    }
+  }
+
   .project-content {
     padding: var(--space-16) 0;
     background-color: var(--color-bg-primary);
@@ -486,18 +908,6 @@ const { project } = Astro.props;
     flex-shrink: 0;
   }
 
-  .images-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-  }
-
-  @media (min-width: 640px) {
-    .images-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
   .project-image {
     width: 100%;
     height: auto;
@@ -539,6 +949,7 @@ const { project } = Astro.props;
     align-items: center;
     padding-bottom: var(--space-3);
     border-bottom: 1px solid var(--color-border);
+    gap: var(--space-3);
   }
 
   .info-item:last-child {
@@ -555,6 +966,7 @@ const { project } = Astro.props;
   .info-value {
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
+    text-align: right;
   }
 
   .project-links {
@@ -578,3 +990,184 @@ const { project } = Astro.props;
     justify-content: center;
   }
 </style>
+
+<script>
+  // Funcionalidad del carrusel de galería
+  function initGalleryCarousel() {
+    const prevBtn = document.getElementById(
+      "gallery-prev",
+    ) as HTMLButtonElement | null;
+    const nextBtn = document.getElementById(
+      "gallery-next",
+    ) as HTMLButtonElement | null;
+    const galleryScroll = document.querySelector(
+      ".gallery-scroll",
+    ) as HTMLElement | null;
+
+    if (!prevBtn || !nextBtn || !galleryScroll) return;
+
+    const scrollAmount = 220; // Ancho de item (200px) + gap (20px)
+
+    prevBtn.addEventListener("click", () => {
+      galleryScroll.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+
+    nextBtn.addEventListener("click", () => {
+      galleryScroll.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+
+    // Ocultar botones en los extremos
+    function updateButtons() {
+      if (!prevBtn || !nextBtn || !galleryScroll) return;
+
+      const { scrollLeft, scrollWidth, clientWidth } = galleryScroll;
+      prevBtn.style.opacity = scrollLeft <= 0 ? "0.5" : "1";
+      prevBtn.style.pointerEvents = scrollLeft <= 0 ? "none" : "auto";
+      nextBtn.style.opacity =
+        scrollLeft + clientWidth >= scrollWidth - 1 ? "0.5" : "1";
+      nextBtn.style.pointerEvents =
+        scrollLeft + clientWidth >= scrollWidth - 1 ? "none" : "auto";
+    }
+
+    galleryScroll.addEventListener("scroll", updateButtons);
+    updateButtons();
+  }
+
+  // Funcionalidad del modal de imagen
+  function initImageModal() {
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById(
+      "modalImage",
+    ) as HTMLImageElement | null;
+    const modalBackdrop = document.getElementById("modalBackdrop");
+    const modalClose = document.getElementById("modalClose");
+    const modalPrev = document.getElementById("modalPrev");
+    const modalNext = document.getElementById("modalNext");
+    const modalCounter = document.getElementById("modalCounter");
+    const clickableImages = document.querySelectorAll<HTMLImageElement>(
+      ".featured-image, .gallery-image",
+    );
+
+    if (!modal || !modalImage) return;
+
+    let currentImageIndex = 0;
+    const allImages: { src: string; alt: string }[] = [];
+
+    // Recopilar todas las imágenes disponibles
+    clickableImages.forEach((image) => {
+      const src = image.getAttribute("src");
+      const alt = image.getAttribute("alt");
+      if (src) {
+        allImages.push({ src, alt: alt || "Imagen del proyecto" });
+      }
+    });
+
+    // Actualizar la imagen mostrada en el modal
+    function updateModalImage() {
+      if (allImages.length === 0 || !modalImage) return;
+
+      const currentImage = allImages[currentImageIndex];
+      modalImage.setAttribute("src", currentImage.src);
+      modalImage.setAttribute("alt", currentImage.alt);
+
+      // Actualizar contador
+      if (modalCounter) {
+        modalCounter.textContent = `${currentImageIndex + 1} / ${allImages.length}`;
+      }
+
+      // Ocultar/mostrar botones de navegación
+      if (modalPrev) {
+        if (currentImageIndex === 0) {
+          modalPrev.classList.add("hidden");
+        } else {
+          modalPrev.classList.remove("hidden");
+        }
+      }
+
+      if (modalNext) {
+        if (currentImageIndex === allImages.length - 1) {
+          modalNext.classList.add("hidden");
+        } else {
+          modalNext.classList.remove("hidden");
+        }
+      }
+
+      // Ocultar contador si solo hay una imagen
+      if (modalCounter && allImages.length <= 1) {
+        modalCounter.style.display = "none";
+      } else if (modalCounter) {
+        modalCounter.style.display = "block";
+      }
+    }
+
+    // Abrir modal al hacer clic en cualquier imagen
+    clickableImages.forEach((image, index) => {
+      image.addEventListener("click", () => {
+        currentImageIndex = index;
+        updateModalImage();
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    // Navegar a la imagen anterior
+    if (modalPrev) {
+      modalPrev.addEventListener("click", () => {
+        if (currentImageIndex > 0) {
+          currentImageIndex--;
+          updateModalImage();
+        }
+      });
+    }
+
+    // Navegar a la siguiente imagen
+    if (modalNext) {
+      modalNext.addEventListener("click", () => {
+        if (currentImageIndex < allImages.length - 1) {
+          currentImageIndex++;
+          updateModalImage();
+        }
+      });
+    }
+
+    // Cerrar modal
+    function closeModal() {
+      if (modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    }
+
+    if (modalBackdrop) {
+      modalBackdrop.addEventListener("click", closeModal);
+    }
+
+    if (modalClose) {
+      modalClose.addEventListener("click", closeModal);
+    }
+
+    // Navegación con teclado
+    document.addEventListener("keydown", (e) => {
+      if (modal && modal.classList.contains("active")) {
+        if (e.key === "Escape") {
+          closeModal();
+        } else if (e.key === "ArrowLeft" && currentImageIndex > 0) {
+          currentImageIndex--;
+          updateModalImage();
+        } else if (
+          e.key === "ArrowRight" &&
+          currentImageIndex < allImages.length - 1
+        ) {
+          currentImageIndex++;
+          updateModalImage();
+        }
+      }
+    });
+  }
+
+  // Inicializar cuando el DOM esté listo
+  document.addEventListener("DOMContentLoaded", () => {
+    initGalleryCarousel();
+    initImageModal();
+  });
+</script>

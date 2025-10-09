@@ -16,6 +16,18 @@ export const projects: Project[] = [
     year: 2025,
     featured: true,
     status: 'in-progress',
+    images: [
+      'https://picsum.photos/seed/fitness1/1200/800',
+      'https://picsum.photos/seed/fitness2/1200/800',
+      'https://picsum.photos/seed/fitness3/1200/800',
+      'https://picsum.photos/seed/fitness4/1200/800',
+      'https://picsum.photos/seed/fitness5/1200/800',
+      'https://picsum.photos/seed/fitness6/1200/800',
+      'https://picsum.photos/seed/fitness7/1200/800',
+      'https://picsum.photos/seed/fitness8/1200/800',
+      'https://picsum.photos/seed/fitness9/1200/800',
+      'https://picsum.photos/seed/fitness10/1200/800',
+    ],
   },
   {
     id: 'app-inventario-barcode',

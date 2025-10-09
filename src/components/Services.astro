@@ -1,5 +1,5 @@
 ---
-
+import { services } from "../data/services";
 ---
 
 <section class="services section" id="services">
@@ -10,219 +10,25 @@
     </p>
 
     <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-          </svg>
-        </div>
-        <h3 class="service-title">Desarrollo Web</h3>
-        <p class="service-description">
-          Aplicaciones web modernas y escalables con las últimas tecnologías:
-          Angular, React, Node.js, NestJS.
-        </p>
-        <ul class="service-features">
-          <li>Single Page Applications (SPA)</li>
-          <li>Server-Side Rendering (SSR)</li>
-          <li>Progressive Web Apps (PWA)</li>
-          <li>Responsive Design</li>
-          <li>API REST & GraphQL</li>
-        </ul>
-        <div class="service-footer">
-          <span class="service-price">Desde 500€</span>
-          <a href="#contact" class="btn btn-secondary">Consultar</a>
-        </div>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="service-icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-            <line x1="12" y1="18" x2="12.01" y2="18"></line>
-          </svg>
-        </div>
-        <h3 class="service-title">Desarrollo Móvil</h3>
-        <p class="service-description">
-          Aplicaciones móviles nativas y multiplataforma para iOS y Android con
-          React Native.
-        </p>
-        <ul class="service-features">
-          <li>Apps iOS y Android</li>
-          <li>Desarrollo multiplataforma</li>
-          <li>Integración con APIs</li>
-          <li>Notificaciones push</li>
-          <li>Sincronización offline</li>
-        </ul>
-        <div class="service-footer">
-          <span class="service-price">A consultar</span>
-          <a href="#contact" class="btn btn-secondary">Consultar</a>
-        </div>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="service-icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="12" cy="12" r="2"></circle>
-            <path
-              d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"
-            ></path>
-          </svg>
-        </div>
-        <h3 class="service-title">Consultoría IoT</h3>
-        <p class="service-description">
-          Soluciones IoT completas: prototipado, desarrollo e integración de
-          sistemas embebidos.
-        </p>
-        <ul class="service-features">
-          <li>Prototipado IoT</li>
-          <li>Integración MQTT/WebSockets</li>
-          <li>Arduino, ESP32, Raspberry Pi</li>
-          <li>Dashboards en tiempo real</li>
-          <li>Monitorización y alertas</li>
-        </ul>
-        <div class="service-footer">
-          <span class="service-price">A consultar</span>
-          <a href="#contact" class="btn btn-secondary">Consultar</a>
-        </div>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="service-icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-            <path d="M2 17l10 5 10-5"></path>
-            <path d="M2 12l10 5 10-5"></path>
-          </svg>
-        </div>
-        <h3 class="service-title">Integración de Sistemas</h3>
-        <p class="service-description">
-          Conecta tus sistemas y aplicaciones para automatizar procesos y
-          mejorar la eficiencia.
-        </p>
-        <ul class="service-features">
-          <li>APIs REST</li>
-          <li>Microservicios</li>
-          <li>Mensajería (RabbitMQ, MQTT)</li>
-          <li>Integración de terceros</li>
-          <li>Migración de datos</li>
-        </ul>
-        <div class="service-footer">
-          <span class="service-price">A consultar</span>
-          <a href="#contact" class="btn btn-secondary">Consultar</a>
-        </div>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="service-icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 16 14"></polyline>
-          </svg>
-        </div>
-        <h3 class="service-title">DevOps & CI/CD</h3>
-        <p class="service-description">
-          Automatización de despliegues y gestión de infraestructura para
-          desarrollo ágil.
-        </p>
-        <ul class="service-features">
-          <li>Docker & Docker Compose</li>
-          <li>Pipelines CI/CD</li>
-          <li>GitLab, GitHub Actions</li>
-          <li>Administración Linux</li>
-          <li>Monitorización y logs</li>
-        </ul>
-        <div class="service-footer">
-          <span class="service-price">A consultar</span>
-          <a href="#contact" class="btn btn-secondary">Consultar</a>
-        </div>
-      </div>
-
-      <div class="service-card reveal">
-        <div class="service-icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <polyline points="21 15 16 10 5 21"></polyline>
-          </svg>
-        </div>
-        <h3 class="service-title">Diseño UI/UX</h3>
-        <p class="service-description">
-          Interfaces modernas, intuitivas y centradas en el usuario con Figma y
-          herramientas de diseño.
-        </p>
-        <ul class="service-features">
-          <li>Diseño de interfaces</li>
-          <li>Prototipado interactivo</li>
-          <li>Sistemas de diseño</li>
-          <li>Responsive design</li>
-          <li>Accesibilidad (a11y)</li>
-        </ul>
-        <div class="service-footer">
-          <span class="service-price">A consultar</span>
-          <a href="#contact" class="btn btn-secondary">Consultar</a>
-        </div>
-      </div>
+      {
+        services.map((service) => (
+          <div class="service-card reveal">
+            <div class="service-icon" set:html={service.icon} />
+            <h3 class="service-title">{service.title}</h3>
+            <p class="service-description">{service.description}</p>
+            <ul class="service-features">
+              {service.features.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+            <div class="service-footer">
+              <a href={service.ctaUrl} class="btn btn-secondary">
+                {service.ctaText}
+              </a>
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -322,7 +128,7 @@
 
   .service-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     gap: var(--space-4);
     padding-top: var(--space-6);

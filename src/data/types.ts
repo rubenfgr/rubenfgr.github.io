@@ -64,11 +64,14 @@ export interface Project {
 
 export interface Service {
   slug: string;
-  icon?: string;
-  features?: string[];
-  price?: { from?: string; currency?: string } | string;
-  ctaUrl?: string;
-  order?: number;
+  title: string;
+  description: string;
+  icon: string; // SVG como string
+  features: string[];
+  price: string;
+  ctaText: string;
+  ctaUrl: string;
+  order: number;
 }
 
 // Separamos Experience de Projects

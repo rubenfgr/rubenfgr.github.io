@@ -145,6 +145,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-height);
+  overflow-x: hidden;
 }
 
 body {
@@ -159,6 +160,8 @@ body {
     color var(--transition-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* ============================================
@@ -174,6 +177,8 @@ h6 {
   font-weight: var(--font-bold);
   line-height: 1.2;
   color: var(--color-text-primary);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 h1 {
@@ -203,6 +208,8 @@ h6 {
 p {
   margin-bottom: var(--space-4);
   color: var(--color-text-secondary);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -213,6 +220,15 @@ a {
 
 a:hover {
   color: var(--color-accent-hover);
+}
+
+/* Prevenir overflow en elementos comunes */
+img,
+video,
+iframe,
+svg {
+  max-width: 100%;
+  height: auto;
 }
 
 /* ============================================
@@ -226,6 +242,7 @@ a:hover {
   margin-right: auto;
   padding-left: var(--space-4);
   padding-right: var(--space-4);
+  overflow-x: hidden;
 }
 
 @media (min-width: 768px) {
@@ -245,6 +262,8 @@ a:hover {
 .section {
   padding-top: var(--space-16);
   padding-bottom: var(--space-16);
+  width: 100%;
+  overflow-x: hidden;
 }
 
 @media (min-width: 768px) {

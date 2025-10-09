@@ -178,6 +178,7 @@ import Icon from "./Icon.astro";
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: var(--space-4);
   }
 
   .hero-image-wrapper {
@@ -199,8 +200,8 @@ import Icon from "./Icon.astro";
 
   .hero-image-bg {
     position: absolute;
-    top: var(--space-8);
-    right: calc(var(--space-8) * -1);
+    top: var(--space-4);
+    right: calc(var(--space-4) * -1);
     width: 100%;
     height: 100%;
     background: linear-gradient(
@@ -211,6 +212,17 @@ import Icon from "./Icon.astro";
     border-radius: var(--radius-2xl);
     z-index: 1;
     opacity: 0.3;
+  }
+
+  @media (min-width: 768px) {
+    .hero-image {
+      padding: var(--space-8);
+    }
+
+    .hero-image-bg {
+      top: var(--space-8);
+      right: calc(var(--space-8) * -1);
+    }
   }
 
   .hero-scroll {

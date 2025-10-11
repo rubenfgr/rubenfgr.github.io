@@ -15,7 +15,7 @@
     "tsc:check": "tsc --noEmit --strict"
   },
   "dependencies": {
-    "astro": "^5.14.1"
+    "astro": "^5.14.3"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.4"

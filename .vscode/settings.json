@@ -42,6 +42,8 @@
     }
   },
   // === TYPESCRIPT/JAVASCRIPT ===
+  "typescript.suggest.paths": false,
+  "javascript.suggest.paths": false,
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
